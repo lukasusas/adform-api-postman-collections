@@ -1,0 +1,380 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Advertiser",
+		"_postman_id": "f0d0d258-0429-bb9e-e17c-61c813c8bc83",
+		"description": "To use Advertiser service you need to have advertisers created.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Alerts",
+			"description": "",
+			"item": [
+				{
+					"name": "Alert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/alerts/agency/{{AdvertiserId}}/alerts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 0,\r\n  \"type\": \"1 - CampaignEndDate\",\r\n  \"settings\": {},\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": true,\r\n    \"sendSMS\": true,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"string\",\r\n        \"phone\": \"string\"\r\n      }\r\n    ]\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Alerts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/alerts/agency/{{AdvertiserId}}/alerts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Alert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/alerts/{level}/{levelItemId}/alerts/{id}",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"level\": \"1 - Agency\",\r\n  \"levelItemId\": 0,\r\n  \"isEnabled\": true,\r\n  \"settings\": {},\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": true,\r\n    \"sendSMS\": true,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"string\",\r\n        \"phone\": \"string\"\r\n      }\r\n    ]\r\n  }\r\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Alert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/alerts/campaign/{{CampaignId}}/alerts/{{AlertId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attribute Settings",
+			"description": "",
+			"item": [
+				{
+					"name": "Default Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Set New Default Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"Title\": \"TEST\",\r\n    \"AttributeValues\": [\r\n      \"TESTA\",\r\n      \"TESTB\",\r\n      \"TESTC\"\r\n    ]\r\n  }\r\n]"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update Default Banner Attributes",
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Labels",
+			"description": "This service allows you to create and manage labels at advertiser level according to your specific needs. These labels can then be used across multiple campaigns and clients.",
+			"item": [
+				{
+					"name": "Labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/AdvertiserLabels?AdvertiserId=000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of all label groups, filtered by specified AdvertiserId. \n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE: ?AdvertiserId=00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/AdvertiserLabels",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"GroupId\": {{LabelGroupId}},\r\n  \"LabelName\": \"Test label\"\r\n}"
+						},
+						"description": "This method adds a new label to the specified advertiser label group.\n\nLabelGroupId field is required in the request body that you are parsing.\n\nEXAMPLE: \"GroupId\": 00000\n\nYou can retrieve LabelGroupId using \"GET Labels\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/AdvertiserLabels?id={{LabelId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method removes a specified label.\n\nLabelId parameter is required in your request url. \n\nEXAMPLE: ?LabelId=00000\n\nYou can retrieve LabelId using \"GET Labels\" method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Management",
+			"description": "Advertiser management service allows you to retrieve all advertisers in your agency account. ",
+			"item": [
+				{
+					"name": "Advertisers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/Services/Advertiser/Advertisers",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of all advertisers which are under the same client as you have logged in.\n\nYou can filter advertisers by parsing \"Names\" parameter in your request URL. \"Names\" parameter is of string array type. \n\nEXAMPLE: ?Names=AdvertiserName1,AdvertiserName2....\n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
