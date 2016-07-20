@@ -1,0 +1,964 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Campaign",
+		"_postman_id": "2c251dff-988a-d262-cc5d-5f5e60024e2f",
+		"description": "Campaign is a primary element in the Adform system that contains media, placements, banners. In this section you will find information on how to create and manage campaigns.\n\nBefore you create campaigns you need to have an account and at least one advertiser.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Alerts",
+			"description": "",
+			"item": [
+				{
+					"name": "Alert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/alerts/campaign/00000/alerts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": 1,\r\n  \"settings\": 5,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"patricija.buskeviciute@adform.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+						},
+						"description": "This service creates a new alert. There are 3 different alert levels - campaign, advertiser and client. \r\n\r\nNOTE: You need to specify campaign level on your request URL.\r\n\r\nEXAMPLE: v1/alerts/campaign/00000/alerts\r\n(00000 - CampaignId)\r\n\r\nTips on request body:\r\n- Type is always a number\r\n- Settings depend on type\r\n- CampaignManager/campaignCoManager value \"true\" enables CampaignManager or CampaignCoManager to receive alers."
+					},
+					"response": []
+				},
+				{
+					"name": "Alerts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/alerts/campaign/00000/alerts",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "//Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns list of own and inherited alerts for specified campaign.\n\nYou can filter alerts by parsing AlertID in your request URL. \n\nEXAMPLE: v1/alerts/campaign/00000/alerts/11111\n(00000 - CampaignId, 11111 - AlertID)\n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Alert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/alerts/campaign/00000/alerts/11111",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": 1,\r\n  \"settings\": 5,\r\n  \"isEnabled\": true,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"patricija.buskeviciute@adform.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+						},
+						"description": "This service updates alert details or its status (using property \"isEnabled\").\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: v1/alerts/campaign/00000/alerts/11111\"\n(00000 - CampaignId, 11111 - AlertId).\n\nNOTE: You can retrieve AlertId using \"Get Alerts\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Alert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/alerts/campaign/00000/alerts/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specified alert.\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: v1/alerts/campaign/00000/alerts/11111\"\n(00000 - CampaignId, 11111 - AlertId).\n\nNOTE: You can retrieve AlertId using \"Get Alerts\" method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attributes Settings",
+			"description": "This service allows creating attribute groups, which later can be assigned to each banner in order to batch them and sort the reports data out according to the attribute values.",
+			"item": [
+				{
+					"name": "Campaign Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of campaign attributes, filtered by specified CampaignId. \n\nCampaignId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nNOTE: You can filter campaign attributes by parsing CampaignAttributeId.\n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111\n(00000 - CampaignId, 11111 - CampaignAttributesId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Campaign Attribute Values",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "http://bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/638574/values",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of values from a certain campaign attribute.\n\nCampaignId and CampaignAttributeIdis required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values\n(00000 - CampaignId, 11111 - CampaignAttributesId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve CampaignAttributesId using \"GET Campaign Attributes\" method.\n\nNOTE: You can filter campaign attribute values by parsing CampaignAttributeValueId.\n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222\n(00000 - CampaignId, 11111 - CampaignAttributesId, 22222 - ValueId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Ad New Campaign Attribute",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"TestName\",\r\n  \"AttributeValues\": [\r\n    {\r\n      \"Title\": \"Title1\"\r\n    },\r\n    {\r\n      \"Title\": \"Title2\"\r\n    }\r\n  ],\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method creates a new campaign attribute.\n\nCampaignId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Campaign Attribute",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661348",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method removes an existing campaign attribute.\n\nCampaignId and Campaign Attribute Id is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111\n(00000 - CampaignId, 11111 - CampaignAttributeId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve CampaignAttributeId using \"Get Campaign Attributes\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Ad New Campaign Attribute Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Values",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method adds a new value for a campaign attribute.\n\nCampaignId and CampaignAttributeId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values\n(00000 - CampaignId, 11111 - CampaignAttributeId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve CampaignAttributeId using \"GET Campaign Attributes\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Campaign Attribute",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames existing campaign attribute.\n\nCampaignId and CampaignAttributeId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111/Title\n(00000 - CampaignId, 11111 - CampaignAttributesId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve CampaignAttributeId using \"GET Campaign Attributes\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Campaign Attribute Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Values/13246493",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a value from campaign attribute.\n\nCampaignId, CampaignAttributeId and ValueId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222\n(00000 - CampaignId, 11111 - CampaignAttributeId, 22222 - ValueId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve CampaignAttributeId using \"GET Campaign Attributes\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Campaign Attribute Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Values/13246472",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Updated\"\r\n}"
+						},
+						"description": "This method renames an existing value on selected campaign attribute.\n\nCampaignId, CampaignAttributeId and ValueId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222\n(00000 - CampaignId, 11111 - CampaignAttributeId, 22222 - ValueId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve CampaignAttributeId using \"GET Campaign Attributes\" method.\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dictionaries",
+			"description": "This service returns dictionaries of possible values for campaign list filtering by campaign manager, comanager, labels and clients.",
+			"item": [
+				{
+					"name": "Managers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/dictionaries/managers",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves a dictionary of possible pair values: Managers and their ID's."
+					},
+					"response": []
+				},
+				{
+					"name": "Comanagers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/dictionaries/comanagers",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves a dictionary of possible pair values: Comanagers and their ID's."
+					},
+					"response": []
+				},
+				{
+					"name": "Labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/dictionaries/labels",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves a dictionary of possible pair values: Labels and Label ID's."
+					},
+					"response": []
+				},
+				{
+					"name": "Clients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/dictionaries/clients",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves a dictionary of possible pair values: Advertisers and their ID's."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Labels",
+			"description": "This service allows you to create and manage labels at campaign level. These labels can then be used only for the specified campaign and set according to your specific needs.\n\nYou need to parse CampaingId in your request URL.\n\nEXAMPLE: /Label/CampaignLabels?CampaignId=00000\n(00000 - CampaignId)\n\nNOTE: You can retrieve CampaignId using \"Get Campaigns\" method or using Dictionaries.",
+			"item": [
+				{
+					"name": "Campaign Labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/CampaignLabels?CampaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of all label groups, filtered by specified CampaignId. \n\nCampaignId parameter is required in your request url. \n\nEXAMPLE: ?CampaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Campaign Label",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/CampaignLabels?CampaignId=628971",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CampaignId\" : 00000,\r\n    \"CampaignLabels\": [\r\n      {\r\n        \"Id\": 99\r\n      }\r\n    ]\r\n}"
+						},
+						"description": "This method adds a new label for the specified campaign label group.\n\nLabelId is required in the request body that you are parsing.\n\nEXAMPLE: \"Id\": 00000\n\nYou can retrieve LabelId using \"GET Labels\" method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Landing Pages",
+			"description": "This service allows you to manage campaign landing pages at campaign level. ",
+			"item": [
+				{
+					"name": "Landing Pages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of campaign landing pages. \n\nCampaignId is required in your request url.\n\nNOTE: You can retrieve a specific landing page by parsing LandingPageId on the request url.\n\nEXAMPLE: api/v1/LandingPages/00000/LandingPage/11111\n(00000 - CampaignId, 11111 - LandingPageId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Add New Landing Page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000/LandingPage",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": \"http://wwww.example.com\",\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method adds a new landing page for a specified campaign. \n\nCampaignId is required in your request url.\n\nEXAMPLE: api/v1/LandingPages/00000/LandingPage\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Landing Page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": \"http://www.example.com\",\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method updates an existing landing page for a specified campaign.\n\nCampaignId and LandingPageId are required in your request URL.\n\nEXAMPLE: /v1/LandingPages/00000/LandingPage/11111\n(00000 - CampaignId, 11111 - LandingPageId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method.\n\nYou can retrieve LandingPageId using \"Get Landing Pages\" method. "
+					},
+					"response": []
+				},
+				{
+					"name": "Landing Page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes an existing landing page for a specified campaign (unless it is default landing page).\n\nNOTE: You need to parse CampaignId and LandingPageId on your request URL.\n\nEXAMPLE: /v1/LandingPages/00000/LandingPage/11111\n(00000 - CampaignId, 11111 - LandingPageId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method. \nYou can retrive LandingPageId using \"Get Landing Pages\" method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Management",
+			"description": "This service is dedicated to campaign management. It allows retrieving campaign list, creating and editing campaigns. This service should be used to get campaign id, campaign code to pass it as input to other services.",
+			"item": [
+				{
+					"name": "Campaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns?Status=1,2",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of all campaigns which are under the same client as you have logged in.\n\nYou can filter campaigns by parsing these parametes on the request URL (variable types are specified in brackets):\n\n1. Status (byte; 1 - running, 2 - pending, 3 - finished)\n2. AdvertiserId\n3. Type (byte; 1 - display, 2 - email, 3 affiliate, 4 - mobile, 5 - social media, 6 - mixed, 7 - non campaign, 8 - Google, 9 - Yahoo, 10 - search/non api, 11 - search/all, 12 - realtimebidding, 13 - Microsoft)\n4. DateFrom (dateTime)\n5. DateTo (dateTime)\n6. State (byte; 1- active, 2 inactive, 3 - deleted)\n7. ... (find more on http://api.adform.com/)\n\nEXAMPLES: \n?State=1\n?DateFrom=2010-10-22T23:59:00\n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Campaign/Campaigns",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Campaign\": {\r\n    \"AdvertiserId\": 00000,\r\n    \"Name\": \"Name\",\r\n    \"StartDate\": \"2016-06-16T00:00:00\",\r\n    \"EndDate\": \"2018-10-22T23:59:00\",\r\n    \"ResponsibleUserId\": 11111,\r\n    \"CoResponsibleUserId\": \"11111\",\r\n    \"Type\": \"Display\"\r\n  }\r\n}"
+						},
+						"description": "This method creates a new advertising campaign.\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nYou can retrieve ResponsibleUserId using \"GET Users\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Campaign/Campaigns",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Campaign\": {\r\n    \"Id\": 00000\r\n  }\r\n}"
+						},
+						"description": "This method updates an existing advertising campaign which is identified by CampaignId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Enabled Features",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/EnabledFeatures",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of enabled features for campaigns which are under the same client as you have logged in.\n\nEXAMPLE: You can retrieve on which agencies alerts are enabled."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Campaign Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"State\": \"Active\",\r\n  \"Ids\": [\r\n    00000,\r\n    11111\r\n  ]\r\n}"
+						},
+						"description": "This method changes campaign status from active to inactive and the other way round by parsing CampaignId in request body (can be more than 1 CampaignId)."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RealTimeBidding Settings",
+			"description": "This service allows to manage RTB settings for campaign. The settings include budget settings and capping settings.",
+			"item": [
+				{
+					"name": "Campaign RTB Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns campaign RTB settings. \n\nCampaignId is required in your request url.\n\nEXAMPLE: v1/campaigns/00000/rtbsettings\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method or using Dictionaries."
+					},
+					"response": []
+				},
+				{
+					"name": "Campaign RTB Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"budget\": {\r\n    \"cost\": {\r\n      \"budget\": 123,\r\n      \"periodType\": \"Total\",\r\n      \"pacingType\": \"Evenly\"\r\n    }\r\n  },\r\n  \"capping\": [\r\n    {\r\n      \"type\": \"Accumulated\",\r\n      \"period\": {\r\n        \"type\": \"Days\",\r\n        \"duration\": 5\r\n      },\r\n      \"viewability\": {\r\n        \"type\": \"Time\",\r\n        \"duration\": 1000\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"Frequency\",\r\n      \"impressions\": 10,\r\n      \"period\": {\r\n        \"type\": \"Campaign\"\r\n      },\r\n      \"viewability\": {\r\n        \"type\": \"BrandExposure\",\r\n        \"duration\": 5000\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates campaign RTB settings such as budget and capping. \n\nCampaignId is required in your request url.\n\nEXAMPLE: v1/campaigns/00000/rtbsettings\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method or using Dictionaries."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
