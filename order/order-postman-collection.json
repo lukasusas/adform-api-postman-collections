@@ -1,0 +1,246 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Order",
+		"_postman_id": "404f755d-ddc0-eb17-6bd5-d4a55617f085",
+		"description": "Orders allow you to group line items within a campaign to efficiently organize your buying strategies. Orders are particularly useful if you are running long term campaigns and would like to group your line items for convenience purposes but they themselves do not represent additional functionality but rather act as an additional level between campaign and line items.\n\nNOTE: Each order can only contain up to 100 line items.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Direct",
+			"description": "Media is a representation of specific place on publisher's environment where ad can be displayed. \r\n\r\nIn case of Direct campaigns - Media name is just a free form name that allow publisher to identify exact place on his website.",
+			"item": [
+				{
+					"name": "Media Creatives",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Media/MediaCreatives?MediaIds=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of media creatives.\n\nYou must parse MediaIds parameter on your request URL.\n\nEXAMPLE: /Media/MediaCreatives?MediaIds=00000,11111"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Media",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/Services/Media/Medias",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Media\": {\r\n    \"Name\": \"MediaName\"\r\n  }\r\n}"
+						},
+						"description": "This method adds a new media with a specified name."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Medias",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/Services/Media/Medias",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Media\": {\r\n    \"Name\": \"tmp.Media 1144489\"\r\n  }\r\n}"
+						},
+						"description": "This method returns a list of all account medias filtered by CampaignId.\n\nYou can filter medias by parsing \"CampaignId\" or \"Names\" parameters on your request URL.\n\nEXAMPLES: /Media/Medias?CampaignId=00000\n/Media/Medias?Names=MediaName\n\nNOTE: If you are using more than one media name, please use encoder.\n\nFYI: You can click \"Params\" button for easier parameter management on Postman. "
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RTB",
+			"description": "In this section you can find information on how to manage orders. It can be useful if you are running a long term Campaign and would like to have a better picture. For example, you are able to set the Campaign for one year and group Line Items into separate Orders for one month period. Once the campaign is created, default Order is automatically created for the campaign.",
+			"item": [
+				{
+					"name": "Orders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/buyer/orders?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of orders for the specific campaign.\n\nYou have to parse \"campaignId\" parameters on your request URL.\n\nEXAMPLE: /v1/buyer/orders?campaignId=00000\n\nFYI: You can click \"Params\" button for easier parameter management on Postman. \n\nNOTE: You can retrieve a spesific order by parsing OrderId.\n\nEXAMPLE: /v1/buyer/orders/11111\n(11111 - OderId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/buyer/orders",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"NewTestOrder\",\r\n    \"startDate\": \"2016-07-25T06:32:20.901Z\",\r\n    \"endDate\": \"2016-07-25T06:32:20.901Z\",\r\n    \"budget\": 0,\r\n    \"campaignId\": 00000\r\n}"
+						},
+						"description": "This method allows you to create a new Order.\n\nYou need to specify CampaignId in the body that you are sending.\n\nYou can retrieve CampaignId using method \"GET Campaigns\" or Dictionaries."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate/Deactivate Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/buyer/orders/11111/active",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"active\": false\r\n}"
+						},
+						"description": "This method allows yuo to activate or deactivate a specified Order.\n\nYou need to parse OrderId on the reqest URL that you are sending.\n\nEXAMPLE: /v1/buyer/orders/11111/active\n(11111 - OrderId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/buyer/orders/11111",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"OrderName\",\r\n  \"StartDate\": \"2016-06-16T00:00:00\",\r\n  \"EndDate\": \"2016-06-16T00:00:00\",\r\n  \"Budget\": 0,\r\n  \"CurrencyCode\": \"EUR\",\r\n  \"Currency\": \"Euro\",\r\n  \"CampaignId\": 00000,\r\n  \"State\": \"Running\",\r\n  \"Active\": true,\r\n  \"Timezone\": \"(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius\",\r\n  \"DefaultPlacementView\": 2\r\n}"
+						},
+						"description": "This method allows yuo to update an existing order.\n\nYou need to parse OrderId on the reqest URL that you are sending.\n\nEXAMPLE: /v1/buyer/orders/11111\n(11111 - OrderId)\n\nYou also need to specify parent CampaignId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method or Dictionaries."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
