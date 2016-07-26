@@ -52,7 +52,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/Services/Media/Medias",
+						"url": "api.adform.com/Services/Media/Medias",
 						"method": "POST",
 						"header": [
 							{
@@ -86,7 +86,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/Services/Media/Medias",
+						"url": "api.adform.com/Services/Media/Medias",
 						"method": "GET",
 						"header": [
 							{
@@ -121,7 +121,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/v1/buyer/orders?campaignId=00000",
+						"url": "api.adform.com/v1/buyer/orders?campaignId=00000",
 						"method": "GET",
 						"header": [
 							{
@@ -150,7 +150,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/v1/buyer/orders",
+						"url": "api.adform.com/v1/buyer/orders",
 						"method": "POST",
 						"header": [
 							{
@@ -184,7 +184,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/v1/buyer/orders/11111/active",
+						"url": "api.adform.com/v1/buyer/orders/11111/active",
 						"method": "PUT",
 						"header": [
 							{
@@ -218,7 +218,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/v1/buyer/orders/11111",
+						"url": "api.adform.com/v1/buyer/orders/11111",
 						"method": "PUT",
 						"header": [
 							{
