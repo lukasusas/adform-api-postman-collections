@@ -1,0 +1,247 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Tag",
+		"_postman_id": "be8630ad-d4f7-9a8e-99e1-6f8b67aadcd3",
+		"description": "In this section you can find information on how to create tags for both Direct and RTB campaigns.\r\n\r\nFor direct campaigns tags are acting as serving scripts that are implemented by websites and are usually serving one banner, rotator or schedule. Each tag has a unique identifier that is also visible in banner object after the banner is served. \r\n\r\nFor RTB campaigns tags are acting as a match point between a designated banner and inventory. The generated serving script doesn't have to be implemented to the publisher's website as the banner is loaded through a master tag.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Management",
+			"description": "Tag management service allows you to create and manage tags as well as add destination urls (landing pages), set tracking pixels and assign external scripts for both Direct and RTB (Real Time Bidding) campaigns. \n\nNOTE: Before creating tags you need to create a banner and a line item.",
+			"item": [
+				{
+					"name": "Tags",
+					"request": {
+						"url": "api.adform.com/Services/Tag/Tags?CampaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TagId\": 940070839,\r\n    \"IsPaused\": true\r\n}"
+						},
+						"description": "This method returns all available tags sorted by specified filters set on request URL.\n\nPossible filters:\n* CaimpaignId\n* Ids\n* Names\n* NameFilteringOperator\n\nEXAMPLE: /Services/Tag/Tags?CampaignId=00000"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Direct Tag",
+					"request": {
+						"url": "api.adform.com/Services/Tag/Tags",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tag\": {\r\n    \"CampaignId\": 000000,\r\n    \"PlacementId\": 111111,\r\n    \"Name\": \"PirmasBlynasPirmasTagas\",\r\n    \"Content\": {\r\n      \"Id\": 222222,\r\n      \"ContentType\": \"AdTagContent\",\r\n      \"DestinationUrl\": {\r\n        \"Type\": \"Replace\",\r\n        \"Url\": \"http://www.adform.com/3\"\r\n      }\r\n    }\r\n  }\r\n}"
+						},
+						"description": "This method creates a tag by specified criteria.\n\nNOTE: Tag contect differs depending on tag type.\n\nAvailable tag content types:\n* AdTagContent\n* RotatorTagContent\n* ScheduleTagContent\n\nYou need to parse CampaignId, PlacementId and BannerId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve PlacementId using \"GET Placements\" method.\n\nYou can retrieve BannerId using Ads Overview service."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag Destination URL",
+					"request": {
+						"url": "api.adform.com/Services/Tag/DestinationUrls?TagIds=111111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Tag\": {\r\n    \"CampaignId\": 628971,\r\n    \"PlacementId\": 2169253,\r\n    \"Name\": \"PirmasBlynasPirmasTagas\",\r\n    \"Content\": {\r\n      \"Id\": 15136706,\r\n      \"ContentType\": \"RotatorTagContent\",\r\n      \"DestinationUrl\": {\r\n        \"Type\": \"Replace\",\r\n        \"Url\": \"http://www.adform.com/3\"\r\n      }\r\n    }\r\n  }\r\n}"
+						},
+						"description": "This method returns destination URLs assigned to tags.\n\nYou need to parse TagIds on your request URL.\n\nEXMAPLE: /Services/Tag/DestinationUrls?TagIds=111111\n\nYou can retrieve TagIds using \"GET Tags\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Tag Destination URL",
+					"request": {
+						"url": "api.adform.com/Services/Tag/DestinationUrls",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TagDestinationUrls\": [\r\n    {\r\n      \"TagId\": 111111,\r\n      \"Type\": \"Replace\",\r\n      \"DestinationUrlType\": \"TagDestinationUrl\",\r\n      \"Url\": \"http://www.adform.com/5\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method adds destination URLs to tags.\n\nYou need to specify Tag Destination URL Type in your request body.\n\nPossible Tag Destination URL Types:\n* TagDestinationUrl\n* RotatorMemberDestinationUrl\n* ScheduleMemberDestinationUrl"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Destination URL",
+					"request": {
+						"url": "api.adform.com/Services/Tag/DestinationUrls",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TagDestinationUrls\": [\r\n      {\r\n        \"Id\": 111111,\r\n        \"Url\": \"http://www.adform.com?v=1_updates\"\r\n      }\r\n  ]\r\n}"
+						},
+						"description": "This method updates destination URLs for tags.\n\nYou need to parse Destination URL Id in your request body.\n\nEXAMPLE: \"Id\": 111111"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Destination URL",
+					"request": {
+						"url": "api.adform.com/Services/Tag/DestinationUrls?DestinationUrlIds=111111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method removes destination URLs from a specified tag. \n\nYou need to parse Destination URL Ids on your request URL.\n\nEXAMPLE: Services/Tag/DestinationUrls?DestinationUrlIds=111111"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag Tracking Pixels",
+					"request": {
+						"url": "api.adform.com/Services/Tag/TrackingPixels?tagIds=13429972",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TagDestinationUrls\": [\r\n    {\r\n      \"TagId\": 13429972,\r\n      \"Type\": \"Replace\",\r\n      \"DestinationUrlType\": \"TagDestinationUrl\",\r\n      \"Url\": \"http://www.adform.com/5\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method returns tracking pixels assigned to tags.\n\nYou need tospecify TagIds on your request URL.\n\nEXAMPLE: /Services/Tag/TrackingPixels?tagIds=111111\n\nYou can retrieve TagIds using \"GET Tags\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Set Tag Tracking Pixels",
+					"request": {
+						"url": "api.adform.com/Services/Tag/TrackingPixels",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TrackingPixel\" :\r\n        {\r\n          \"Type\": \"TagTrackingPixel\",\r\n          \"TagId\": 111111,\r\n          \"TrackingPixelImpressions\": \"http://www.adform.com/5\",\r\n          \"TrackingPixelClicks\": \"http://www.adform.com/5\"\r\n        }\r\n}"
+						},
+						"description": "This method sets tracking pixels to a specified tag and/or its members.\n\nYou need to specify TagId in your request body.\n\nYou can retrieve TagIdusing \"GET Tags\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tag External Scripts",
+					"request": {
+						"url": "api.adform.com/Services/Tag/ExternalScripts?tagIds=111111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TrackingPixel\" :\r\n        {\r\n          \"Type\": \"TagTrackingPixel\",\r\n          \"TagId\": 13429972,\r\n          \"TrackingPixelImpressions\": \"http://www.adform.com/5\",\r\n          \"TrackingPixelClicks\": \"http://www.adform.com/5\"\r\n        }\r\n}"
+						},
+						"description": "This method returns all external scripts assigned to a tag.\n\nYou need to parse TagIds on your request URL.\n\nEXAMPLE: /Services/Tag/ExternalScripts?tagIds=111111\n\nYou can retrieve TagIds using \"GET Tags\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Set Tag External Scripts",
+					"request": {
+						"url": "api.adform.com/Services/Tag/ExternalScripts",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ExternalScript\": {\r\n    \"TagId\": 111111,\r\n    \"Source\": \"http://www.adform.com/1\",\r\n    \"ScriptPosition\": \"Before\"\r\n  }\r\n}"
+						},
+						"description": "This method sets external script(s) to a tag.\n\nYou need to parse TagId in your request body.\n\nYou can retrieve TagId using \"GET Tags\" service."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
