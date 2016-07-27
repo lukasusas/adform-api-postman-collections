@@ -1,0 +1,1043 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Line Item",
+		"_postman_id": "eb6dea16-b69c-8a2f-5501-cf7141e27b5b",
+		"description": "A line item is a unit of advertising that is bought by advertisers from publishers.\n\nNOTE: Only 100 line items can be created per campaign or per order.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Direct",
+			"description": "Placements or Direct Line Items is a booking/purchase specification for an ad.It is define required amount impressions/clicks, pleace where our ad should be displayed, display schedule, billing strategy and amount of money that should be paid.\r\n\r\nDirect line items are compatible with Automated Guaranteed Line Items (AG Line Items extend Direct Line Items), but differ from Real Time Bidding line items in part of actual serving, pricing and reporting.",
+			"item": [
+				{
+					"name": "Get Placement Labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/PlacementLabels?placementIds=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of selected placement labels.\n\nYou need to parse PlacementId on your request URL.\n\nEXAMPLE: /Services/Label/PlacementLabels?placementIds=00000\n\nYou can retrieve PlacementId using \"GET Placements\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Placement Labels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Label/PlacementLabels",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"PlacementId\" : 00000,\r\n    \"PlacementLabels\": [\r\n      {\r\n        \"Id\": 111\r\n      }\r\n    ]\r\n}"
+						},
+						"description": "This method sets labels for selected placements.\n\nYou need to parse PlacementIds in your request body.\n\nYou can retrieve PlacementId using \"GET Placements\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Placements ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/Placements?CampaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of all placements that belong to a specified campaign's active mediaplan.\n\nYou have to parse CampaignId parameter on your request URL.\n\nEXAMPLE: /Placement/Placements?CampaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Add Placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/Placements",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Placement\": {\r\n    \"Name\": \"Placement1\",\r\n    \"MediaId\": 11111\r\n  },\r\n  \"CampaignId\": 00000\r\n}"
+						},
+						"description": "This method creates a new placement and adds it to an active media plan in your specified campaign.\n\nYou have to parse CampaignId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/Placements",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Placement\": {\r\n    \"Id\": 11111,\r\n    \"Name\": \"Placement2_Updated\",\r\n    \"BuyType\": \"Cpc\",\r\n    \"Volume\": 120,\r\n    \"GrossAmount\": 130,\r\n    \"NetAmount\": 140\r\n  }\r\n}"
+						},
+						"description": "This method updates an existing placement.\n\nYou have to parse PlacementId in your request body.\n\nYou can retrieve CampaignId using \"GET Placements\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Placement Schedule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/PlacementSchedules?PlacementIds=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns placement schedule information.\n\nYou have to parse PlacementId in your request URL.\n\nEXAMPLE: /Placement/PlacementSchedules?PlacementIds=11111\n\nYou can retrieve CampaignId using \"GET Placements\"."
+					},
+					"response": []
+				},
+				{
+					"name": "Set Placement Schedule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/PlacementSchedules",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"PlacementSchedule\": {\n    \"PlacementId\": 11111,\n    \"Intervals\": [\n      {\n        \"From\": \"2016-06-21T00:00:00\",\n        \"To\": \"2016-06-21T00:00:00\"\n      },\n      {\n        \"From\": \"2016-07-23T00:00:00\",\n        \"To\": \"2016-07-23T00:00:00\"\n      }\n    ]\n  }\n}"
+						},
+						"description": "This method updates Placement Schedule.\n\nYou need to parse PlacementId in your request URL.\n\nYou can retrieve PlacementId using method \"GET Placements\""
+					},
+					"response": []
+				},
+				{
+					"name": "Placement Comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/PlacementComments?PlacementIds=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns placement comment information.\n\nYou need to parse PlacementId in your request URL.\n\nEXAMPLE: /Placement/PlacementComments?PlacementIds=11111\n\nYou can retrieve PlacementId using \"GET Placements\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Placement Comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Placement/PlacementComments",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"PlacementComments\": {\r\n    \"PlacementId\": 11111,\r\n    \"Url\": \"www.adform.com\",\r\n    \"Comment\": \"Some comment\",\r\n    \"AdGapId\": null,\r\n    \"TagComment1\": \"Some comment 1\",\r\n    \"TagComment2\": \"Some comment 2\",\r\n    \"TagComment3\": \"Some comment 3\",\r\n    \"TagComment4\": \"Some comment 4\"\r\n  }\r\n}"
+						},
+						"description": "This method returns placement comment information.\n\nYou need to parse PlacementId in your request body.\n\nYou can retrieve PlacementId using \"GET Placements\" method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RTB",
+			"description": "In RTB line item you can set and change such details as line item budget, period, inventory that is relevant to your strategy as well as various targeting options from geographical targeting to specific cookie pool targeting by using different provider's external data.",
+			"item": [
+				{
+					"name": "Line items",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/buyer/rtb/lineitems?campaignid=00000&fields=BudgetSettings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list with full list line item models or models having just requested properties, filtered by Budget properties.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /lineitems?campaignid=00000&fields=BudgetSettings\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Line item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CampaignId\": 00000,\r\n  \"Name\": \"RTB Activity Name\",\r\n  \"SchedulingType\": 1,\r\n  \"Periods\": [],\r\n  \"SchedulerStartDate\": \"01/08/2016\",\r\n  \"SchedulerEndDate\": \"01/08/2016\",\r\n  \"PeriodStartDate\": \"01/08/2016\",\r\n  \"PeriodEndDate\": \"01/08/2016\",\r\n  \"FullPeriodStartDate\": \"01/08/2016\",\r\n  \"FullPeriodEndDate\": \"01/08/2016\",\r\n  \"Enabled\": \"true\",\r\n  \"CplMaxBidPriceCpm\": 0,\r\n  \"CpcMaxBidPriceCpm\": 0,\r\n  \"Budget\": \"0.00\",\r\n  \"BudgetPeriodType\": 1,\r\n  \"BidCpmPrice\": \"0.00\",\r\n  \"CappingSettings\": [],\r\n  \"BuyingType\": 2,\r\n  \"BudgetPacingType\": \"0\",\r\n  \"CpcBidPrice\": 0,\r\n  \"CplBidPrice\": 0,\r\n  \"CplLogPointFilter\": \"0\",\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": null,\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": null,\r\n      \"State\": 2\r\n    }\r\n  ],\r\n  \"CategoryType\": 10,\r\n  \"IABCategories\": [],\r\n  \"IABCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategories\": null,\r\n  \"ContextualCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategoryProviderId\": null,\r\n  \"GooglePretargetingCampaignId\": null,\r\n  \"DomainPatterns\": {\r\n    \"IncludedDomains\": \"\",\r\n    \"ExcludedDomains\": \"\",\r\n    \"DomainFilterUnknown\" : true\r\n  }\r\n}"
+						},
+						"description": "This method creates a new RTB Line Item.\n\nYou need to parse CampaignId in your request body and specify at least one inventory.\n\nInventory specification includes InventorySourceId and SourceId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve information about inventories using \"GET Inventory Sources\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Line item (needs to be fixed by devs)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Id\": 11111,\r\n  \"CampaignId\": 00000,\r\n  \"Name\": \"RTB Activity Nallme3\",\r\n  \"SchedulingType\": 1,\r\n  \"Periods\": [],\r\n  \"SchedulerStartDate\": \"01/08/2016\",\r\n  \"SchedulerEndDate\": \"01/08/2016\",\r\n  \"PeriodStartDate\": \"01/08/2016\",\r\n  \"PeriodEndDate\": \"01/08/2016\",\r\n  \"FullPeriodStartDate\": \"01/08/2016\",\r\n  \"FullPeriodEndDate\": \"01/08/2016\",\r\n  \"Enabled\": \"true\",\r\n  \"CplMaxBidPriceCpm\": 0,\r\n  \"CpcMaxBidPriceCpm\": 0,\r\n  \"Budget\": \"0.00\",\r\n  \"BudgetPeriodType\": 1,\r\n  \"BidCpmPrice\": \"0.00\",\r\n  \"CappingSettings\": [],\r\n  \"BuyingType\": 2,\r\n  \"BudgetPacingType\": \"0\",\r\n  \"CpcBidPrice\": 0,\r\n  \"CplBidPrice\": 0,\r\n  \"CplLogPointFilter\": \"0\",\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": null,\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": null,\r\n      \"State\": 2\r\n    }\r\n  ],\r\n  \"CategoryType\": 10,\r\n  \"IABCategories\": [],\r\n  \"IABCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategories\": null,\r\n  \"ContextualCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategoryProviderId\": null,\r\n  \"GooglePretargetingCampaignId\": null,\r\n  \"DomainPatterns\": {\r\n    \"IncludedDomains\": \"\",\r\n    \"ExcludedDomains\": \"\",\r\n    \"DomainFilterUnknown\" : true\r\n  }\r\n}"
+						},
+						"description": "This method updates an existing RTB Line Item.\n\nYou need to specify ActivityId and CampaignId in your request body.\n\nEXAMPLE: \"Id\": 11111, \"CampaignId\": 00000\n(Id stand for ActivityId).\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate Line item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities?campaignId=00000&ActivityId=11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specified RTB Line Item.\n\nYou need to parse CampaignId and ActivityId on your request URL.\n\nEXAMPLE: /Activities?campaignId=00000&ActivityId=11111\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve ActivityId \"GET RTB Line Items\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Deals and Packages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities/DealsAndPackages?campaignId=00000&inventorySourceId=XXX",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available deals and packages.\n\nYou need to parse CampaignId and InventorySourceId on your request URL.\n\nEXAMPLE: /Activities/DealsAndPackages?campaignId=00000&inventorySourceId=XXX\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve InventorySourceId using \"GET Inventory Sources\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory Sources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities/InventorySources?campaignId=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventory sources.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /Activities/InventorySources?campaignId=11111\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Trading Desk Fee Change Log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/tradingdeskfeechangelog",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns Trading Desk Fee Change Log."
+					},
+					"response": []
+				},
+				{
+					"name": "Default Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/activities/defaulttargeting",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns default targeting settings for a new line item."
+					},
+					"response": []
+				},
+				{
+					"name": "Line Item Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/activities/11111/targeting",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns RTB Line Item targeting settings.\n\nYou need to parse ActivityId on your request URL.\n\nEXAMPLE: /dsp/v1/activities/11111/targeting\n(11111 - ActivityId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Line Item Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/activities/11111/targeting",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"SetupId\": 386954,\n  \"Groups\": [\n    {\n      \"GroupId\": \"d14ab530-6d07-4b80-b223-2156fa3ef1bd\",\n      \"Id\": 1,\n      \"Rules\": [\n        {\n          \"$type\": \"FromLocationTargetingRule\",\n          \"DimensionId\": 6,\n          \"Locations\": [\n            {\n              \"Id\": 124,\n              \"Name\": \"Canada - country\",\n              \"Type\": 2,\n              \"CountryCode\": \"CA\"\n            }\n          ]\n        },\n        {\n            \"$type\" : \"AudienceIsTargetingRule\",\n            \"TrackingPoints\" : [ 0]\n        }\n      ],\n      \"Settings\": {\n        \"PriceMultiplier\": 1\n      }\n    }\n  ]\n}"
+						},
+						"description": "This method updates RTB Line Item targeting settings.\n\nYou need to parse ActivityId on your request URL.\n\nEXAMPLE: /dsp/v1/activities/11111/targeting\n(11111 - ActivityId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Cookies",
+					"request": {
+						"url": "api.adform.com/dsp/v1/upload/cookies",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "-8654654654654654654\r\n8798798798798798798\r\n44457"
+						},
+						"description": "This method is for cookie upload. Cookies are read from the request body.\n\nIMPORTANT: Request body should be sent as plain text, cookies separated by new line."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Advertising Ids",
+					"request": {
+						"url": "api.adform.com/dsp/v1/upload/advertisingids",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "5024D65F-EBBD-11FF-23AB-823FC255913A"
+						},
+						"description": "This method is for advertising Ids upload. Advertising Ids are read from the request body.\n\n\nIMPORTANT: Request body should be sent as plain text, advertising Ids (GUIDs) separated by new line."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload IP Ranges",
+					"request": {
+						"url": "api.adform.com/dsp/v1/upload/ipranges",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "2.125.125.3,8.144.144.9"
+						},
+						"description": "This method is for IP ranges upload. IP ranges are read from the request body.\n\nIMPORTANT: Request body should be sent as plain text, IP ranges separated by new line."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RTB Dictionaries",
+			"description": "This services allows you to manage RTB Line item dictionaries.",
+			"item": [
+				{
+					"name": "Locations",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/locations",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of locations for targeting."
+					},
+					"response": []
+				},
+				{
+					"name": "Languages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/languages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of languages for targeting."
+					},
+					"response": []
+				},
+				{
+					"name": "Tracking Points",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/trackingPoints?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available tracking points for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/trackingPoints?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Tracking Point Filters",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/trackingPointFilters?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available tracking point filters.\n\nYou need to parse CampaingId on your request URL.\n\nEXAMPLE: /dictionaries/trackingPointFilters?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Audiences",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/audiences?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available audiences for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/audiences?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Campaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/campaigns?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available campaigns for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/campaigns?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Engagements",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/engagements",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available engagements for targeting."
+					},
+					"response": []
+				},
+				{
+					"name": "External Data Providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/externalDataProviders?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available external data providers for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/externalDataProviders?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "External Data Provider Categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/externalDataCategories?campaignId=00000&dataProviderId=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available categories and segments for the specified external data provider.\n\nYou need to parse CampaignId and DataProviderId on your request URL.\n\nEXAMPLE: /dictionaries/externalDataCategories?campaignId=00000&dataProviderId=11111\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve ProviderId using \"GET External Data Providers\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Device Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/deviceTypes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available devices types and operating systems."
+					},
+					"response": []
+				},
+				{
+					"name": "Internet Service Providers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/internetServiceProviders",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of internet service for targeting."
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/inventoryTypes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of inventory source types."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
