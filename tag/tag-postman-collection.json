@@ -13,6 +13,15 @@
 			"item": [
 				{
 					"name": "Tags",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/Tags?CampaignId=00000",
 						"method": "GET",
@@ -33,6 +42,15 @@
 				},
 				{
 					"name": "Create Direct Tag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/Tags",
 						"method": "POST",
@@ -58,6 +76,15 @@
 				},
 				{
 					"name": "Get Tag Destination URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/DestinationUrls?TagIds=111111",
 						"method": "GET",
@@ -65,11 +92,6 @@
 							{
 								"key": "Ticket",
 								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
 								"description": ""
 							}
 						],
@@ -83,6 +105,15 @@
 				},
 				{
 					"name": "Add Tag Destination URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/DestinationUrls",
 						"method": "POST",
@@ -108,6 +139,15 @@
 				},
 				{
 					"name": "Update Destination URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/DestinationUrls",
 						"method": "PUT",
@@ -133,6 +173,15 @@
 				},
 				{
 					"name": "Remove Destination URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/DestinationUrls?DestinationUrlIds=111111",
 						"method": "DELETE",
@@ -153,8 +202,17 @@
 				},
 				{
 					"name": "Get Tag Tracking Pixels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/TrackingPixels?tagIds=13429972",
+						"url": "api.adform.com/Services/Tag/TrackingPixels?tagIds=1111111",
 						"method": "GET",
 						"header": [
 							{
@@ -173,6 +231,15 @@
 				},
 				{
 					"name": "Set Tag Tracking Pixels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/TrackingPixels",
 						"method": "POST",
@@ -198,6 +265,15 @@
 				},
 				{
 					"name": "Get Tag External Scripts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/ExternalScripts?tagIds=111111",
 						"method": "GET",
@@ -218,6 +294,15 @@
 				},
 				{
 					"name": "Set Tag External Scripts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
 					"request": {
 						"url": "api.adform.com/Services/Tag/ExternalScripts",
 						"method": "POST",
@@ -238,6 +323,40 @@
 							"raw": "{\r\n  \"ExternalScript\": {\r\n    \"TagId\": 111111,\r\n    \"Source\": \"http://www.adform.com/1\",\r\n    \"ScriptPosition\": \"Before\"\r\n  }\r\n}"
 						},
 						"description": "This method sets external script(s) to a tag.\n\nYou need to parse TagId in your request body.\n\nYou can retrieve TagId using \"GET Tags\" service."
+					},
+					"response": []
+				},
+				{
+					"name": "Pause/Unpause Tag Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Tag/PauseStatus",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"TagId\": 111111,\r\n    \"IsPaused\": true\r\n}\r\n    "
+						},
+						"description": "This method allows to pause/unpause tag.\n\nNOTE: This method is only available, when additional Tag Pause service is enabled."
 					},
 					"response": []
 				}
