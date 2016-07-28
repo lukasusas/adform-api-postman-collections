@@ -18,7 +18,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";\nvar jsonData = JSON.parse(responseBody);\ntests[\"Ticket was set as a global variable\"] = jsonData !== null;\npostman.setGlobalVariable('Ticket', jsonData.Ticket);"
+								"exec": "tests[\"Content-Type is application/json\"] =\n    request.headers[\"Content-Type\"] === \"application/json\";\n\ntests[\"Request was successful\"] = \n    responseCode.code === 200;\n\nif(responseCode.code === 200) {\n    var jsonData = JSON.parse(responseBody);\n    postman.setGlobalVariable('Ticket', jsonData.Ticket);\n    tests[\"Ticket was set as a global variable\"] =\n        globals.Ticket !== undefined;\n}"
 							}
 						}
 					],
@@ -53,7 +53,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Has Ticket\"] = \n    request.headers.Ticket;\n    \ntests[\"Request was successful\"] = \n    responseCode.code === 200;"
 							}
 						}
 					],
