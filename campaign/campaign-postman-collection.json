@@ -18,12 +18,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/alerts/campaign/00000/alerts",
+						"url": "api.adform.com/v1/alerts/campaign/000000/alerts",
 						"method": "POST",
 						"header": [
 							{
@@ -52,7 +52,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -63,11 +63,6 @@
 							{
 								"key": "Ticket",
 								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "//Content-Type",
-								"value": "application/json",
 								"description": ""
 							}
 						],
@@ -86,7 +81,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -120,7 +115,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -155,12 +150,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
 						"method": "GET",
 						"header": [
 							{
@@ -184,12 +179,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "http://bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/638574/values",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/values",
 						"method": "GET",
 						"header": [
 							{
@@ -213,12 +208,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -247,12 +242,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661348",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -276,12 +271,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Values",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values",
 						"method": "PUT",
 						"header": [
 							{
@@ -310,12 +305,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Title",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -344,12 +339,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Values/13246493",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -373,12 +368,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/628971/CampaignAttributes/661349/Values/13246472",
+						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222",
 						"method": "PUT",
 						"header": [
 							{
@@ -413,7 +408,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -442,7 +437,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -471,7 +466,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -500,7 +495,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -535,7 +530,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -564,12 +559,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/CampaignLabels?CampaignId=628971",
+						"url": "api.adform.com/Services/Label/CampaignLabels?CampaignId=00000",
 						"method": "POST",
 						"header": [
 							{
@@ -604,12 +599,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000",
+						"url": "bannermanagement.adform.com/api/v1/LandingPages/654272",
 						"method": "GET",
 						"header": [
 							{
@@ -633,7 +628,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -667,7 +662,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -701,7 +696,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -736,12 +731,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns?Status=1,2",
+						"url": "api.adform.com/v1/campaigns",
 						"method": "GET",
 						"header": [
 							{
@@ -765,7 +760,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
 							}
 						}
 					],
@@ -799,7 +794,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -833,7 +828,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
@@ -862,13 +857,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 204;\r\n"
 							}
 						}
 					],
 					"request": {
 						"url": "api.adform.com/v1/campaigns",
-						"method": "PUT",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Ticket",
@@ -902,12 +897,12 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
+						"url": "api.adform.com/v1/campaigns/628971/rtbsettings",
 						"method": "GET",
 						"header": [
 							{
@@ -931,7 +926,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Status code is 200.\"] = responseCode.code === 200;\ntests[\"Header includes Ticket authentication token.\"] = request.headers[\"Ticket\"] !== null;\ntests[\"Header includes Content-Type.\"] = request.headers[\"Content-Type\"] == \"application/json\";"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
 							}
 						}
 					],
