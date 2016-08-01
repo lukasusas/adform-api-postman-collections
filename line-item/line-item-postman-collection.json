@@ -367,7 +367,7 @@
 					"response": []
 				},
 				{
-					"name": "Update Line item (needs to be fixed by devs)",
+					"name": "Update Line item",
 					"event": [
 						{
 							"listen": "test",
@@ -394,9 +394,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Id\": 11111,\r\n  \"CampaignId\": 00000,\r\n  \"Name\": \"RTB Activity Nallme3\",\r\n  \"SchedulingType\": 1,\r\n  \"Periods\": [],\r\n  \"SchedulerStartDate\": \"01/08/2016\",\r\n  \"SchedulerEndDate\": \"01/08/2016\",\r\n  \"PeriodStartDate\": \"01/08/2016\",\r\n  \"PeriodEndDate\": \"01/08/2016\",\r\n  \"FullPeriodStartDate\": \"01/08/2016\",\r\n  \"FullPeriodEndDate\": \"01/08/2016\",\r\n  \"Enabled\": \"true\",\r\n  \"CplMaxBidPriceCpm\": 0,\r\n  \"CpcMaxBidPriceCpm\": 0,\r\n  \"Budget\": \"0.00\",\r\n  \"BudgetPeriodType\": 1,\r\n  \"BidCpmPrice\": \"0.00\",\r\n  \"CappingSettings\": [],\r\n  \"BuyingType\": 2,\r\n  \"BudgetPacingType\": \"0\",\r\n  \"CpcBidPrice\": 0,\r\n  \"CplBidPrice\": 0,\r\n  \"CplLogPointFilter\": \"0\",\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": null,\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": null,\r\n      \"State\": 2\r\n    }\r\n  ],\r\n  \"CategoryType\": 10,\r\n  \"IABCategories\": [],\r\n  \"IABCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategories\": null,\r\n  \"ContextualCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategoryProviderId\": null,\r\n  \"GooglePretargetingCampaignId\": null,\r\n  \"DomainPatterns\": {\r\n    \"IncludedDomains\": \"\",\r\n    \"ExcludedDomains\": \"\",\r\n    \"DomainFilterUnknown\" : true\r\n  }\r\n}"
+							"raw": "{\r\n  \"Id\": 111111,\r\n  \"CampaignId\": 00000,\r\n  \"PlacementId\": 2222222,\r\n  \"Name\": \"RTB Activity Nallme3\",\r\n  \"SchedulingType\": 1,\r\n  \"Periods\": [],\r\n  \"SchedulerStartDate\": \"01/08/2016\",\r\n  \"SchedulerEndDate\": \"01/08/2016\",\r\n  \"PeriodStartDate\": \"01/08/2016\",\r\n  \"PeriodEndDate\": \"01/08/2016\",\r\n  \"FullPeriodStartDate\": \"01/08/2016\",\r\n  \"FullPeriodEndDate\": \"01/08/2016\",\r\n  \"Enabled\": \"true\",\r\n  \"CplMaxBidPriceCpm\": 0,\r\n  \"CpcMaxBidPriceCpm\": 0,\r\n  \"Budget\": \"0.00\",\r\n  \"BudgetPeriodType\": 1,\r\n  \"BidCpmPrice\": \"0.00\",\r\n  \"CappingSettings\": [],\r\n  \"BuyingType\": 2,\r\n  \"BudgetPacingType\": \"0\",\r\n  \"CpcBidPrice\": 0,\r\n  \"CplBidPrice\": 0,\r\n  \"CplLogPointFilter\": \"0\",\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": null,\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": null,\r\n      \"State\": 2\r\n    }\r\n  ],\r\n  \"CategoryType\": 10,\r\n  \"IABCategories\": [],\r\n  \"IABCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategories\": null,\r\n  \"ContextualCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategoryProviderId\": null,\r\n  \"GooglePretargetingCampaignId\": null,\r\n  \"DomainPatterns\": {\r\n    \"IncludedDomains\": \"\",\r\n    \"ExcludedDomains\": \"\",\r\n    \"DomainFilterUnknown\" : true\r\n  }\r\n}"
 						},
-						"description": "This method updates an existing RTB Line Item.\n\nYou need to specify ActivityId and CampaignId in your request body.\n\nEXAMPLE: \"Id\": 11111, \"CampaignId\": 00000\n(Id stand for ActivityId).\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+						"description": "This method updates an existing RTB Line Item.\n\nYou need to specify ActivityId,CampaignId and PlacementId in your request body.\n\nEXAMPLE: \"Id\": 11111, \"CampaignId\": 00000, \"PlacementId\": 2222222\n(Id stand for ActivityId).\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
 					},
 					"response": []
 				},
