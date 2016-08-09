@@ -1,0 +1,3467 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Banner",
+		"_postman_id": "ac9d52bf-8a87-fa88-90ee-d56aaf2583af",
+		"description": "In this section you can find information on how to create and manage various types of banners and all related objects. If the banner is hosted in Adform, the asset is created first which can be reused to create various banners. The created banners can then be used to create rotators or schedules for additional level of control or simply served through Direct or RTB.\r\n\r\nAdform is also offering DCO (Dynamic Content Optimization) banners that are displaying different content depending on a predefined set of rules.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ads Overview",
+			"description": "This service returns banner information by ID or UUID.",
+			"item": [
+				{
+					"name": "All Ads by Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Ads?campaignId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves all banners under specified campaign.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /api/v1/AdsOverview/Ads?campaignId=00000"
+					},
+					"response": []
+				},
+				{
+					"name": "Ad by AdId or uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Banners/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves banners by banner uuid.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AdsOverview/Banners/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rotator by AdId or uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Rotators/000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves rotators by AdId or uuid.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPlE: /api/v1/AdsOverview/Rotators/000000"
+					},
+					"response": []
+				},
+				{
+					"name": "Shedules by AdId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Schedules/000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves shedules by AdId.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLES: /api/v1/AdsOverview/Schedules/000000"
+					},
+					"response": []
+				},
+				{
+					"name": "Nested Rotators by AdId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AdsOverview/NestedRotators/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrievesnested rotators by AdId.\n\nYou need to parse banner uuid on your request URL."
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Ads by Search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Ads",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CampaignId\": 000000,\r\n  \"SearchText\": \"string\",\r\n  \"Size\": {\r\n    \"Width\": 0,\r\n    \"Height\": 0\r\n  },\r\n  \"Weight\": {\r\n    \"VideoWeight\": 0,\r\n    \"BannerWeight\": 0\r\n  },\r\n  \"IsValid\": true,\r\n  \"IsActive\": true,\r\n  \"IncludeDeleted\": true,\r\n  \"Types\": [\r\n    0\r\n  ],\r\n  \"SortBy\": \"string\",\r\n  \"SortDirection\": \"string\",\r\n  \"PageSize\": 0,\r\n  \"PageIndex\": 0\r\n}"
+						},
+						"description": "This method retrieves ads according to the search body in your request URL.\n\nYou need to define CampaignId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Default Values",
+			"description": "Banner Default Values service allows you to manage default values for banners. Default name format, default landing page, default banner attributes values, default backup image rule. Default values are stored in campaign level. Default values can be applied for multiple banners when uploading new or multi-editing the existing ones. Getting certain default value returns list of all possible values with default one marked as current.",
+			"item": [
+				{
+					"name": "Campaign Backup Images Determination Rules",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves possible backup image determination rules with default marked.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: v1/adsmanagement/BannerDefaultValues/00000/BackupImages\n(00000 - CampaignId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Default Backup Image Rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages/1/Current",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method sets certain backup image recognition rules as default. \n\nYou need to parse CampaignId and BackupImageId on your request URL.\n\nEXAMPLE: /BannerDefaultValues/00000/BackupImages/1/Current\n(00000 - CampaignId, 1 - BackupImageId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Default Backup Image Rule",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages/Current",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method sets default backup image recognition rules as none.\n\nYou need to parse CampaignId on your request URL.\n\nEXMAPLE: /adsmanagement/BannerDefaultValues/00000/BackupImages/Current\n(00000 - CampaignId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves banner attributes with possible sub attributes with default marked. \n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /BannerDefaultValues/00000/BannerAttributes\n(00000 - CampaignId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Default Banner Attribute Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes/11111/Values/22222/Current",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method sets certain banner attribute values as default.\n\nYou need to parse CampaignId, BannerAttributeId and BannerAttributeValueId on your request URL.\n\nEXAMPLE: /BannerDefaultValues/00000/BannerAttributes/11111/Values/22222/Current\n(00000 - CampaignId, 11111 - BannerAttributeId, 22222 - BannerAttributeValueId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Default Banner Attribute Value",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes/11111/Values/Current",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method sets default banner attribute as none.\n\nYou need to parse CampaignId and BannerAttributeId on your request URL.\n\nEXMAPLE: /adsmanagement/BannerDefaultValues/00000/BannerAttributes/111111/Values/Current\n(00000 - CampaignId, 11111 - BannerAttributeId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Landing Pages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves available landing pages with default marked. \n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLES: /adsmanagement/BannerDefaultValues/00000/LandingPages"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Default Landing Page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages/11111/Current",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method sets certain landing page as default.\n\nYou need to parse CampaignId and LandingPageId on your request URL.\n\nEXAMPLE: /BannerDefaultValues/00000/LandingPages/11111/Current\n(00000 - CampaignId, 11111 - LandingPageId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Default Landing Page",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages/Current",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method resert default landing page to none.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /BannerDefaultValues/00000/LandingPages/Current\n(00000 - CampaignId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner Name Formats",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/NameFormats",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves available banner name formats for the specified campaignwith default marked.\n\nYou need to parse CampaignId onyour request URL.\n\nEXAMPLE: /BannerDefaultValues/00000/NameFormats\n(00000 - CampaignId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Default Banner Name Format",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/628971/NameFormats/4/Current",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method sets certain name format rule as defualt.\n\nYou need to parse CampaignId and NameFormatId on your request URL.\n\nEXAPLE: /BannerDefaultValues/00000/NameFormats/4/Current\n(00000 - CampaignId, 4 - NameFormatId)\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Flash Banners",
+			"description": "This service manages flash banners and their attributes.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"File\": {\r\n    \"FullFileName\": \"FileName.swf\",\r\n    \"FileDataBase64\": \"string\"\r\n  },\r\n  \"CampaignId\": 000000,\r\n  \"Title\": \"Banner Title\"\r\n}"
+						},
+						"description": "This method creates a new Flash banner.\n\nYou need to parse CampaignId in you request body.\n\nPlease note that FullFileName should also include file name extension. For example: Name.swf\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/uuid\n(00000 - BannerId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by uuid.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specific banner by uuid.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/File",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"File\": {\r\n    \"FullFileName\": \"Name.swf\",\r\n    \"FileDataBase64\": \"string\"\r\n  }\r\n}"
+						},
+						"description": "This method updates Flash banner asset file.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/File\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Banner ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames an existing Flash banner.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ClickUrl",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": {\r\n    \"Id\": 0,\r\n    \"ClickTag\": \"http://test.clicktag.com\",\r\n    \"Title\": \"ClickTag\",\r\n    \"Url\": \"http://test.clicktag.com\"\r\n  }\r\n}"
+						},
+						"description": "This method updates Flash banner click url.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/ClickUrl\n(00000 - banner uuid)\n\nNOTE: You can add \"CampaignClickUrlId\" and specify already existing Campaign LandingPage. In such case you do not need to define full Click Url structure."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates Flash banner attributes.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"GraphicSettings\": {\r\n    \"Size\": {\r\n      \"Width\": 0,\r\n      \"Height\": 0\r\n    },\r\n    \"Weight\": 0,\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0,\r\n    \"FramesPerSecond\": 0,\r\n    \"AnimationDuration\": 0,\r\n    \"HasAnimation\": true,\r\n    \"Loops\": 0,\r\n    \"StreamingDuration\": 0\r\n  },\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method update flash banner settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/Settings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Content Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method clears banner content settings.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/ContentSettings\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Content Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContentSettings\": {\r\n    \"TemplateId\": 0,\r\n    \"AdMessageId\": 0,\r\n    \"ClickUrlInheritanceEnabled\": true,\r\n    \"DcoEngine\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates Flash banner content settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/ContentSettings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Backup",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method removes Flash banner backup banner.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/Backup\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Backup Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Uuid\": \"uuid\"\r\n}"
+						},
+						"description": "This method assigns Flash banner backup.\n\nYou need to parse Flash banner uuid on you request URL.\n\nYouneed to parse backup banner uuid in your request body.\n\nEXAMPLE: /api/v1/FlashBanners/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates banner activation status (Active/not active).\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Html Banners (From Assets)",
+			"description": "These services allow you to manage and create HTML banners. These services support the use and administration of creative-based banners like html, image or flash, as well as third party banners, links, rotators and video instreams. The banners can be uploaded directly or built from an existing asset while the banners themselves are sent as base64 strings. The banners are stored at campaign level and multiple tags can be created for them.\r\n\r\nNOTE: After the banner is created the returned value refers to the operation but not the object itself.\r\n\r\nNOTE: If you are constructing a banner from an asset, you need to upload an asset first or retrieve the existing asset's UUID. Please refer to Banner Asset Service for more information.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Asset\": {\r\n    \"ClickUrls\": [\r\n      {\r\n        \"ClickTag\": \"http://www.adform.com\",\r\n        \"Title\": \"http://www.adform.com\",\r\n        \"Url\": \"http://www.adform.com\"\r\n      }\r\n    ],\r\n    \"Uuid\": \"AssetUUID\"\r\n  },\r\n  \"Backup\": {\r\n    \"ClickUrl\": {\r\n      \"Title\": \"http://www.adform.com\",\r\n      \"Url\": \"http://www.adform.com\"\r\n    },\r\n    \"Uuid\": \"BackupUUID\"\r\n  },\r\n  \"GraphicSettings\": {\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0\r\n  },\r\n  \"CampaignId\": 00000,\r\n  \"Title\": \"Banner Title\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method creates HTML banners.\n\nYou need to define CampaignId, Html and backup asset uuids and ClickUrls in your request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Asset\": {\r\n    \"ClickUrls\": [\r\n      {\r\n        \"ClickTag\": \"http://www.adform.com\",\r\n        \"Title\": \"http://www.adform.com\",\r\n        \"Url\": \"http://www.adform.com\"\r\n      }\r\n    ],\r\n    \"Uuid\": \"86e1199e-fc98-40d6-984a-56bf227929f7\"\r\n  },\r\n  \"Backup\": {\r\n    \"ClickUrl\": {\r\n      \"Title\": \"http://www.adform.com\",\r\n      \"Url\": \"http://www.adform.com\"\r\n    },\r\n    \"Uuid\": \"05f75000-e7e1-428b-a939-a6ee1038052e\"\r\n  },\r\n  \"GraphicSettings\": {\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0\r\n  },\r\n  \"CampaignId\": 628971,\r\n  \"Title\": \"Kubas per api\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method deletes HTML banner.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Asset\": {\r\n    \"ClickUrls\": [\r\n      {\r\n        \"ClickTag\": \"http://www.adform.com\",\r\n        \"Title\": \"http://www.adform.com\",\r\n        \"Url\": \"http://www.adform.com\"\r\n      }\r\n    ],\r\n    \"Uuid\": \"86e1199e-fc98-40d6-984a-56bf227929f7\"\r\n  },\r\n  \"Backup\": {\r\n    \"ClickUrl\": {\r\n      \"Title\": \"http://www.adform.com\",\r\n      \"Url\": \"http://www.adform.com\"\r\n    },\r\n    \"Uuid\": \"05f75000-e7e1-428b-a939-a6ee1038052e\"\r\n  },\r\n  \"GraphicSettings\": {\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0\r\n  },\r\n  \"CampaignId\": 628971,\r\n  \"Title\": \"Kubas per api\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method retrieves a HTML banner by uuid.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/HtmlBanners/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n \r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Asset\": {\r\n    \"ClickUrls\": [\r\n      {\r\n        \"ClickTag\": \"http://www.adform.com\",\r\n        \"Title\": \"http://www.adform.com\",\r\n        \"Url\": \"http://www.adform.com\"\r\n      }\r\n    ],\r\n    \"Uuid\": \"86e1199e-fc98-40d6-984a-56bf227929f7\"\r\n  },\r\n  \"Backup\": {\r\n    \"ClickUrl\": {\r\n      \"Title\": \"http://www.adform.com\",\r\n      \"Url\": \"http://www.adform.com\"\r\n    },\r\n    \"Uuid\": \"05f75000-e7e1-428b-a939-a6ee1038052e\"\r\n  },\r\n  \"GraphicSettings\": {\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0\r\n  },\r\n  \"CampaignId\": 628971,\r\n  \"Title\": \"Kubas per api\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method retrieves a HTML banner by AdId.\n\nYou need to parse AdId on you request URL.\n\nEXAMPLE: /api/v1/HtmlBanners/00000/uuid\n(00000 - AdId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"New Title\"\r\n}"
+						},
+						"description": "This method updates HTML banner title.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrls",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ClickUrls",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrls\": [\r\n    {\r\n      \"ClickTag\": \"string\",\r\n      \"Title\": \"string\",\r\n      \"Url\": \"string\",\r\n      \"CampaignClickUrlId\": 380808\r\n    }\r\n  ],\r\n  \"BackupClickUrl\": {\r\n    \"Title\": \"string\",\r\n    \"Url\": \"string\",\r\n    \"CampaignClickUrlId\": 380808\r\n  }\r\n}"
+						},
+						"description": "This method updates HTML banner ClickUrls.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/ClickUrls\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates HTML banner Attributes.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"HtmlSettings\": {\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0\r\n  },\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates HTML banner Settings.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/Settings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Content Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ContentSettings\": {\r\n    \"TemplateId\": 0,\r\n    \"AdMessageId\": 0,\r\n    \"ClickUrlInheritanceEnabled\": true,\r\n    \"DcoEngine\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates HTML banner Content Settings.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/ContentSettings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Clear Content Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method clears HTML banner content settings.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/ContentSettings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Asset",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"BackupId\": \"string\",\r\n  \"AssetId\": \"string\"\r\n}"
+						},
+						"description": "This method asigns new asset to HTML banner.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/Asset\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Activation Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates HTML banner activation status (active/not active).\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/HtmlBanners/00000/ActivationStatus\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Operation Results",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/AssetBanners/OperationResults/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns the object that was created and its information.\n\nYou need to parse correlationId on your request URL.\n\nEXAMPLE: /api/v1/AssetBanners/OperationResults/00000"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Image Banners",
+			"description": "This service manages image banners and their attributes.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"File\": {\r\n    \"FullFileName\": \"FileName.png\",\r\n    \"FileDataBase64\": \"string\"\r\n  },\r\n  \"CampaignId\": 000000,\r\n  \"Title\": \"Banner Title\"\r\n}"
+						},
+						"description": "This method creates a new image banner.\n\nYou need to parse CampaignId in you request body.\n\nPlease note that FullFileName should also include file name extension. For example: Name.png\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/uuid\n(00000 - BannerId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by uuid.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specific banner by uuid.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/File",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"File\": {\r\n    \"FullFileName\": \"Name.png\",\r\n    \"FileDataBase64\": \"string\"\r\n  }\r\n}"
+						},
+						"description": "This method reuploads an image for an existing image banner.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/File\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Banner ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames an existing image banner.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/ClickUrl",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": {\r\n    \"Id\": 0,\r\n    \"ClickTag\": \"http://test.clicktag.com\",\r\n    \"Title\": \"ClickTag\",\r\n    \"Url\": \"http://test.clicktag.com\"\r\n  }\r\n}"
+						},
+						"description": "This method updates image banner click url.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/ClickUrl\n(00000 - banner uuid)\n\nNOTE: You can add \"CampaignClickUrlId\" and specify already existing Campaign LandingPage. In such case you do not need to define full Click Url structure."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method update image banner attributes.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"GraphicSettings\": {\r\n    \"Size\": {\r\n      \"Width\": 0,\r\n      \"Height\": 0\r\n    },\r\n    \"Weight\": 0,\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0,\r\n    \"FramesPerSecond\": 0,\r\n    \"AnimationDuration\": 0,\r\n    \"HasAnimation\": true,\r\n    \"Loops\": 0,\r\n    \"StreamingDuration\": 0\r\n  },\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method update image banner settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/Settings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates banner activation status (Active/not active).\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Interactive Instream",
+			"description": "This service manages interactive instream banners and their attributes.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Format\": 1,\r\n  \"CampaignId\": 00000,\r\n  \"Title\": \"Banner Title\"\r\n}"
+						},
+						"description": "This method creates new video banner.\n\nCampaignId is required in you request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by Id.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000/uuid\n(00000 - BannerId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by uuid.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner Default Video Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/DefaultVideoSettings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves default video settings of the Client that you are logged in."
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specific banner by uuid.\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Banner Main Asset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/0000000/MainAsset",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AssetId\": 00000,\r\n  \"Uuid\": \"string\"\r\n}"
+						},
+						"description": "This method sets banner main asset file.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000/OriginalVideoSource\n(00000 - Banner uuid)\n\nYou need to indicate asset in your request body. Please choose either asset uuid OR asset ID. \n\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Banner Additional Asset",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/AdditionalAssets",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AdditionalAssets\": [\r\n    {\r\n      \"AdditionalAssetNumber\": \"1\",\r\n      \"AssetId\": 00000,\r\n      \"Uuid\": \"string\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method sets banner additional asset file.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: api/v1/InteractiveInstream/00000/AdditionalAssets\n(00000 - banner uuid)\n\nYou need to indicate asset in your request body. Please choose either asset uuid OR asset ID. "
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames an existing interactive video banner.\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/InteractiveVideo/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates banner attributes.\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/ClickUrl",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": {\r\n    \"Id\": 0,\r\n    \"ClickTag\": \"http://www.adfomr.com\",\r\n    \"Title\": \"http://www.adfomr.com\",\r\n    \"Url\": \"http://www.adfomr.com\",\r\n    \"CampaignClickUrlId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates banner ClickUrl.\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/ClickUrls\n(00000 - banner uuid)\n\nYou can indicate already exsiting campaign landing page id as \"CampaignClickUrlId\" instead of filling full ClickUrl structure."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Custom Variables",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/CustomVariables",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CustomVariables\": {}\r\n}"
+						},
+						"description": "This method updates banner custom variables.\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/CustomVariables\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Video Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/VideoSettings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"VideoSettings\": {}\r\n}"
+						},
+						"description": "This method updates banner video settings.\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/VideoSettings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates banner activation status (Active/not active).\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/InteractiveVideo/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Link Banners",
+			"description": "This service manages links and their attributes.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": {\r\n    \"Id\": 0,\r\n    \"ClickTag\": \"string\",\r\n    \"Title\": \"string\",\r\n    \"Url\": \"string\",\r\n    \"CampaignClickUrlId\": 0\r\n  },\r\n  \"LinkSettings\": {\r\n    \"HasViewTracker\": true,\r\n    \"Text\": \"string\"\r\n  },\r\n  \"CampaignId\": 0,\r\n  \"Title\": \"string\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method creates a new link banner.\n\nYou need to parse CampaignId in you request body.\n\nPlease note that FullFileName should also include file name extension. For example: Name.png\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/uuid\n(00000 - BannerId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by uuid.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specific banner by uuid.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Banner ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames an existing link banner.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/ClickUrl",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": {\r\n    \"Id\": 0,\r\n    \"ClickTag\": \"http://test.clicktag.com\",\r\n    \"Title\": \"ClickTag\",\r\n    \"Url\": \"http://test.clicktag.com\"\r\n  }\r\n}"
+						},
+						"description": "This method updates link banner click url.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/ClickUrl\n(00000 - banner uuid)\n\nNOTE: You can add \"CampaignClickUrlId\" and specify already existing Campaign LandingPage. In such case you do not need to define full Click Url structure."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates link banner attributes.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"LinkSettings\": {\r\n    \"HasViewTracker\": true,\r\n    \"Text\": \"string\"\r\n  },\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates link banner settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Settings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates banner activation status (Active/not active).\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Operation Results",
+			"description": "This service returns the object that was created and its information.",
+			"item": [
+				{
+					"name": "Operation Results",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/OperationResults/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns results by CorrelationId which is generated in banner request responses.\n\nPlease note, that if operation results retrieves no content, it should be re-sent as this operation is asynchronious from other operations. Therefore, it may be in process of generating once it is requested.\n\nEXAMPLE: /api/v1/OperationResults/00000\n(00000 - CorrelationId)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Packages",
+			"description": "This service manages banner creation from packages.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Packages",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CampaignId\": 0,\r\n  \"File\": {\r\n    \"FullFileName\": \"string\",\r\n    \"FileDataBase64\": \"string\"\r\n  }\r\n}"
+						},
+						"description": "This method uploads a new banner package.\n\nYou need to parse CampaignId in you request body.\n\nPlease note that FullFileName should also include file name extension. For example: Name.zip\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload new image or flash banners",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Packages/Banners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Images\": [\r\n    {\r\n      \"File\": {\r\n        \"FullFileName\": \"Name.png\",\r\n        \"FileDataBase64\": \"string\"\r\n      },\r\n      \"CampaignId\": 000000,\r\n      \"Title\": \"Title\"\r\n    }\r\n  ],\r\n  \"Flashes\": [\r\n    {\r\n      \"File\": {\r\n        \"FullFileName\": \"Name.swf\",\r\n        \"FileDataBase64\": \"string\"\r\n      },\r\n      \"CampaignId\": 000000,\r\n      \"Title\": \"Title\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method uploads new image or flash banners.\n\nYou need to parse CampaignId in you request body.\n\nPlease note that FullFileName should also include file name extension. For example: Name.png\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Rotators",
+			"description": "This service returns rotator and its members' information.",
+			"item": [
+				{
+					"name": "Rotator and its members IDs and uuids (by ID)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Rotators/00000/Identifiers",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method gets rotator ands its' members IDs and uuids.\n\nYou need to parse banner ID on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Title\n(00000 - banner ID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rotator and its members IDs and uuids (by uuid)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/Rotators/{uuid}/Identifiers",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method gets rotator ands its' members IDs and uuids.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Third Party Banners",
+			"description": "This service manages Third Party Banners and their attributes.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Content\": {\r\n    \"Script\": {\r\n      \"Code\": \"Past your script code here. Please use single quotation marks.\"\r\n    },\r\n    \"ThirdPartyBannerType\": 0,\r\n    \"Size\": {\r\n      \"Width\": 0,\r\n      \"Height\": 0\r\n    },\r\n    \"ExpandableSettings\": {\r\n      \"ExpandedSize\": {\r\n        \"Width\": 0,\r\n        \"Height\": 0\r\n      },\r\n      \"ExpansionDirection\": 1\r\n    }\r\n  },\r\n  \"ClickUrl\": {\r\n    \"Url\": \"http://www.adform.com\",\r\n    \"CampaignClickUrlId\": 0\r\n  },\r\n  \"CampaignId\": 00000,\r\n  \"Title\": \"Title\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method creates a new Third Party Banner.\n\nCampaignId is required in your request body.\n\nYou can define ClickUrl by either specifying full link in \"Url\" field or choosing already existing campaign landing page and indicating its id in \"CampaignClickUrlId\" field."
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/0000000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by Id.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/uuid\n(00000 - BannerId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/api/v1/ThirdPartyBanners/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by uuid.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/{uuid}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specific banner by uuid.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Revalidate Banner Content",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Content/Revalidation",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method revalidates banner content.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/Content/Revalidation\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Parse Script",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/Parser",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Code\": \"Past your script code here. Please use single quotation marks.\"\r\n}"
+						},
+						"description": "This method allows you to parse banner script.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Content",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Content",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Script\": {\r\n    \"Code\": \"Past your script code here. Please use single quotation marks.\"\r\n  },\r\n  \"ThirdPartyBannerType\": 0,\r\n  \"Size\": {\r\n    \"Width\": 0,\r\n    \"Height\": 0\r\n  },\r\n  \"ExpandableSettings\": {\r\n    \"ExpandedSize\": {\r\n      \"Width\": 0,\r\n      \"Height\": 0\r\n    },\r\n    \"ExpansionDirection\": 1\r\n  }\r\n}"
+						},
+						"description": "This method updates 3rd party banner content.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/Content\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Banner ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames an existing 3rd party banner.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/ClickUrl",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Url\": \"http://www.adform.com\",\r\n  \"CampaignClickUrlId\": 0\r\n}"
+						},
+						"description": "This method updates link banner click url.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/ClickUrl\n(00000 - banner uuid)\n\nNOTE: You can add \"CampaignClickUrlId\" and specify already existing Campaign LandingPage. In such case you do not need to define full Click Url structure."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates link banner attributes.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates link banner settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/Settings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates banner activation status (Active/not active).\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Video Instream",
+			"description": "This service manages video instream banners and their attributes.",
+			"item": [
+				{
+					"name": "Create Banner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Format\": 20,\r\n  \"CampaignId\": 00000,\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method creates new Video Instream banner.\n\nCampaignId is required in you request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/uuid",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/uuid\n(00000 - BannerId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves a specific banner by uuid.\n\nYou need to parse Banner uuid on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Banner Default Video Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/DefaultVideoSettings",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method retrieves default video settings."
+					},
+					"response": []
+				},
+				{
+					"name": "Banner by uuid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/000000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes a specific banner by uuid.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Banner Video Source",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/{uuid}/OriginalVideoSource",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AssetId\": 000000,\r\n  \"Uuid\": \"string\"\r\n}"
+						},
+						"description": "This method sets banner video asset source.\n\nBanner uuid is required on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/OriginalVideoSource\n(00000 - Banner uuid)\n\nYou need to indicate asset in your request body. Please choose either asset uuid OR asset ID. "
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Title",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames an existing Video Instream banner.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/Title\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/Attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Attributes\": [\r\n    {\r\n      \"Id\": 0,\r\n      \"ValueId\": 0\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates banner attributes.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/Attributes\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner ClickUrl",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/ClickUrl",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ClickUrl\": {\r\n    \"Id\": 0,\r\n    \"ClickTag\": \"http://www.adform.com\",\r\n    \"Title\": \"http://www.adform.com\",\r\n    \"Url\": \"http://www.adform.com\",\r\n    \"CampaignClickUrlId\": 0\r\n  }\r\n}"
+						},
+						"description": "This method updates banner ClickUrls.\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/Title\n(00000 - banner uuid)\n\nYou can indicate already exsiting campaign landing page id as \"CampaignClickUrlId\" instead of filling full ClickUrl structure."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Quality Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/QualitySettings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"QualitySettings\": {\r\n    \"Quality\": \"string\"\r\n  }\r\n}"
+						},
+						"description": "This method updates banner quality settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/QualitySettings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Video Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/VideoSettings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"VideoSettings\": {}\r\n}"
+						},
+						"description": "This method updates banner video settings.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/VideoSettings\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner Video Assets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/VideoAssets",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"VideoAssets\": [\r\n    {\r\n      \"AssetId\": 0,\r\n      \"SequenceNumber\": 0,\r\n      \"TaskId\": \"string\",\r\n      \"Status\": 1,\r\n      \"Uuid\": \"string\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates video assets.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/VideoAssets\n(00000 - banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/ActivationStatus",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"IsActive\": true\r\n}"
+						},
+						"description": "This method updates banner activation status (Active/not active).\n\nBanner uuid is required on your request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/Backup\n(00000 - banner uuid)"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
