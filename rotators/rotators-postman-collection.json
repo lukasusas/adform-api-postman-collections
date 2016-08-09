@@ -1,0 +1,2043 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Rotators",
+		"_postman_id": "3824ce42-84a2-00af-d5d7-ac414e29e403",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "A/B Rotator",
+			"description": "",
+			"item": [
+				{
+					"name": "Create A/B Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rotatorId\": \"guid\",\r\n  \"title\": \"Title\",\r\n  \"campaignId\": 00000, \r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\",\r\n      \"settings\": {\r\n           \"abGroup\": \"A\"   \r\n       }\r\n    }\r\n  ],\r\n  \"backupBannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method creates a new A/B rotator.\n\nPlease note that these fields are mandatory in your request body:\n1.RotatorId (user generated UUID)\n2.CampaignId\n\nIf you are adding member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)\n3. abGroup settings (A or B)"
+					},
+					"response": []
+				},
+				{
+					"name": "A/B Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves A/B rotator by UUID.\n\nYou need to parse UUID on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "A/B Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes A/B rotator.\n\nBanner uuid is required on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename A/B Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames A/B banner.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Title\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "A/B Rotator Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/BackupBanner",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes A/B rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/BackupBanner\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set A/B Rotator Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/000000/BackupBanner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"backupBannerId\": \"string\"\r\n}"
+						},
+						"description": "This method sets A/B rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/BackupBanner\n(00000 - Rotator UUID)\n\nBackup banner UUID is required in your request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate A/B Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/ABRotators/000000/Activate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method activates A/B rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Activate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate A/B Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/ABRotators/00000/Deactivate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deactivates A/B rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Deactivate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update A/B Rotator members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\",\r\n      \"settings\": {\r\n        \"abGroup\": \"A\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates A/B rotator members.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Members\n(00000 - Banner uuid)\n\nFor each rotator member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)\n3. abGroup settings (A or B)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update A/B Rotator members sequence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/Sequence",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"memberSequence\": [\r\n    \"string\"\r\n  ]\r\n}"
+						},
+						"description": "This method sets sequence to members of A/B rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Members/Sequence\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update A/B Rotator member settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/11111/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"abGroup\": \"B\"\r\n  }\r\n}"
+						},
+						"description": "This method sets settings to members of A/B rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Members/11111/Settings\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Banner as A/B Rotator member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/11111/Banner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method adds a member to A/B rotator.\n\nRotator UUID and rotator member UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Members/11111/Banner\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "A/B Rotator Member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes A/B rotator backup.\n\nRotator UUID and rotator member UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/ABRotators/00000/Members/11111\n(00000 - Rotator UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Optimized Rotator",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"rotatorId\": \"guid\",\r\n  \"title\": \"Title\",\r\n  \"campaignId\": 0000, \r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\"\r\n    }\r\n  ],\r\n  \"backupBannerId\": \"uuid\",\r\n  \"settings\": {\r\n    \"evenDistributionPercentage\": 0,\r\n    \"dataSensitivity\": 0,\r\n    \"dataRecencyPreference\": 0,\r\n    \"optimizationScope\": 0,\r\n    \"optimizationMethods\": [\r\n      {\r\n        \"method\": 0,\r\n        \"percentage\": 0\r\n      }\r\n    ]\r\n  }\r\n}"
+						},
+						"description": "This method creates a new optimized rotator.\n\nPlease note that these fields are mandatory in your request body:\n1.RotatorId (user generated UUID)\n2.CampaignId\n\nIf you are adding member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves optimized rotator by UUID.\n\nYou need to parse UUID on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes optimized rotator.\n\nBanner uuid is required on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames optimized banner.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/OptimizedRotator/00000/Title\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"evenDistributionPercentage\": 0,\r\n    \"dataSensitivity\": 0,\r\n    \"dataRecencyPreference\": 0,\r\n    \"optimizationScope\": 0,\r\n    \"optimizationMethods\": [\r\n      {\r\n        \"method\": 0,\r\n        \"percentage\": 0\r\n      }\r\n    ]\r\n  }\r\n}"
+						},
+						"description": "This method updates optimized rotator settings.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Settings\n(00000 - Banner UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/BackupBanner",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes optimized rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/BackupBanner\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/000000/BackupBanner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"backupBannerId\": \"string\"\r\n}"
+						},
+						"description": "This method sets optimized rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/BackupBanner\n(00000 - Rotator UUID)\n\nBackup banner UUID is required in your request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/OptimizedRotators/000000/Activate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method activates optimized rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Activate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/OptimizedRotators/00000/Deactivate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deactivates Optimized rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Deactivate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates Optimized rotator members.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Members\n(00000 - Banner uuid)\n\nFor each rotator member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Members Sequence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members/Sequence",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"memberSequence\": [\r\n    \"string\"\r\n  ]\r\n}"
+						},
+						"description": "This method sets sequence to members of Optimized rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Members/Sequence\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members/11111/Banner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method adds a member to Optimized rotator.\n\nRotator UUID and rotator member UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Members/11111/Banner\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes Optimized rotator backup.\n\nRotator UUID and rotator member UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/OptimizedRotators/00000/Members/11111\n(00000 - Rotator UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Random Rotator",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rotatorId\": \"guid\",\r\n  \"title\": \"Title\",\r\n  \"campaignId\": 00000, \r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\",\r\n      \"settings\": {\r\n           \"frequency\": 0   \r\n       }\r\n    }\r\n  ],\r\n  \"backupBannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method creates a new random rotator.\n\nPlease note that these fields are mandatory in your request body:\n1.RotatorId (user generated UUID)\n2.CampaignId\n\nIf you are adding member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)\n3. Frequency settings"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves random rotator by UUID.\n\nYou need to parse UUID on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes random rotator.\n\nBanner uuid is required on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames random banner.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Title\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/BackupBanner",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes random rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/BackupBanner\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/000000/BackupBanner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"backupBannerId\": \"string\"\r\n}"
+						},
+						"description": "This method sets random rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/BackupBanner\n(00000 - Rotator UUID)\n\nBackup banner UUID is required in your request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/RandomRotators/000000/Activate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method activates random rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Activate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/RandomRotators/00000/Deactivate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deactivates random rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Deactivate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\",\r\n      \"settings\": {\r\n        \"frequency\": 0\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates random rotator members.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Members\n(00000 - Banner uuid)\n\nFor each rotator member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)\n3. Frequency settings"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Members Sequence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/Sequence",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"memberSequence\": [\r\n    \"string\"\r\n  ]\r\n}"
+						},
+						"description": "This method sets sequence to members of random rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Members/Sequence\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Member Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/11111/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"frequency\": 0\r\n  }\r\n}"
+						},
+						"description": "This method sets settings to members of random rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Members/11111/Settings\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/11111/Banner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method adds a member to random rotator.\n\nRotator UUID and rotator member UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Members/11111/Banner\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes random rotator backup.\n\nRotator UUID and rotator member UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/RandomRotators/00000/Members/11111\n(00000 - Rotator UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schedule",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rotatorId\": \"guid\",\r\n  \"title\": \"Title\",\r\n  \"campaignId\": 00000, \r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"referenceId\": \"string\",\r\n      \"referenceType\": 1,\r\n      \"settings\": {\r\n        \"dateFrom\": \"2016-08-09T08:31:15.445Z\"\r\n      }\r\n    }\r\n  ],\r\n  \"backupBannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method creates a new schedule.\n\nPlease note that these fields are mandatory in your request body:\n1.ScheduleId (user generated UUID)\n2.CampaignId"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves a schedule by UUID.\n\nYou need to parse UUID on your request url.\n\nEXAMPLE: /v1/schedules/00000\n(00000 - Schedule UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes a schedule.\n\nSchedule uuid is required on your request url.\n\nEXAMPLE: /v1/schedules/00000\n(00000 - Schedule UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames a schedule.\n\nSchedule UUID is required on you request URL.\n\nEXAMPLE: /v1/schedules/00000/Title\n(00000 - Schedule uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Activate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/schedules/000000/Activate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method activates Schedule.\n\nYou need to parse Schedule UUID on your request url.\n\nEXAMPLE: /v1/schedules/00000/Activate\n(00000 - Schedule UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/schedules/00000/Deactivate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deactivates Schedule.\n\nYou need to parse Schedule UUID on your request url.\n\nEXAMPLE: /v1/schedules/00000/Deactivate\n(00000 - Schedule UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000/Members",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"referenceId\": \"string\",\r\n      \"referenceType\": 1,\r\n      \"settings\": {\r\n        \"dateFrom\": \"2016-08-09T08:31:15.562Z\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates schedule members.\n\nSchedule UUID is required on you request URL.\n\nEXAMPLE: /v1/schedules/00000/Members\n(00000 - Schedule uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Members Sequence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000/Members/Sequence",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"memberSequence\": [\r\n    \"string\"\r\n  ]\r\n}"
+						},
+						"description": "This method updates Schedule members sequence.\n\nSchedule UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Members/Sequence\n(00000 - Schedule uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Member Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000/Members/11111/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dateFrom\": \"2016-08-09T08:31:15.594Z\"\r\n}"
+						},
+						"description": "This method sets schedule settings.\n\nSchedule UUID is required on you request URL.\n\nEXAMPLE: /v1/schedules/00000/Members/11111/Settings\n(00000 - Schedule UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Add Reference",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000/Members/11111/Reference",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"referenceId\": \"string\",\r\n  \"referenceType\": 1\r\n}"
+						},
+						"description": "This method adds schedule references.\n\nSchedule UUID and rotator member UUID is required on you request URL.\n\nEXAMPLE: /v1/schedules/00000/Members/11111/Banner\n(00000 - Schedule UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/schedules/00000/Members/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes schedule references.\n\nSchedule UUID and Schedule member UUID is required on your request url.\n\nEXAMPLE: /v1/schedules/00000/Members/11111\n(00000 - Schedule UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sequential Rotator",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Sequential Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rotatorId\": \"guid\",\r\n  \"title\": \"Title\",\r\n  \"campaignId\": 00000, \r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\",\r\n      \"settings\": {\r\n        \"maxImpressions\": 0,\r\n        \"maxDailyImpressions\": 0,\r\n        \"maxClicks\": 0,\r\n        \"maxDailyClicks\": 0\r\n      }\r\n    }\r\n  ],\r\n  \"backupBannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method creates a new sequential rotator.\n\nPlease note that these fields are mandatory in your request body:\n1.RotatorId (user generated UUID)\n2.CampaignId\n\nIf you are adding member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Sequential Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method retrieves sequential rotator by UUID.\n\nYou need to parse UUID on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Sequential Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes sequential rotator.\n\nBanner uuid is required on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Rename Sequential Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Title",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Title\"\r\n}"
+						},
+						"description": "This method renames sequential banner.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Title\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Random Sequential Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/BackupBanner",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes sequential rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/BackupBanner\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Sequential Rotator Backup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/000000/BackupBanner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"backupBannerId\": \"string\"\r\n}"
+						},
+						"description": "This method sets sequential rotator backup.\n\nRotator UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/BackupBanner\n(00000 - Rotator UUID)\n\nBackup banner UUID is required in your request body."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate Sequential Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/SequentialRotators/000000/Activate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method activates Sequential rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Activate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deactivate Sequential Rotator",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com//v1/rotators/SequentialRotators/00000/Deactivate",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deactivates sequential rotator.\n\nYou need to parse Rotator UUID on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Deactivate\n(00000 - Rotator UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sequential Sequential members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"members\": [\r\n    {\r\n      \"memberId\": \"guid\",\r\n      \"bannerId\": \"uuid\",\r\n      \"settings\": {\r\n        \"frequency\": 0\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates sequential rotator members.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Members\n(00000 - Banner uuid)\n\nFor each rotator member please specify:\n1. MemberId (user generated UUID)\n2. BannerId (Member Ad UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sequential Rotator members sequence",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/Sequence",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"memberSequence\": [\r\n    \"string\"\r\n  ]\r\n}"
+						},
+						"description": "This method sets sequence to members of sequential rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Members/Sequence\n(00000 - Banner uuid)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Sequential Rotator member settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111/Settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"maxImpressions\": 0,\r\n    \"maxDailyImpressions\": 0,\r\n    \"maxClicks\": 0,\r\n    \"maxDailyClicks\": 0\r\n  }\r\n}"
+						},
+						"description": "This method sets settings to members of sequential rotator.\n\nRotator UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Members/11111/Settings\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Banner as Sequential Rotator member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111/Banner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bannerId\": \"uuid\"\r\n}"
+						},
+						"description": "This method adds a member to sequential rotator.\n\nRotator UUID and rotator member UUID is required on you request URL.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Members/11111/Banner\n(00000 - Banner UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Sequential Rotator Member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method deletes sequential rotator backup.\n\nRotator UUID and rotator member UUID is required on your request url.\n\nEXAMPLE: /v1/rotators/SequentialRotators/00000/Members/11111\n(00000 - Rotator UUID, 11111 - Member UUID)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Targeting",
+			"description": "",
+			"item": []
+		}
+	]
+}
