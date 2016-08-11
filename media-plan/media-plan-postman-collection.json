@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Media Plan",
-		"_postman_id": "b4bc5a69-f56a-ef0c-2d2c-667d4d213567",
+		"_postman_id": "5eb61861-29fc-b811-dca5-a36a345dc99a",
 		"description": "Mediaplan is another level of abstraction between campaigns and placements. On user interface it is called 'Orders'. Some campaigns may be rather big, so Mediaplans are convenient way to split those big campaign into smalle pieces using whatever criteria you want (time slice, publishers (medias) used and etc).\r\n\r\nCampaign should have at least one mediaplan (which will be automatically created when new cmpaign is created).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -18,7 +18,7 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
 							}
 						}
 					],
@@ -36,7 +36,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method retrieves a list of medias that are used in active media plan for the specific campaign.\n\nYou need to specify Campaign Code on the request URL that you are sending."
+						"description": "This method retrieves a list of medias that are used in active media plan for the specific campaign.\n\nYou need to specify Campaign Code on the request URL that you are sending.\n\nEXAMPLE: /Mediaplan/MediaList?campaignCode=XXXXX"
 					},
 					"response": []
 				}

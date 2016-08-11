@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Account",
-		"_postman_id": "7e680862-85d2-0627-82d5-6db79e5fbd99",
+		"_postman_id": "021721fa-4634-8719-7f37-477ab5cb0609",
 		"description": "To use Account service you need to have:\r\n\r\n1. Adform Agency account.\r\n\r\n2. User account (with enabled External API module). \r\n\r\nHIGHLY IMPORTANT: External API module gives authorisation to use API services.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance. \r\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},

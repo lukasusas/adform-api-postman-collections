@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Advertiser",
-		"_postman_id": "c822ad1b-723b-f3a9-5196-25f19a0caf00",
+		"_postman_id": "644819f5-ab2c-70f3-8939-29a299492949",
 		"description": "To use Advertiser service you need to have advertisers created.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
