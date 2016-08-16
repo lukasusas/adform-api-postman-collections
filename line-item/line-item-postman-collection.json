@@ -349,7 +349,7 @@
 						"header": [
 							{
 								"key": "Ticket",
-								"value": "GE3DENZQHFQTEODDMQYDOZJNHE2TKYJNGQ2TIZJNMIYTMNRNHEZTKYTFGE2TKOJUMIZCYSZTINFE4NJTGNEE2WSWIZLEIUCHKNKTKTBUIE3VINKSLFBEKN2K",
+								"value": "{{Ticket}}",
 								"description": ""
 							}
 						],
