@@ -333,6 +333,35 @@
 					"response": []
 				},
 				{
+					"name": "Specific Line Item",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities?campaignId=00000&ActivityId=11111 ",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "GE3DENZQHFQTEODDMQYDOZJNHE2TKYJNGQ2TIZJNMIYTMNRNHEZTKYTFGE2TKOJUMIZCYSZTINFE4NJTGNEE2WSWIZLEIUCHKNKTKTBUIE3VINKSLFBEKN2K",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a specific RTB line item.\n\nYou need to parse CampaignId and ActivityId on your request URL.\n\nEXAMPLE: /Activities?campaignId=00000&ActivityId=11111"
+					},
+					"response": []
+				},
+				{
 					"name": "Create Line item",
 					"event": [
 						{
