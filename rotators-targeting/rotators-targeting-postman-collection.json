@@ -1,0 +1,1160 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Rotator Targeting Rules",
+		"_postman_id": "84f773c1-4263-0be9-fb29-a9327aa411ba",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bandwidth Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"behavior\": 0,\r\n    \"bandwidthIds\": [\r\n      \"string\"\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates tracking point targeting rule.\n\n\"ageConstraint\" format: 1.13:30:50.100\n(days.hours.minutes.seconds.miliseconds)"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/d76ee921-57ca-4549-8053-e0f7131bcb0d/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"behavior\": 0,\r\n  \"bandwidthIds\": [\r\n    \"string\"\r\n  ]\r\n}"
+						},
+						"description": "This method creates tracking point targeting rule.\n\n\"ageConstraint\" format: 1.13:30:50.100\n(days.hours.minutes.seconds.miliseconds)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Browser Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab989",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"behavior\": 0,\r\n    \"browserIds\": [\r\n      0\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"behavior\": 0,\r\n  \"browserIds\": [\r\n    0\r\n  ]\r\n}"
+						},
+						"description": "This method updates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device Type Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"deviceTypes\": [\r\n      \"1\"\r\n    ],\r\n     \"operatingSystems\": [\r\n      0\r\n    ],\r\n    \"behavior\": 0\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"deviceTypes\": [\r\n    \"1\"\r\n  ],\r\n  \"operatingSystems\": [\r\n    0\r\n  ],\r\n  \"behavior\": 0\r\n}"
+						},
+						"description": "This method updates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Geo Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"behavior\": 0,\r\n    \"zipBehavior\": 0,\r\n    \"countryIds\": [\r\n      0\r\n    ],\r\n    \"regionIds\": [\r\n      0\r\n    ],\r\n    \"cityIds\": [\r\n      0\r\n    ],\r\n    \"zipCodeIds\": [\r\n      0\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/GeoTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/GeoTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"deviceTypes\": [\r\n    \"1\"\r\n  ],\r\n  \"operatingSystems\": [\r\n    0\r\n  ],\r\n  \"behavior\": 0\r\n}"
+						},
+						"description": "This method updates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/GeoTypeTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IP Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IpTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"behavior\": 0,\r\n    \"ipRanges\": [\r\n      {\r\n        \"from\": \"string\",\r\n        \"to\": \"string\"\r\n      }\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IpTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IpTypeTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"behavior\": 0,\r\n  \"ipRanges\": [\r\n    {\r\n      \"from\": \"string\",\r\n      \"to\": \"string\"\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IpTypeTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ISP Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IspTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab989",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"behavior\": 0,\r\n    \"ispIds\": [\r\n      0\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IspTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/IspTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"behavior\": 0,\r\n  \"ispIds\": [\r\n    0\r\n  ]\r\n}"
+						},
+						"description": "This method updates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Management",
+			"description": "",
+			"item": [
+				{
+					"name": "Retrieve Targeting Solution",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TargetingSolutions/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Targeting Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/Health",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/Health",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Time Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TimeTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"datePeriods\": [\r\n      {\r\n        \"dateFrom\": \"2016-08-17T07:43:15.241Z\",\r\n        \"dateTo\": \"2016-08-17T07:43:15.241Z\",\r\n        \"timePeriods\": [\r\n          {\r\n            \"timeFrom\": \"13:30\",\r\n            \"timeTo\": \"13:35\"\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TimeTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TimeTargetingRules/1a18b8fb-0c37-4c2b-b9a4-3d4f34aab987/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"datePeriods\": [\r\n    {\r\n      \"dateFrom\": \"2016-08-17T07:43:15.262Z\",\r\n      \"dateTo\": \"2016-08-17T07:43:15.262Z\",\r\n      \"timePeriods\": [\r\n        {\r\n          \"timeFrom\": \"13:30\",\r\n          \"timeTo\": \"13:35\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+						},
+						"description": "This method updates device type targeting rule.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TimeTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tracking Point Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"settings\": {\r\n    \"reverse\": true,\r\n    \"trackingPoints\": [\r\n      {\r\n        \"id\": 0\r\n      }\r\n    ],\r\n    \"anyTrackingPoint\": true,\r\n    \"match\": \"all\",\r\n    \"ageConstraint\": {\r\n      \"minAge\": \"1.00:30:50.100\",\r\n      \"maxAge\": \"1.13:30:50.100\"\r\n    }\r\n  },\r\n  \"targetingSolutionId\": \"ded0b585-27f1-4ee0-87ea-e771b9fe6d15\",\r\n  \"memberId\": \"e8570da4-c0e3-4b68-b8e2-e2a6f2a2d83b\"\r\n}"
+						},
+						"description": "This method creates tracking point targeting rule.\n\n\"ageConstraint\" format: 1.13:30:50.100\n(days.hours.minutes.seconds.miliseconds)"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/d76ee921-57ca-4549-8053-e0f7131bcb0d/settings",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"reverse\": true,\r\n  \"trackingPoints\": [\r\n    {\r\n      \"id\": 0\r\n    }\r\n  ],\r\n  \"anyTrackingPoint\": true,\r\n  \"match\": 0,\r\n  \"ageConstraint\": {\r\n    \"minAge\": \"1.10:30:50.100\",\r\n    \"maxAge\": \"1.13:30:50.100\"\r\n  }\r\n}"
+						},
+						"description": "This method creates tracking point targeting rule.\n\n\"ageConstraint\" format: 1.13:30:50.100\n(days.hours.minutes.seconds.miliseconds)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n  \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/ded0b585-27f1-4ee0-87ea-e771b9fe6d15",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
