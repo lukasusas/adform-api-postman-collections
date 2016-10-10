@@ -1,0 +1,103 @@
+{
+	"id": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+	"name": "Mobile",
+	"description": "",
+	"order": [
+		"abe51402-4b83-3a6b-271b-f4003a56df53",
+		"754709c2-d9af-dd11-25c3-ede5d5721d70",
+		"cd38cf2d-05fd-beaa-2f03-7e7190bbec11",
+		"74b25522-12c8-3b86-b56d-c8cac63008a3"
+	],
+	"folders": [],
+	"timestamp": 0,
+	"owner": "707080",
+	"public": false,
+	"published": false,
+	"requests": [
+		{
+			"id": "74b25522-12c8-3b86-b56d-c8cac63008a3",
+			"headers": "Ticket: {{Ticket}}\n",
+			"url": "api.adform.com/v1/mobile/apps/categories",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+			"data": null,
+			"dataMode": "params",
+			"name": "Categories",
+			"description": "This method retrieves a list of application categories.",
+			"descriptionFormat": "html",
+			"time": 1476098545357,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "754709c2-d9af-dd11-25c3-ede5d5721d70",
+			"headers": "Ticket: {{Ticket}}\nContent-Type: application/x-www-form-urlencoded\n",
+			"url": "api.adform.com/v1/mobile/apps",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+			"data": [
+				{
+					"key": "file",
+					"value": "",
+					"type": "file",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "Batch Search for Applications",
+			"description": "This is a batch search for applications (with file upload).\n\nAttached CSV file should have one application name or bundle per one line and should be saved with UTF-8 encoding.",
+			"descriptionFormat": "html",
+			"time": 1476098381366,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "abe51402-4b83-3a6b-271b-f4003a56df53",
+			"headers": "Ticket: {{Ticket}}\n",
+			"url": "api.adform.com/v1/mobile/apps?search=yyyy",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1476096572178,
+			"name": "Search for Applications",
+			"description": "Returns a list of found applications and their metadata based on specified search keywords.\n\nParameters:\n\n1. \"search\" - mandatory. Stands for keywords to search.\n2. \"source\" - optional. Default value - active. Possible values: active (used to search only applications with active advertisement in Adform system), all (to search for all applications).",
+			"collectionId": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+			"responses": []
+		},
+		{
+			"id": "cd38cf2d-05fd-beaa-2f03-7e7190bbec11",
+			"headers": "Ticket: {{Ticket}}\n",
+			"url": "api.adform.com/v1/mobile/apps/stores",
+			"pathVariables": {},
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+			"data": null,
+			"dataMode": "params",
+			"name": "Stores",
+			"description": "This method retrieves a list of application stores.",
+			"descriptionFormat": "html",
+			"time": 1476098462258,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
