@@ -1,0 +1,103 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Mobile",
+		"_postman_id": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search for Applications",
+			"request": {
+				"url": "api.adform.com/v1/mobile/apps?search=yyyy",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Returns a list of found applications and their metadata based on specified search keywords.\n\nParameters:\n\n1. \"search\" - mandatory. Stands for keywords to search.\n2. \"source\" - optional. Default value - active. Possible values: active (used to search only applications with active advertisement in Adform system), all (to search for all applications)."
+			},
+			"response": []
+		},
+		{
+			"name": "Batch Search for Applications",
+			"request": {
+				"url": "api.adform.com/v1/mobile/apps",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file",
+							"enabled": true
+						}
+					]
+				},
+				"description": "This is a batch search for applications (with file upload).\n\nAttached CSV file should have one application name or bundle per one line and should be saved with UTF-8 encoding."
+			},
+			"response": []
+		},
+		{
+			"name": "Stores",
+			"request": {
+				"url": "api.adform.com/v1/mobile/apps/stores",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "This method retrieves a list of application stores."
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"request": {
+				"url": "api.adform.com/v1/mobile/apps/categories",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "This method retrieves a list of application categories."
+			},
+			"response": []
+		}
+	]
+}
