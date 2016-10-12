@@ -1,67 +1,81 @@
 {
-	"id": "2cab2650-4828-c813-2a59-9b52f87ded0b",
-	"name": "Account",
-	"description": "To use Account service you need to have:\r\n\r\n1. Adform Agency account.\r\n\r\n2. User account (with enabled External API module). \r\n\r\nHIGHLY IMPORTANT: External API module gives authorisation to use API services.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance. \r\n",
-	"order": [],
-	"folders": [
+	"variables": [],
+	"info": {
+		"name": "Account",
+		"_postman_id": "2cab2650-4828-c813-2a59-9b52f87ded0b",
+		"description": "To use Account service you need to have:\r\n\r\n1. Adform Agency account.\r\n\r\n2. User account (with enabled External API module). \r\n\r\nHIGHLY IMPORTANT: External API module gives authorisation to use API services.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance. \r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "cc0910dd-46e3-af4f-3d88-8dc5b1c0e880",
 			"name": "Authentication",
 			"description": "",
-			"order": [
-				"4addcbf4-3704-2bb2-18ff-8bb55d32aa35"
-			],
-			"owner": "707080",
-			"collectionId": "2cab2650-4828-c813-2a59-9b52f87ded0b"
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Content-Type is application/json\"] =\n  request.headers[\"Content-Type\"] === \"application/json\";\n\ntests[\"Request was successful\"] = \n  responseCode.code === 200;\n\nif(responseCode.code === 200) {\n  var jsonData = JSON.parse(responseBody);\n  postman.setGlobalVariable('Ticket', jsonData.Ticket);\n    tests[\"Ticket was set as a global variable\"] =\n      globals.Ticket !== undefined;\n}"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Security/Login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"UserName\": \"Username\",\r\n  \"Password\": \"Password1!\"\r\n} "
+						},
+						"description": "This request allows you to get authentication token that can then be used to access all other Adform API services.\n\nThe token itself has a total lifetime of 24 hours and expires after 3 hours of inactivity.\n\nAuthentication token is set as a global 'Ticket' variable and it can be reused in further requests - headers and json body.\n\nIf you want to use global variables please write them in double curly brackets: {{Ticket}}\n\nRequest body fields:\n1. UserName - mandatory\n2. Password - mandatory"
+					},
+					"response": []
+				}
+			]
 		},
 		{
-			"id": "ccf39eca-c684-de68-9549-25f2c689ba6e",
 			"name": "Users",
 			"description": "",
-			"order": [
-				"99b2f83f-8744-e251-dfe9-0d64a7fcfcc9"
-			],
-			"owner": "707080",
-			"collectionId": "2cab2650-4828-c813-2a59-9b52f87ded0b"
-		}
-	],
-	"timestamp": 0,
-	"owner": "707080",
-	"public": false,
-	"published": false,
-	"requests": [
-		{
-			"id": "4addcbf4-3704-2bb2-18ff-8bb55d32aa35",
-			"name": "Login",
-			"description": "This request allows you to get authentication token that can then be used to access all other Adform API services.\n\nThe token itself has a total lifetime of 24 hours and expires after 3 hours of inactivity.\n\nAuthentication token is set as a global 'Ticket' variable and it can be reused in further requests - headers and json body.\n\nIf you want to use global variables please write them in double curly brackets: {{Ticket}}\n\nRequest body fields:\n1. UserName - mandatory\n2. Password - mandatory",
-			"collectionId": "2cab2650-4828-c813-2a59-9b52f87ded0b",
-			"method": "POST",
-			"headers": "Content-Type: application/json",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "{\r\n  \"UserName\": \"Username\",\r\n  \"Password\": \"Password1!\"\r\n} ",
-			"tests": "tests[\"Content-Type is application/json\"] =\n  request.headers[\"Content-Type\"] === \"application/json\";\n\ntests[\"Request was successful\"] = \n  responseCode.code === 200;\n\nif(responseCode.code === 200) {\n  var jsonData = JSON.parse(responseBody);\n  postman.setGlobalVariable('Ticket', jsonData.Ticket);\n    tests[\"Ticket was set as a global variable\"] =\n      globals.Ticket !== undefined;\n}",
-			"preRequestScript": "",
-			"url": "api.adform.com/Services/Security/Login",
-			"responses": [],
-			"folder": "cc0910dd-46e3-af4f-3d88-8dc5b1c0e880"
-		},
-		{
-			"id": "99b2f83f-8744-e251-dfe9-0d64a7fcfcc9",
-			"name": "Users",
-			"description": "This method returns a list of all users which are under the same client as you have logged in.\n\nCurrently no filtering is enabled.",
-			"collectionId": "2cab2650-4828-c813-2a59-9b52f87ded0b",
-			"method": "GET",
-			"headers": "Ticket: {{Ticket}}",
-			"dataMode": "params",
-			"data": [],
-			"rawModeData": "",
-			"tests": "tests[\"Has Ticket\"] = \n  request.headers.Ticket;\n    \ntests[\"Request was successful\"] = \n  responseCode.code === 200;",
-			"preRequestScript": "",
-			"url": "api.adform.com/Services/User/Users",
-			"responses": [],
-			"isLastRequest": true,
-			"folder": "ccf39eca-c684-de68-9549-25f2c689ba6e"
+			"item": [
+				{
+					"name": "Users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Has Ticket\"] = \n  request.headers.Ticket;\n    \ntests[\"Request was successful\"] = \n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/User/Users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of all users which are under the same client as you have logged in.\n\nCurrently no filtering is enabled."
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
