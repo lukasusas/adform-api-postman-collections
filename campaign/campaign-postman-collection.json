@@ -783,6 +783,35 @@
 					"response": []
 				},
 				{
+					"name": "Tracking Campaigns",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/campaigns/trackingCampaigns?advertiserId=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of Advertiser's tracking campaigns.\n\nAdvertiser ID parameter is required in your request url. \n\nEXAMPLE: ?advertiserId=00000\n\nYou can retrieve Advertiser ID using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				},
+				{
 					"name": "Create Campaign",
 					"event": [
 						{
