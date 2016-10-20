@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Campaign",
-		"_postman_id": "e2d5ecb0-b4a9-76fd-1e35-f4c3182f63a6",
+		"_postman_id": "682f20ef-7f42-4d12-9d96-0f09facc25fa",
 		"description": "Campaign is a primary element in the Adform system that contains media, placements, banners. In this section you will find information on how to create and manage campaigns.\n\nBefore you create campaigns you need to have an account and at least one advertiser.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -39,7 +39,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"type\": 1,\r\n  \"settings\": 5,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"patricija.buskeviciute@adform.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"type\": 1,\r\n  \"settings\": 5,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"testmail@mail.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"description": "This service creates a new alert. There are 3 different alert levels - campaign, advertiser and client. \r\n\r\nNOTE: You need to specify campaign level on your request URL.\r\n\r\nEXAMPLE: v1/alerts/campaign/00000/alerts\r\n(00000 - CampaignId)\r\n\r\nTips on request body:\r\n- Type is always a number\r\n- Settings depend on type\r\n- CampaignManager/campaignCoManager value \"true\" enables CampaignManager or CampaignCoManager to receive alers."
 					},
@@ -564,7 +564,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/CampaignLabels?CampaignId=00000",
+						"url": "api.adform.com/Services/Label/CampaignLabels",
 						"method": "POST",
 						"header": [
 							{
@@ -580,7 +580,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"CampaignId\" : 00000,\r\n  \"CampaignLabels\": [\r\n    {\r\n      \"Id\": 99\r\n    }\r\n  ]\r\n}"
+							"raw": "{\r\n  \"CampaignId\" : 000000,\r\n  \"CampaignLabels\": [\r\n    {\r\n      \"Id\": 9121\r\n    }\r\n  ]\r\n}"
 						},
 						"description": "This method adds a new label for the specified campaign label group.\n\nLabelId is required in the request body that you are parsing.\n\nEXAMPLE: \"Id\": 00000\n\nYou can retrieve LabelId using \"GET Labels\" method."
 					},
@@ -722,8 +722,37 @@
 		},
 		{
 			"name": "Management",
-			"description": "This service is dedicated to campaign management. It allows retrieving campaign list, creating and editing campaigns. This service should be used to get campaign id, campaign code to pass it as input to other services.",
+			"description": "",
 			"item": [
+				{
+					"name": "Campaigns (old version)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Campaign/Campaigns",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Campaign\": {\r\n    \"AdvertiserId\": 00000,\r\n    \"Name\": \"Name\",\r\n    \"StartDate\": \"2016-06-16T00:00:00\",\r\n    \"EndDate\": \"2018-10-22T23:59:00\",\r\n    \"ResponsibleUserId\": 11111,\r\n    \"CoResponsibleUserId\": \"11111\",\r\n    \"Type\": \"Display\"\r\n  }\r\n}"
+						},
+						"description": "This method returns a list of all campaigns which are under the same client as you have logged in.\n\nYou can filter campaigns by parsing these parametes on the request URL (variable types are specified in brackets):\n\n1. Status (byte; 1 - running, 2 - pending, 3 - finished)\n2. AdvertiserId\n3. Type (byte; 1 - display, 2 - email, 3 affiliate, 4 - mobile, 5 - social media, 6 - mixed, 7 - non campaign, 8 - Google, 9 - Yahoo, 10 - search/non api, 11 - search/all, 12 - realtimebidding, 13 - Microsoft)\n4. DateFrom (dateTime)\n5. DateTo (dateTime)\n6. State (byte; 1- active, 2 inactive, 3 - deleted)\n7. ... (find more on http://api.adform.com/)\n\nEXAMPLES: \n?State=1\n?DateFrom=2010-10-22T23:59:00\n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				},
 				{
 					"name": "Campaigns",
 					"event": [
@@ -749,7 +778,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of all campaigns which are under the same client as you have logged in.\n\nYou can filter campaigns by parsing these parametes on the request URL (variable types are specified in brackets):\n\n1. Status (byte; 1 - running, 2 - pending, 3 - finished)\n2. AdvertiserId\n3. Type (byte; 1 - display, 2 - email, 3 affiliate, 4 - mobile, 5 - social media, 6 - mixed, 7 - non campaign, 8 - Google, 9 - Yahoo, 10 - search/non api, 11 - search/all, 12 - realtimebidding, 13 - Microsoft)\n4. DateFrom (dateTime)\n5. DateTo (dateTime)\n6. State (byte; 1- active, 2 inactive, 3 - deleted)\n7. ... (find more on http://api.adform.com/)\n\nEXAMPLES: \n?State=1\n?DateFrom=2010-10-22T23:59:00\n\nFYI: You can use \"Params\" button for easier parameter management."
+						"description": "This method returns a list of campaigns that the user has access to at the agency level. When no filter parameters are specified, list contains of 100 active campaigns.\n\nMore information about possible query parameters: \nhttp://api.adform.com/v1/help/buyer/campaigns#!/Campaigns/Campaigns_GetList"
 					},
 					"response": []
 				},
@@ -902,7 +931,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/628971/rtbsettings",
+						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
 						"method": "GET",
 						"header": [
 							{
@@ -926,13 +955,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
 							}
 						}
 					],
 					"request": {
 						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Ticket",
@@ -947,7 +976,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"budget\": {\r\n    \"cost\": {\r\n      \"budget\": 123,\r\n      \"periodType\": \"Total\",\r\n      \"pacingType\": \"Evenly\"\r\n    }\r\n  },\r\n  \"capping\": [\r\n    {\r\n      \"type\": \"Accumulated\",\r\n      \"period\": {\r\n        \"type\": \"Days\",\r\n        \"duration\": 5\r\n      },\r\n      \"viewability\": {\r\n        \"type\": \"Time\",\r\n        \"duration\": 1000\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"Frequency\",\r\n      \"impressions\": 10,\r\n      \"period\": {\r\n        \"type\": \"Campaign\"\r\n      },\r\n      \"viewability\": {\r\n        \"type\": \"BrandExposure\",\r\n        \"duration\": 5000\r\n      }\r\n    }\r\n  ]\r\n}"
+							"raw": "{\r\n  \"budget\": {\r\n    \"cost\": {\r\n      \"budget\": 123,\r\n      \"periodType\": \"Total\",\r\n      \"pacingType\": \"Evenly\"\r\n    }\r\n  },\r\n  \"capping\": [\r\n    {\r\n      \"type\": \"Accumulated\",\r\n      \"period\": {\r\n        \"type\": \"Days\",\r\n        \"duration\": 5\r\n      },\r\n      \"viewability\": {\r\n        \"type\": \"Time\",\r\n        \"duration\": 2000\r\n      }\r\n    },\r\n    {\r\n      \"type\": \"Frequency\",\r\n      \"impressions\": 10,\r\n      \"period\": {\r\n        \"type\": \"Campaign\"\r\n      },\r\n      \"viewability\": {\r\n        \"type\": \"BrandExposure\",\r\n        \"duration\": 5000\r\n      }\r\n    }\r\n  ]\r\n}"
 						},
 						"description": "This method updates campaign RTB settings such as budget and capping. \n\nCampaignId is required in your request url.\n\nEXAMPLE: v1/campaigns/00000/rtbsettings\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method or using Dictionaries."
 					},
