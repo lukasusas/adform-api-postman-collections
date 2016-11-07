@@ -2,14 +2,14 @@
 	"variables": [],
 	"info": {
 		"name": "Order",
-		"_postman_id": "f140d384-afae-6616-28b6-9e4312ad1861",
+		"_postman_id": "3e226c04-ed0d-0691-dddc-94fe87a738d1",
 		"description": "Orders allow you to group line items within a campaign to efficiently organize your buying strategies. Orders are particularly useful if you are running long term campaigns and would like to group your line items for convenience purposes but they themselves do not represent additional functionality but rather act as an additional level between campaign and line items.\n\nNOTE: Each order can only contain up to 100 line items.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Direct",
-			"description": "Media is a representation of specific place on publisher's environment where ad can be displayed. \r\n\r\nIn case of Direct campaigns - Media name is just a free form name that allow publisher to identify exact place on his website.",
+			"description": "",
 			"item": [
 				{
 					"name": "Media Creatives",
@@ -107,7 +107,7 @@
 		},
 		{
 			"name": "RTB",
-			"description": "In this section you can find information on how to manage orders. It can be useful if you are running a long term Campaign and would like to have a better picture. For example, you are able to set the Campaign for one year and group Line Items into separate Orders for one month period. Once the campaign is created, default Order is automatically created for the campaign.",
+			"description": "",
 			"item": [
 				{
 					"name": "Orders",

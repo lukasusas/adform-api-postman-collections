@@ -2,17 +2,17 @@
 	"variables": [],
 	"info": {
 		"name": "Line Item",
-		"_postman_id": "f1c27d6e-55c2-91e2-bd90-2a496931c346",
-		"description": "A line item is a unit of advertising that is bought by advertisers from publishers.\n\nNOTE: Only 100 line items can be created per campaign or per order.",
+		"_postman_id": "cefc58c6-f12d-8ece-24a6-503843dab43f",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Direct",
-			"description": "Placements or Direct Line Items is a booking/purchase specification for an ad.It is define required amount impressions/clicks, pleace where our ad should be displayed, display schedule, billing strategy and amount of money that should be paid.\r\n\r\nDirect line items are compatible with Automated Guaranteed Line Items (AG Line Items extend Direct Line Items), but differ from Real Time Bidding line items in part of actual serving, pricing and reporting.",
+			"description": "",
 			"item": [
 				{
-					"name": "Get Placement Labels",
+					"name": "Placement Labels",
 					"event": [
 						{
 							"listen": "test",
@@ -41,7 +41,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Placement Labels",
+					"name": "Placement Labels",
 					"event": [
 						{
 							"listen": "test",
@@ -131,7 +131,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Placement\": {\r\n    \"Name\": \"Placement1\",\r\n    \"MediaId\": 11111\r\n  },\r\n  \"CampaignId\": 00000\r\n}"
+							"raw": "{\r\n  \"Placement\": {\r\n    \"Name\": \"Placement22\",\r\n    \"MediaPlanId\": 111333,\r\n    \"MediaId\": 21121,\r\n    \"BuyType\": \"cpc\",\r\n    \"Volume\": 1000,\r\n    \"GrossAmount\": 11,\r\n    \"NetAmount\": 12\r\n  },\r\n  \"CampaignId\": 00000\r\n}"
 						},
 						"description": "This method creates a new placement and adds it to an active media plan in your specified campaign.\n\nYou have to parse CampaignId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\"."
 					},
@@ -165,7 +165,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Placement\": {\r\n    \"Id\": 11111,\r\n    \"Name\": \"Placement2_Updated\",\r\n    \"BuyType\": \"Cpc\",\r\n    \"Volume\": 120,\r\n    \"GrossAmount\": 130,\r\n    \"NetAmount\": 140\r\n  }\r\n}"
+							"raw": "{\n  \"Placement\": {\n    \"Id\": 112233,\n    \"Name\": \"Placement_updated\",\n    \"MediaPlanId\": 584124,\n    \"MediaId\": 1252626,\n    \"BuyType\": \"Cpc\",\n    \"Volume\": 1000,\n    \"GrossAmount\": 11,\n    \"NetAmount\": 12\n  }\n}"
 						},
 						"description": "This method updates an existing placement.\n\nYou have to parse PlacementId in your request body.\n\nYou can retrieve CampaignId using \"GET Placements\"."
 					},
@@ -183,7 +183,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Placement/PlacementSchedules?PlacementIds=11111",
+						"url": "api.adform.com/Services/Placement/PlacementSchedules?PlacementIds=111111",
 						"method": "GET",
 						"header": [
 							{
@@ -228,7 +228,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"PlacementSchedule\": {\n    \"PlacementId\": 11111,\n    \"Intervals\": [\n      {\n        \"From\": \"2016-06-21T00:00:00\",\n        \"To\": \"2016-06-21T00:00:00\"\n      },\n      {\n        \"From\": \"2016-07-23T00:00:00\",\n        \"To\": \"2016-07-23T00:00:00\"\n      }\n    ]\n  }\n}"
+							"raw": "{\n  \"PlacementSchedule\": {\n    \"PlacementId\": 1111111,\n    \"Intervals\": [\n      {\n        \"From\": \"2016-06-21T00:00:00\",\n        \"To\": \"2016-06-21T00:00:00\"\n      },\n      {\n        \"From\": \"2016-07-23T00:00:00\",\n        \"To\": \"2016-07-23T00:00:00\"\n      }\n    ]\n  }\n}"
 						},
 						"description": "This method updates Placement Schedule.\n\nYou need to parse PlacementId in your request URL.\n\nYou can retrieve PlacementId using method \"GET Placements\""
 					},
@@ -301,7 +301,7 @@
 		},
 		{
 			"name": "RTB",
-			"description": "In RTB line item you can set and change such details as line item budget, period, inventory that is relevant to your strategy as well as various targeting options from geographical targeting to specific cookie pool targeting by using different provider's external data.",
+			"description": "",
 			"item": [
 				{
 					"name": "Line items",
@@ -315,7 +315,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/rtb/lineitems?campaignid=00000&fields=BudgetSettings",
+						"url": "api.adform.com/v1/buyer/rtb/lineitems?campaignIds=00000",
 						"method": "GET",
 						"header": [
 							{
@@ -328,7 +328,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list with full list line item models or models having just requested properties, filtered by Budget properties.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /lineitems?campaignid=00000&fields=BudgetSettings\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+						"description": "This method returns line items available in user's agency scope. In order to access line items, user should have granted access to agency campaigns.\n\nAt least one campaign, order, line item or placement identifier should be specified.\n\nFiltering parameter names:\n1. campaignIds (comma separated list of campaign identifiers)\n2. orderIds (comma separated list of order identifiers)\n3. lineitemIds (comma separated list of line item identifiers/0\n4. placementIds (comma separated list of placement identifiers)\n5. types (comma separated list of line item types. Available values: Display, Mobile, Video)\n6. fields (comma separated list of fields to return in response. Available values: \nId, PlacementId, OrderId, CampaignId, AgencyId, Name, Type, Budget)\n7. paused (filter by paused attribute)\n8. deleted (fiter by deleted attribute)\n9. search (search by line item name)\n10. sort (comma separated sort settings, e.g. sort=id+asc,name+desc. Available fields for sorting: id, name)\n11. offset (Starting index of items to return. Default value = 0)\n11. limit (Default value = 100)\n\nExample: /v1/buyer/rtb/lineitems?campaignIds=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
 					},
 					"response": []
 				},
@@ -344,7 +344,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities?campaignId=00000&ActivityId=11111 ",
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities?campaignId=00000&ActivityId=11111",
 						"method": "GET",
 						"header": [
 							{
@@ -389,9 +389,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"CampaignId\": 00000,\r\n  \"Name\": \"RTB Activity Name\",\r\n  \"SchedulingType\": 1,\r\n  \"Periods\": [],\r\n  \"SchedulerStartDate\": \"01/08/2016\",\r\n  \"SchedulerEndDate\": \"01/08/2016\",\r\n  \"PeriodStartDate\": \"01/08/2016\",\r\n  \"PeriodEndDate\": \"01/08/2016\",\r\n  \"FullPeriodStartDate\": \"01/08/2016\",\r\n  \"FullPeriodEndDate\": \"01/08/2016\",\r\n  \"Enabled\": \"true\",\r\n  \"CplMaxBidPriceCpm\": 0,\r\n  \"CpcMaxBidPriceCpm\": 0,\r\n  \"Budget\": \"0.00\",\r\n  \"BudgetPeriodType\": 1,\r\n  \"BidCpmPrice\": \"0.00\",\r\n  \"CappingSettings\": [],\r\n  \"BuyingType\": 2,\r\n  \"BudgetPacingType\": \"0\",\r\n  \"CpcBidPrice\": 0,\r\n  \"CplBidPrice\": 0,\r\n  \"CplLogPointFilter\": \"0\",\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": null,\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": null,\r\n      \"State\": 2\r\n    }\r\n  ],\r\n  \"CategoryType\": 10,\r\n  \"IABCategories\": [],\r\n  \"IABCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategories\": null,\r\n  \"ContextualCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategoryProviderId\": null,\r\n  \"GooglePretargetingCampaignId\": null,\r\n  \"DomainPatterns\": {\r\n    \"IncludedDomains\": \"\",\r\n    \"ExcludedDomains\": \"\",\r\n    \"DomainFilterUnknown\" : true\r\n  }\r\n}"
+							"raw": "{\r\n  \"CampaignId\": 00000,\r\n  \"Name\": \"RTB Activity Name\",\r\n  \"SchedulingType\": 1,\r\n  \"SchedulerStartDate\": \"2016-05-04T23:00:00Z\",\r\n  \"SchedulerEndDate\": \"2016-10-31T00:00:00Z\",\r\n  \"PeriodStartDate\": \"2016-05-05T14:23:00Z\",\r\n  \"PeriodEndDate\": \"2016-05-04T23:00:00Z\",\r\n  \"FullPeriodStartDate\": \"2016-05-04T23:00:00Z\",\r\n  \"FullPeriodEndDate\": \"2016-10-31T00:00:00Z\",\r\n  \"BuyingType\": 2,\r\n  \"Inventories\": [\r\n    {\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"State\": 2\r\n    }\r\n  ]\r\n}"
 						},
-						"description": "This method creates a new RTB Line Item.\n\nYou need to parse CampaignId in your request body and specify at least one inventory.\n\nInventory specification includes InventorySourceId and SourceId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve information about inventories using \"GET Inventory Sources\" method."
+						"description": "This method creates a new RTB Line Item.\n\nYou need to parse CampaignId in your request body and specify at least one inventory.\n\nInventory specification includes InventorySourceId and SourceId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve information about inventories using \"GET Inventory Sources\" method.\n\nMore info about line item creation: \nhttp://api.adform.com/help/references/buyer-solutions/line-item/rtb/management/create-line-item"
 					},
 					"response": []
 				},
@@ -423,14 +423,14 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Id\": 111111,\r\n  \"CampaignId\": 00000,\r\n  \"PlacementId\": 2222222,\r\n  \"Name\": \"RTB Activity Nallme3\",\r\n  \"SchedulingType\": 1,\r\n  \"Periods\": [],\r\n  \"SchedulerStartDate\": \"01/08/2016\",\r\n  \"SchedulerEndDate\": \"01/08/2016\",\r\n  \"PeriodStartDate\": \"01/08/2016\",\r\n  \"PeriodEndDate\": \"01/08/2016\",\r\n  \"FullPeriodStartDate\": \"01/08/2016\",\r\n  \"FullPeriodEndDate\": \"01/08/2016\",\r\n  \"Enabled\": \"true\",\r\n  \"CplMaxBidPriceCpm\": 0,\r\n  \"CpcMaxBidPriceCpm\": 0,\r\n  \"Budget\": \"0.00\",\r\n  \"BudgetPeriodType\": 1,\r\n  \"BidCpmPrice\": \"0.00\",\r\n  \"CappingSettings\": [],\r\n  \"BuyingType\": 2,\r\n  \"BudgetPacingType\": \"0\",\r\n  \"CpcBidPrice\": 0,\r\n  \"CplBidPrice\": 0,\r\n  \"CplLogPointFilter\": \"0\",\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": null,\r\n      \"InventorySourceId\": 780,\r\n      \"SourceId\": 780,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": null,\r\n      \"State\": 2\r\n    }\r\n  ],\r\n  \"CategoryType\": 10,\r\n  \"IABCategories\": [],\r\n  \"IABCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategories\": null,\r\n  \"ContextualCategoriesFilteringMethod\": 1,\r\n  \"ContextualCategoryProviderId\": null,\r\n  \"GooglePretargetingCampaignId\": null,\r\n  \"DomainPatterns\": {\r\n    \"IncludedDomains\": \"\",\r\n    \"ExcludedDomains\": \"\",\r\n    \"DomainFilterUnknown\" : true\r\n  }\r\n}"
+							"raw": "{\r\n  \"Id\": 469045,\r\n  \"CampaignId\": 628971,\r\n  \"PlacementId\": 2374789,\r\n  \"Name\": \"RTB Activity Nallme3\",\r\n  \"SchedulingType\": 1,\r\n  \"CappingSettings\": [\r\n    {\r\n      \"Id\": 2325686,\r\n      \"FrequencyCap\": 6,\r\n      \"InScreenDuration\": 6000\r\n    }],\r\n  \"Inventories\": [\r\n    {\r\n      \"Id\": 23331668,\r\n      \"InventorySourceId\": 31,\r\n      \"SourceType\": 1,\r\n      \"SourceName\": \"Rubicon\",\r\n      \"SourceId\": 31,\r\n      \"DealId\": null,\r\n      \"State\": 1,\r\n      \"CpmPrice\": null,\r\n      \"PriceMultiplier\": 1,\r\n      \"InventoryBuyingType\": 0\r\n  }],\r\n  \"SchedulerStartDate\": \"2016-05-04T23:00:00Z\",\r\n  \"SchedulerEndDate\": \"2016-12-31T00:00:00Z\",\r\n  \"PeriodStartDate\": \"2016-05-05T14:23:00Z\",\r\n  \"PeriodEndDate\": \"2016-05-04T23:00:00Z\",\r\n  \"FullPeriodStartDate\": \"2016-05-04T23:00:00Z\",\r\n  \"FullPeriodEndDate\": \"2016-12-31T00:00:00Z\",\r\n  \"BuyingType\": 2\r\n}"
 						},
 						"description": "This method updates an existing RTB Line Item.\n\nYou need to specify ActivityId,CampaignId and PlacementId in your request body.\n\nEXAMPLE: \"Id\": 11111, \"CampaignId\": 00000, \"PlacementId\": 2222222\n(Id stand for ActivityId).\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
 					},
 					"response": []
 				},
 				{
-					"name": "Deactivate Line item",
+					"name": "Delete/Deactivate Line item",
 					"event": [
 						{
 							"listen": "test",
@@ -459,7 +459,123 @@
 					"response": []
 				},
 				{
-					"name": "Get Deals and Packages",
+					"name": "Creative Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns detailed information about creative settings for specified inventory.\n\nYou need to parse source ID, source type and parent source ID on your request URL.\n\nExample: /v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780"
+					},
+					"response": []
+				},
+				{
+					"name": "Classificators list for specified",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/creativesettings/classificator/xxxx",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns classificators list for specified type.\n\nYou need to parse \"type\" parameter on your request URL.\n\nType can be bannertype, richmediasubtype, iabcategory and etc.\n\nExample: /v1/creativesettings/classificator/xxxx\n(where xxxx is type)"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory Sources",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities/InventorySources?campaignId=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventory sources.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /Activities/InventorySources?campaignId=11111\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory Sources 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals/inventorySources",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventory sources..\n\nYou can filter inventory sources using these parameters:\n1. mustHaveDeals (default is true)\n2. mustSupportManualDeals (default is false)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deals and Packages",
 					"event": [
 						{
 							"listen": "test",
@@ -488,7 +604,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Inventory Sources",
+					"name": "Deals",
 					"event": [
 						{
 							"listen": "test",
@@ -499,7 +615,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities/InventorySources?campaignId=11111",
+						"url": "api.adform.com/dsp/v1/deals",
 						"method": "GET",
 						"header": [
 							{
@@ -512,7 +628,220 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method returns a list of available inventory sources.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /Activities/InventorySources?campaignId=11111\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+						"description": "This method returns a list of valid deals that are accessible for agency."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Deal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DealId\": \"TestDeal\",\r\n  \"InventorySourceId\": 780,\r\n  \"Name\": \"string\",\r\n  \"CpmPrice\": 0,\r\n  \"DealState\": \"New\"\r\n}"
+						},
+						"description": "This method creates marketplace manual deal."
+					},
+					"response": []
+				},
+				{
+					"name": "Deal Info (for PMP, external and manual deals)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals/x/y/z",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This returns information about specified deal.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nAvailable source type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Deal State ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals/x/y/z",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DealState\": 0\r\n}"
+						},
+						"description": "This method updates deal state for client division.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nSource type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal\n\nDeal state values:\n2 - Accepted\n3 - Rejected"
+					},
+					"response": []
+				},
+				{
+					"name": "All Inventories (campaign or line item scope)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview/available?campaignid=000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventories for a specified campaign or line item.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview/available?campaignid=000000"
+					},
+					"response": []
+				},
+				{
+					"name": "Search inventories (campaign or line item scope)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview?campaignid={{CampaignId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventories for a specified campaign or line item and matches specified filter parameters.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview?campaignid=000000\n\nMore info about search parameters: \nhttp://api.adform.com/v1/help/buyer/inventories#!/InventoriesOverview/InventoriesOverview_GetList"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview/x/y/z?campaignId=000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns detailed information about specified inventory.\n\nPlease note that parent source ID, source type, source ID and campaign or activity ID is required on your request URL.\n\nExample: /v1/inventoriesoverview/x/y/z?campaignId=0000\n(where x - parnt source ID, y - source type, z - source ID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory Source Logo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview/logos/?id=1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns logo for specified inventory sources. Content value is returned as Base64 string.\n\nYou need to parse inventory source ID on your request URL.\n\nExample: /dsp/v1/inventoriesoverview/logos/?id=1"
 					},
 					"response": []
 				},
@@ -743,7 +1072,7 @@
 		},
 		{
 			"name": "RTB Dictionaries",
-			"description": "This services allows you to manage RTB Line item dictionaries.",
+			"description": "",
 			"item": [
 				{
 					"name": "Locations",
@@ -770,7 +1099,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of locations for targeting."
+						"description": "This method returns a list of locations for targeting.\n\nYou can use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/locations?limit=0"
 					},
 					"response": []
 				},
@@ -799,7 +1128,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of languages for targeting."
+						"description": "This method returns a list of languages for targeting.\n\nYou can use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/languages?limit=0"
 					},
 					"response": []
 				},
@@ -828,7 +1157,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of available tracking points for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/trackingPoints?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+						"description": "This method returns a list of available tracking points for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/trackingPoints?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/trackingPoints?campaignId=00000&limit=0"
 					},
 					"response": []
 				},
@@ -857,7 +1186,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of available tracking point filters.\n\nYou need to parse CampaingId on your request URL.\n\nEXAMPLE: /dictionaries/trackingPointFilters?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+						"description": "This method returns a list of available tracking point filters.\n\nYou need to parse CampaingId on your request URL.\n\nEXAMPLE: /dictionaries/trackingPointFilters?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/trackingPointFilters?campaignId=00000&limit=0"
 					},
 					"response": []
 				},
@@ -886,7 +1215,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of available audiences for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/audiences?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method."
+						"description": "This method returns a list of available audiences for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/audiences?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/audiences?campaignId=00000&limit=0"
 					},
 					"response": []
 				},
@@ -915,7 +1244,152 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of available campaigns for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/campaigns?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+						"description": "This method returns a list of available campaigns for targeting.\n\nYou need to parse CampaignId on your request URL.\n\nEXAMPLE: /dictionaries/campaigns?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/campaigns?campaignId=00000&limit=0"
+					},
+					"response": []
+				},
+				{
+					"name": "Device Types",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/deviceTargeting/deviceTypes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available devices types and operating systems.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. filter (search term. Filters the result list to return service providers where name matches term)\n2. limit (limits the result amount, default is 100, to get all results use 0)\n\nExample: /v1/dictionaries/deviceTargeting/deviceTypes?limit=0"
+					},
+					"response": []
+				},
+				{
+					"name": "Device Vendors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/deviceTargeting/deviceVendors",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available devices types and operating systems.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. filter (search term. Filters the result list to return service providers where name matches term)\n2. limit (limits the result amount, default is 100, to get all results use 0)\n\nExample: /v1/dictionaries/deviceTargeting/deviceVendors?limit=0"
+					},
+					"response": []
+				},
+				{
+					"name": "Device Models",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/deviceTargeting/deviceModels",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available devices types and operating systems.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. filter (search term. Filters the result list to return service providers where name matches term)\n2. limit (limits the result amount, default is 100, to get all results use 0)\n\nExample: /v1/dictionaries/deviceTargeting/deviceModels?limit=0"
+					},
+					"response": []
+				},
+				{
+					"name": "Device Browsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/deviceTargeting/browsers",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available devices types and operating systems.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. filter (search term. Filters the result list to return service providers where name matches term)\n2. limit (limits the result amount, default is 100, to get all results use 0)\n\nExample: /v1/dictionaries/deviceTargeting/browsers?limit=0"
+					},
+					"response": []
+				},
+				{
+					"name": "Device Platforms",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/dictionaries/deviceTargeting/platforms",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a list of available devices types and operating systems.\n\nYou can also use filtering parameters (which are optional) with such key names:\n\n1. filter (search term. Filters the result list to return service providers where name matches term)\n2. limit (limits the result amount, default is 100, to get all results use 0)\n\nExample: /v1/dictionaries/deviceTargeting/platforms?limit=0"
 					},
 					"response": []
 				},
@@ -1007,35 +1481,6 @@
 					"response": []
 				},
 				{
-					"name": "Device Types",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/dictionaries/deviceTypes",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns a list of available devices types and operating systems."
-					},
-					"response": []
-				},
-				{
 					"name": "Internet Service Providers",
 					"event": [
 						{
@@ -1060,7 +1505,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of internet service for targeting."
+						"description": "This method returns a list of internet service for targeting.\n\nYou can use filtering parameters (which are optional) with such key names:\n\n1. term\n2. filter (search term. Optional. Filters the result list to return service providers where name matches term)\n3. limit (limits the result amount, default is 100, to get all results use 0)\n4. startIndex (default value is 0. Optional. Defines start index, from which element to start)\n\nExample: /v1/dictionaries/internetServiceProviders?limit=0"
 					},
 					"response": []
 				},

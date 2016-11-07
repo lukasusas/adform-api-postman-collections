@@ -3,7 +3,7 @@
 	"info": {
 		"name": "Campaign",
 		"_postman_id": "682f20ef-7f42-4d12-9d96-0f09facc25fa",
-		"description": "Campaign is a primary element in the Adform system that contains media, placements, banners. In this section you will find information on how to create and manage campaigns.\n\nBefore you create campaigns you need to have an account and at least one advertiser.",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -141,7 +141,7 @@
 		},
 		{
 			"name": "Attributes Settings",
-			"description": "This service allows creating attribute groups, which later can be assigned to each banner in order to batch them and sort the reports data out according to the attribute values.",
+			"description": "",
 			"item": [
 				{
 					"name": "Campaign Attributes",
@@ -231,7 +231,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"Title\": \"TestName\",\r\n  \"AttributeValues\": [\r\n    {\r\n      \"Title\": \"Title1\"\r\n    },\r\n    {\r\n      \"Title\": \"Title2\"\r\n    }\r\n  ],\r\n  \"IsActive\": true\r\n}"
 						},
-						"description": "This method creates a new campaign attribute.\n\nCampaignId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+						"description": "This method creates a new campaign attribute, which later can be assigned to each banner in order to batch them and sort the reports data out according to the attribute values.\n\nCampaignId is required in your request url. \n\nEXAMPLE: /api/v1/CampaignSettings/00000/CampaignAttributes\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
 					},
 					"response": []
 				},
@@ -399,7 +399,7 @@
 		},
 		{
 			"name": "Dictionaries",
-			"description": "This service returns dictionaries of possible values for campaign list filtering by campaign manager, comanager, labels and clients.",
+			"description": "",
 			"item": [
 				{
 					"name": "Managers",
@@ -521,7 +521,7 @@
 		},
 		{
 			"name": "Labels",
-			"description": "This service allows you to create and manage labels at campaign level. These labels can then be used only for the specified campaign and set according to your specific needs.\n\nYou need to parse CampaingId in your request URL.\n\nEXAMPLE: /Label/CampaignLabels?CampaignId=00000\n(00000 - CampaignId)\n\nNOTE: You can retrieve CampaignId using \"Get Campaigns\" method or using Dictionaries.",
+			"description": "",
 			"item": [
 				{
 					"name": "Campaign Labels",
@@ -590,7 +590,7 @@
 		},
 		{
 			"name": "Landing Pages",
-			"description": "This service allows you to manage campaign landing pages at campaign level. ",
+			"description": "",
 			"item": [
 				{
 					"name": "Landing Pages",
@@ -946,7 +946,7 @@
 		},
 		{
 			"name": "RealTimeBidding Settings",
-			"description": "This service allows to manage RTB settings for campaign. The settings include budget settings and capping settings.",
+			"description": "",
 			"item": [
 				{
 					"name": "Campaign RTB Settings",
