@@ -166,7 +166,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"NewTestOrder\",\r\n  \"startDate\": \"2016-07-25T06:32:20.901Z\",\r\n  \"endDate\": \"2016-07-25T06:32:20.901Z\",\r\n  \"budget\": 0,\r\n  \"campaignId\": 00000\r\n}"
+							"raw": "{\r\n  \"name\": \"NewTestOrder\",\r\n  \"startDate\": \"2016-07-25T06:32:20.901Z\", \r\n  \"endDate\": \"2016-07-25T06:32:20.901Z\",\r\n  \"budget\": 0,\r\n  \"campaignId\": 00000\r\n}"
 						},
 						"description": "This method allows you to create a new Order.\n\nYou need to specify CampaignId in the body that you are sending.\n\nYou can retrieve CampaignId using method \"GET Campaigns\" or Dictionaries."
 					},
