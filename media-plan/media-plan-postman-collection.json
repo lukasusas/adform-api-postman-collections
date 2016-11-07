@@ -2,14 +2,14 @@
 	"variables": [],
 	"info": {
 		"name": "Media Plan",
-		"_postman_id": "5eb61861-29fc-b811-dca5-a36a345dc99a",
-		"description": "Mediaplan is another level of abstraction between campaigns and placements. On user interface it is called 'Orders'. Some campaigns may be rather big, so Mediaplans are convenient way to split those big campaign into smalle pieces using whatever criteria you want (time slice, publishers (medias) used and etc).\r\n\r\nCampaign should have at least one mediaplan (which will be automatically created when new cmpaign is created).",
+		"_postman_id": "dae49020-2ed2-f7b6-dfb3-f2d4cb808dd4",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Management",
-			"description": "This srvice is dedicated to media plan management.",
+			"description": "",
 			"item": [
 				{
 					"name": "Media List",
@@ -23,7 +23,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/services/Mediaplan/MediaList?campaignCode=XXXXX",
+						"url": "api.adform.com/services/Mediaplan/MediaList?campaignCode=ANC123",
 						"method": "GET",
 						"header": [
 							{
@@ -36,7 +36,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method retrieves a list of medias that are used in active media plan for the specific campaign.\n\nYou need to specify Campaign Code on the request URL that you are sending.\n\nEXAMPLE: /Mediaplan/MediaList?campaignCode=XXXXX"
+						"description": "Mediaplan is another level of abstraction between campaigns and placements. On user interface it is called 'Orders'. Some campaigns may be rather big, so Mediaplans are convenient way to split those big campaign into smalle pieces using whatever criteria you want (time slice, publishers (medias) used and etc).\n\nCampaign should have at least one mediaplan (which will be automatically created when new cmpaign is created).\n\nGET Media List method retrieves a list of medias that are used in active media plan for the specific campaign.\n\nYou need to specify Campaign Code on the request URL that you are sending.\n\nEXAMPLE: /Mediaplan/MediaList?campaignCode=XXXXX"
 					},
 					"response": []
 				}
