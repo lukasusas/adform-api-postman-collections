@@ -23,7 +23,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/services/Mediaplan/MediaList?campaignCode=ANC123",
+						"url": "api.adform.com/services/Mediaplan/MediaList?campaignCode=ABC123",
 						"method": "GET",
 						"header": [
 							{
