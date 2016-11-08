@@ -459,64 +459,6 @@
 					"response": []
 				},
 				{
-					"name": "Creative Settings",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns detailed information about creative settings for specified inventory.\n\nYou need to parse source ID, source type and parent source ID on your request URL.\n\nExample: /v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780"
-					},
-					"response": []
-				},
-				{
-					"name": "Classificators list for specified",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/creativesettings/classificator/xxxx",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns classificators list for specified type.\n\nYou need to parse \"type\" parameter on your request URL.\n\nType can be bannertype, richmediasubtype, iabcategory and etc.\n\nExample: /v1/creativesettings/classificator/xxxx\n(where xxxx is type)"
-					},
-					"response": []
-				},
-				{
 					"name": "Inventory Sources",
 					"event": [
 						{
@@ -546,35 +488,6 @@
 					"response": []
 				},
 				{
-					"name": "Inventory Sources 2",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/deals/inventorySources",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method returns a list of available inventory sources..\n\nYou can filter inventory sources using these parameters:\n1. mustHaveDeals (default is true)\n2. mustSupportManualDeals (default is false)"
-					},
-					"response": []
-				},
-				{
 					"name": "Deals and Packages",
 					"event": [
 						{
@@ -600,369 +513,6 @@
 							"raw": ""
 						},
 						"description": "This method returns a list of available deals and packages.\n\nYou need to parse CampaignId and InventorySourceId on your request URL.\n\nEXAMPLE: /Activities/DealsAndPackages?campaignId=00000&inventorySourceId=XXX\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve InventorySourceId using \"GET Inventory Sources\" method."
-					},
-					"response": []
-				},
-				{
-					"name": "Deals",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/deals",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method returns a list of valid deals that are accessible for agency."
-					},
-					"response": []
-				},
-				{
-					"name": "Create Deal",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/deals",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"DealId\": \"TestDeal\",\r\n  \"InventorySourceId\": 780,\r\n  \"Name\": \"string\",\r\n  \"CpmPrice\": 0,\r\n  \"DealState\": \"New\"\r\n}"
-						},
-						"description": "This method creates marketplace manual deal."
-					},
-					"response": []
-				},
-				{
-					"name": "Deal Info (for PMP, external and manual deals)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/deals/x/y/z",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This returns information about specified deal.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nAvailable source type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Deal State ",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/deals/x/y/z",
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"DealState\": 0\r\n}"
-						},
-						"description": "This method updates deal state for client division.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nSource type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal\n\nDeal state values:\n2 - Accepted\n3 - Rejected"
-					},
-					"response": []
-				},
-				{
-					"name": "All Inventories (campaign or line item scope)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/inventoriesoverview/available?campaignid=000000",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method returns a list of available inventories for a specified campaign or line item.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview/available?campaignid=000000"
-					},
-					"response": []
-				},
-				{
-					"name": "Search inventories (campaign or line item scope)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/inventoriesoverview?campaignid={{CampaignId}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method returns a list of available inventories for a specified campaign or line item and matches specified filter parameters.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview?campaignid=000000\n\nMore info about search parameters: \nhttp://api.adform.com/v1/help/buyer/inventories#!/InventoriesOverview/InventoriesOverview_GetList"
-					},
-					"response": []
-				},
-				{
-					"name": "Inventory details",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/inventoriesoverview/x/y/z?campaignId=000000",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method returns detailed information about specified inventory.\n\nPlease note that parent source ID, source type, source ID and campaign or activity ID is required on your request URL.\n\nExample: /v1/inventoriesoverview/x/y/z?campaignId=0000\n(where x - parnt source ID, y - source type, z - source ID)"
-					},
-					"response": []
-				},
-				{
-					"name": "Inventory Source Logo",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/inventoriesoverview/logos/?id=1",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method returns logo for specified inventory sources. Content value is returned as Base64 string.\n\nYou need to parse inventory source ID on your request URL.\n\nExample: /dsp/v1/inventoriesoverview/logos/?id=1"
-					},
-					"response": []
-				},
-				{
-					"name": "Trading Desk Fee Change Log",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/tradingdeskfeechangelog",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns Trading Desk Fee Change Log."
-					},
-					"response": []
-				},
-				{
-					"name": "Default Targeting",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/activities/defaulttargeting",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns default targeting settings for a new line item."
-					},
-					"response": []
-				},
-				{
-					"name": "Line Item Targeting",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/activities/11111/targeting",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns RTB Line Item targeting settings.\n\nYou need to parse ActivityId on your request URL.\n\nEXAMPLE: /dsp/v1/activities/11111/targeting\n(11111 - ActivityId)"
-					},
-					"response": []
-				},
-				{
-					"name": "Update Line Item Targeting",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n    \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/dsp/v1/activities/11111/targeting",
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"SetupId\": 386954,\n  \"Groups\": [\n    {\n      \"GroupId\": \"d14ab530-6d07-4b80-b223-2156fa3ef1bd\",\n      \"Id\": 1,\n      \"Rules\": [\n        {\n          \"$type\": \"FromLocationTargetingRule\",\n          \"DimensionId\": 6,\n          \"Locations\": [\n            {\n              \"Id\": 124,\n              \"Name\": \"Canada - country\",\n              \"Type\": 2,\n              \"CountryCode\": \"CA\"\n            }\n          ]\n        },\n        {\n            \"$type\" : \"AudienceIsTargetingRule\",\n            \"TrackingPoints\" : [ 0]\n        }\n      ],\n      \"Settings\": {\n        \"PriceMultiplier\": 1\n      }\n    }\n  ]\n}"
-						},
-						"description": "This method updates RTB Line Item targeting settings.\n\nYou need to parse ActivityId on your request URL.\n\nEXAMPLE: /dsp/v1/activities/11111/targeting\n(11111 - ActivityId)"
 					},
 					"response": []
 				},
@@ -1065,6 +615,35 @@
 							"raw": "2.125.125.3,8.144.144.9"
 						},
 						"description": "This method is for IP ranges upload. IP ranges are read from the request body.\n\nIMPORTANT: Request body should be sent as plain text, IP ranges separated by new line."
+					},
+					"response": []
+				},
+				{
+					"name": "Trading Desk Fee Change Log",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/tradingdeskfeechangelog",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns Trading Desk Fee Change Log."
 					},
 					"response": []
 				}
@@ -1535,6 +1114,789 @@
 							"formdata": []
 						},
 						"description": "This method returns a list of inventory source types."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RTB Inventories",
+			"description": "",
+			"item": [
+				{
+					"name": "Creative Settings",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns detailed information about creative settings for specified inventory.\n\nYou need to parse source ID, source type and parent source ID on your request URL.\n\nExample: /v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780"
+					},
+					"response": []
+				},
+				{
+					"name": "Classificators list for specified",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/creativesettings/classificator/xxxx",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns classificators list for specified type.\n\nYou need to parse \"type\" parameter on your request URL.\n\nType can be bannertype, richmediasubtype, iabcategory and etc.\n\nExample: /v1/creativesettings/classificator/xxxx\n(where xxxx is type)"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory Sources 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals/inventorySources",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventory sources..\n\nYou can filter inventory sources using these parameters:\n1. mustHaveDeals (default is true)\n2. mustSupportManualDeals (default is false)"
+					},
+					"response": []
+				},
+				{
+					"name": "Deals",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of valid deals that are accessible for agency."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Deal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DealId\": \"TestDeal\",\r\n  \"InventorySourceId\": 780,\r\n  \"Name\": \"string\",\r\n  \"CpmPrice\": 0,\r\n  \"DealState\": \"New\"\r\n}"
+						},
+						"description": "This method creates marketplace manual deal."
+					},
+					"response": []
+				},
+				{
+					"name": "Deal Info (for PMP, external and manual deals)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals/x/y/z",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This returns information about specified deal.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nAvailable source type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Deal State ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/deals/x/y/z",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"DealState\": 0\r\n}"
+						},
+						"description": "This method updates deal state for client division.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nSource type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal\n\nDeal state values:\n2 - Accepted\n3 - Rejected"
+					},
+					"response": []
+				},
+				{
+					"name": "All Inventories (campaign or line item scope)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview/available?campaignid=000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventories for a specified campaign or line item.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview/available?campaignid=000000"
+					},
+					"response": []
+				},
+				{
+					"name": "Search inventories (campaign or line item scope)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview?campaignid={{CampaignId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available inventories for a specified campaign or line item and matches specified filter parameters.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview?campaignid=000000\n\nMore info about search parameters: \nhttp://api.adform.com/v1/help/buyer/inventories#!/InventoriesOverview/InventoriesOverview_GetList"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory details",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview/x/y/z?campaignId=000000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns detailed information about specified inventory.\n\nPlease note that parent source ID, source type, source ID and campaign or activity ID is required on your request URL.\n\nExample: /v1/inventoriesoverview/x/y/z?campaignId=0000\n(where x - parnt source ID, y - source type, z - source ID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Inventory Source Logo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/inventoriesoverview/logos/?id=1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns logo for specified inventory sources. Content value is returned as Base64 string.\n\nYou need to parse inventory source ID on your request URL.\n\nExample: /dsp/v1/inventoriesoverview/logos/?id=1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RTB Targeting",
+			"description": "",
+			"item": [
+				{
+					"name": "Default Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/activities/defaulttargeting",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns default targeting settings for a new line item."
+					},
+					"response": []
+				},
+				{
+					"name": "Line Item Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/activities/11111/targeting",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns RTB Line Item targeting settings.\n\nYou need to parse ActivityId on your request URL.\n\nEXAMPLE: /dsp/v1/activities/11111/targeting\n(11111 - ActivityId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Line Item Targeting",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n    \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/activities/11111/targeting",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"SetupId\": 386954,\n  \"Groups\": [\n    {\n      \"GroupId\": \"d14ab530-6d07-4b80-b223-2156fa3ef1bd\",\n      \"Id\": 1,\n      \"Rules\": [\n        {\n          \"$type\": \"FromLocationTargetingRule\",\n          \"DimensionId\": 6,\n          \"Locations\": [\n            {\n              \"Id\": 124,\n              \"Name\": \"Canada - country\",\n              \"Type\": 2,\n              \"CountryCode\": \"CA\"\n            }\n          ]\n        },\n        {\n            \"$type\" : \"AudienceIsTargetingRule\",\n            \"TrackingPoints\" : [ 0]\n        }\n      ],\n      \"Settings\": {\n        \"PriceMultiplier\": 1\n      }\n    }\n  ]\n}"
+						},
+						"description": "This method updates RTB Line Item targeting settings.\n\nYou need to parse ActivityId on your request URL.\n\nEXAMPLE: /dsp/v1/activities/11111/targeting\n(11111 - ActivityId)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "RTB Templates",
+			"description": "",
+			"item": [
+				{
+					"name": "Domain Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/domains",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns list of domain templates that are accessible for agency."
+					},
+					"response": []
+				},
+				{
+					"name": "Domain Template by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/domains/0000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns specific domain template.\n\nYou need to provide domain template ID on your request URL.\n\nEXAMPLE: v1/templates/domains/0000\n(where 0000 - domain template ID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Domain Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 201"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/domains",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\" : \"Test\",\r\n  \"type\": 1,\r\n  \"content\" : { \r\n  \t\"Domains\" : [ \"test.com\", \"test2.com\" ]\r\n  }\r\n}"
+						},
+						"description": "This method creates a domain template."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Domain Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/domains",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\" : 0000,\r\n  \"name\" : \"Test\",\r\n  \"active\" : false,\r\n  \"content\" : { \r\n  \t\"Domains\" : [ \"test.com\", \"test2.com\" ]\r\n  }\r\n}"
+						},
+						"description": "This method updates a domain template."
+					},
+					"response": []
+				},
+				{
+					"name": "Excel Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/exceltemplates",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns list of excel templates that are accessible for agency."
+					},
+					"response": []
+				},
+				{
+					"name": "Excel Template by ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/exceltemplates/0000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns list of excel templates that are accessible for agency."
+					},
+					"response": []
+				},
+				{
+					"name": "Excel Template Tables Definitions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/exceltemplates/tables",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of available tables with supported fields."
+					},
+					"response": []
+				},
+				{
+					"name": "Create Excel Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 201"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/exceltemplates",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Test\",\n  \"type\": 2,\n  \"content\": {\n    \"name\": \"Test\",\n    \"parts\": [\n      {\n        \"customName\": \"Fees\",\n        \"activeFields\": [\n          {\n            \"code\": \"feeName\",\n            \"customName\": \"Name\"\n          },\n          {\n            \"code\": \"feeType\",\n            \"customName\": \"Type\"\n          }\n        ],\n        \"table\": \"Fees\"\n      },\n      {\n        \"customName\": \"Line Items\",\n        \"activeFields\": [\n          {\n            \"code\": \"lName\",\n            \"customName\": \"Line Item Name\"\n          },\n          {\n            \"code\": \"mName\",\n            \"customName\": \"Media\"\n          },\n          {\n            \"code\": \"mediaSection\",\n            \"customName\": \"Media Section\"\n          }\n        ],\n        \"table\": \"Line Items\"\n      }\n    ]\n  }\n}"
+						},
+						"description": "This method creates an excel template."
+					},
+					"response": []
+				},
+				{
+					"name": "Update Excel Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/exceltemplates",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\" : 0000,\n  \"active\" : true,\n  \"name\": \"Test\",\n  \"type\": 2,\n  \"content\": {\n    \"name\": \"Test\",\n    \"parts\": [\n      {\n        \"customName\": \"Fees\",\n        \"activeFields\": [\n          {\n            \"code\": \"feeName\",\n            \"customName\": \"Name\"\n          },\n          {\n            \"code\": \"feeType\",\n            \"customName\": \"Type\"\n          }\n        ],\n        \"table\": \"Fees\"\n      },\n      {\n        \"customName\": \"Line Items\",\n        \"activeFields\": [\n          {\n            \"code\": \"lName\",\n            \"customName\": \"Line Item Name\"\n          },\n          {\n            \"code\": \"mName\",\n            \"customName\": \"Media\"\n          },\n          {\n            \"code\": \"mediaSection\",\n            \"customName\": \"Media Section\"\n          }\n        ],\n        \"table\": \"Line Items\"\n      }\n    ]\n  }\n}"
+						},
+						"description": "This method updates an excel template."
+					},
+					"response": []
+				},
+				{
+					"name": "Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method returns a list of templates that are accessible for agency."
+					},
+					"response": []
+				},
+				{
+					"name": "Activate/Deactivate Templates",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/dsp/v1/templates/0000",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"active\": true\r\n}"
+						},
+						"description": "This method allows to activate or deactivate templates.\n\nYou need to parse template ID on your request URL.\n\nEXAMPLE: dsp/v1/templates/0000\n(where 0000 - template ID)"
 					},
 					"response": []
 				}
