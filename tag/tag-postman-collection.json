@@ -2,14 +2,14 @@
 	"variables": [],
 	"info": {
 		"name": "Tag",
-		"_postman_id": "5bf5b6db-905a-9a9f-7993-5325e48b9f45",
-		"description": "In this section you can find information on how to create tags for both Direct and RTB campaigns.\r\n\r\nFor direct campaigns tags are acting as serving scripts that are implemented by websites and are usually serving one banner, rotator or schedule. Each tag has a unique identifier that is also visible in banner object after the banner is served. \r\n\r\nFor RTB campaigns tags are acting as a match point between a designated banner and inventory. The generated serving script doesn't have to be implemented to the publisher's website as the banner is loaded through a master tag.",
+		"_postman_id": "74e4fcba-a74c-234e-4c99-63b3198315dc",
+		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Management",
-			"description": "Tag management service allows you to create and manage tags as well as add destination urls (landing pages), set tracking pixels and assign external scripts for both Direct and RTB (Real Time Bidding) campaigns. \n\nNOTE: Before creating tags you need to create a banner and a line item.",
+			"description": "",
 			"item": [
 				{
 					"name": "Tags",
@@ -41,7 +41,7 @@
 					"response": []
 				},
 				{
-					"name": "Create Direct Tag",
+					"name": "Create Tag",
 					"event": [
 						{
 							"listen": "test",
@@ -68,9 +68,43 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Tag\": {\r\n    \"CampaignId\": 000000,\r\n    \"PlacementId\": 111111,\r\n    \"Name\": \"PirmasBlynasPirmasTagas\",\r\n    \"Content\": {\r\n      \"Id\": 222222,\r\n      \"ContentType\": \"AdTagContent\",\r\n      \"DestinationUrl\": {\r\n        \"Type\": \"Replace\",\r\n        \"Url\": \"http://www.adform.com/3\"\r\n      }\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"Tag\": {\r\n    \"CampaignId\": 000000,\r\n    \"PlacementId\": 111111,\r\n    \"Name\": \"Test\",\r\n    \"Content\": {\r\n      \"Id\": 222222,\r\n      \"ContentType\": \"AdTagContent\",\r\n      \"DestinationUrl\": {\r\n        \"Type\": \"Replace\",\r\n        \"Url\": \"http://www.adform.com/3\"\r\n      }\r\n    }\r\n  }\r\n}"
 						},
-						"description": "This method creates a tag by specified criteria.\n\nNOTE: Tag contect differs depending on tag type.\n\nAvailable tag content types:\n* AdTagContent\n* RotatorTagContent\n* ScheduleTagContent\n\nYou need to parse CampaignId, PlacementId and BannerId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve PlacementId using \"GET Placements\" method.\n\nYou can retrieve BannerId using Ads Overview service."
+						"description": "This method creates a tag by specified criteria.Before creating tags you need to create a banner and a line item.\n\nNOTE: Tag contect differs depending on tag type.\nFor direct campaigns tags are acting as serving scripts that are implemented by websites and are usually serving one banner, rotator or schedule. Each tag has a unique identifier that is also visible in banner object after the banner is served. \n\nFor RTB campaigns tags are acting as a match point between a designated banner and inventory. The generated serving script doesn't have to be implemented to the publisher's website as the banner is loaded through a master tag.\n\nAvailable tag content types:\n* AdTagContent\n* RotatorTagContent\n* ScheduleTagContent\n\nYou need to parse CampaignId, PlacementId and BannerId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve PlacementId using \"GET Placements\" method.\n\nYou can retrieve BannerId using Ads Overview service."
+					},
+					"response": []
+				},
+				{
+					"name": "Pause/Unpause Tag Status",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/Services/Tag/PauseStatus",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"TagId\": 111111,\r\n  \"IsPaused\": true\r\n}\r\n    "
+						},
+						"description": "This method allows to pause/unpause tag.\n\nNOTE: This method is only available, when additional Tag Pause service is enabled."
 					},
 					"response": []
 				},
@@ -165,7 +199,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"TagDestinationUrls\": [\r\n      {\r\n        \"Id\": 111111,\r\n        \"Url\": \"http://www.adform.com?v=1_updates\"\r\n      }\r\n  ]\r\n}"
+							"raw": "{\r\n  \"TagDestinationUrls\": [\r\n      {\r\n        \"Id\": 111111,\r\n        \"Url\": \"http://www.adform.com/29\"\r\n      }\r\n  ]\r\n}"
 						},
 						"description": "This method updates destination URLs for tags.\n\nYou need to parse Destination URL Id in your request body.\n\nEXAMPLE: \"Id\": 111111"
 					},
@@ -323,40 +357,6 @@
 							"raw": "{\r\n  \"ExternalScript\": {\r\n    \"TagId\": 111111,\r\n    \"Source\": \"http://www.adform.com/1\",\r\n    \"ScriptPosition\": \"Before\"\r\n  }\r\n}"
 						},
 						"description": "This method sets external script(s) to a tag.\n\nYou need to parse TagId in your request body.\n\nYou can retrieve TagId using \"GET Tags\" service."
-					},
-					"response": []
-				},
-				{
-					"name": "Pause/Unpause Tag Status",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
-							}
-						}
-					],
-					"request": {
-						"url": "api.adform.com/Services/Tag/PauseStatus",
-						"method": "POST",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"TagId\": 111111,\r\n  \"IsPaused\": true\r\n}\r\n    "
-						},
-						"description": "This method allows to pause/unpause tag.\n\nNOTE: This method is only available, when additional Tag Pause service is enabled."
 					},
 					"response": []
 				}
