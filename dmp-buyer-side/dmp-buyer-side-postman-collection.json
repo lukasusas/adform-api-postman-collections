@@ -1,0 +1,88 @@
+{
+	"variables": [],
+	"info": {
+		"name": "DMP",
+		"_postman_id": "283dc35d-214b-f765-3f62-fb85259fc6d7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Site Tracking",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Tracking Code",
+					"request": {
+						"url": "https://api.adform.com/Services/SiteTracking/TrackingCode",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"advertiserid\": 00000, \r\n  \"type\": \"standard\",\r\n  \"sync\": true, \r\n  \"websitename\": \"mysite.com\", \r\n  \"sectionname\": \"somesection\", \r\n  \"subsection\": \"somesubsection\", \r\n  \"pagename\": \"somepage\"\r\n}"
+						},
+						"description": "This method allows you to create a tracking code.\n\nAll body fields are mandatory."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tracking Points",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Tracking Points",
+					"request": {
+						"url": "         https://api.adform.com/services/TrackingPoint/TrackingPoints?advertiserId=0000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to retrieve all available tracking points.\n\nPlease note that AdvertiserId is a mandatory query parameter."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tracking Point Filters",
+					"request": {
+						"url": "         https://api.adform.com/services/TrackingPoint/TrackingPointFilters?advertiserId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to retrieve all available tracking point filters.\n\nPlease note that AdvertiserId is a mandatory query parameter."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
