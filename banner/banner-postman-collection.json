@@ -3799,7 +3799,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Format\": 20,\r\n  \"CampaignId\": 00000,\r\n  \"Title\": \"Title\"\r\n}"
+							"raw": "{\r\n  \"Format\": 20,\r\n  \"CampaignId\": 00000, \r\n  \"Title\": \"Title\"\r\n}"
 						},
 						"description": "This method creates new Video Instream banner.\n\nCampaignId is required in you request body."
 					},
