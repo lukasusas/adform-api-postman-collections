@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Banner",
-		"_postman_id": "56bdd663-8af2-6e90-569e-11d01b86a4c0",
+		"_postman_id": "92b338c9-4da2-ef6c-9c70-2d028638df98",
 		"description": "In this section you can find information on how to create and manage various types of banners and all related objects. If the banner is hosted in Adform, the asset is created first which can be reused to create various banners. The created banners can then be used to create rotators or schedules for additional level of control or simply served through Direct or RTB.\r\n\r\nAdform is also offering DCO (Dynamic Content Optimization) banners that are displaying different content depending on a predefined set of rules.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -18,12 +18,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Ads?campaignId=00000",
+						"url": "api.adform.com/api/v1/AdsOverview/Ads?campaignId=000000",
 						"method": "GET",
 						"header": [
 							{
@@ -47,12 +53,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Banners/00000",
+						"url": "api.adform.com/api/v1/AdsOverview/Banners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -76,12 +88,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Rotators/000000",
+						"url": "api.adform.com/api/v1/AdsOverview/Rotators/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -105,12 +123,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Schedules/000000",
+						"url": "api.adform.com/api/v1/AdsOverview/Schedules/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -134,12 +158,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AdsOverview/NestedRotators/00000",
+						"url": "api.adform.com/api/v1/AdsOverview/NestedRotators/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -163,12 +193,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AdsOverview/Ads",
+						"url": "api.adform.com/api/v1/AdsOverview/Ads",
 						"method": "POST",
 						"header": [
 							{
@@ -203,7 +242,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -232,7 +278,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -261,7 +314,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -290,7 +350,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -319,7 +386,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -348,7 +422,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -377,7 +458,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -406,7 +494,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -435,7 +530,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -464,7 +566,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -493,7 +602,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;\r",
+									""
+								]
 							}
 						}
 					],
@@ -528,12 +644,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners",
+						"url": "api.adform.com/api/v1/FlashBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -562,12 +687,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/uuid",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -591,12 +722,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000",
+						"url": "api.adform.com/api/v1/FlashBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -620,12 +757,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000",
+						"url": "api.adform.com/api/v1/FlashBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -649,12 +792,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/File",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -683,12 +835,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Title",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -717,12 +878,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ClickUrl",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -751,12 +921,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Attributes",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -785,12 +964,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Settings",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -819,12 +1007,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
 						"method": "DELETE",
 						"header": [
 							{
@@ -848,12 +1042,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -882,12 +1085,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/Backup",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/Backup",
 						"method": "DELETE",
 						"header": [
 							{
@@ -911,12 +1120,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -945,12 +1163,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/FlashBanners/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/FlashBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -985,12 +1212,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -1019,12 +1255,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1048,12 +1290,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1082,12 +1330,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n \r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									" \r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/uuid",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -1116,12 +1370,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Title",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1150,12 +1413,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ClickUrls",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ClickUrls",
 						"method": "PUT",
 						"header": [
 							{
@@ -1184,12 +1456,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Attributes",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -1218,12 +1499,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Settings",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1252,12 +1542,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1286,12 +1585,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1315,12 +1620,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Asset",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Asset",
 						"method": "PUT",
 						"header": [
 							{
@@ -1349,12 +1663,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -1383,12 +1706,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/AssetBanners/OperationResults/00000",
+						"url": "api.adform.com/api/v1/AssetBanners/OperationResults/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1418,12 +1747,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners",
+						"url": "api.adform.com/api/v1/ImageBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -1452,12 +1790,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/uuid",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -1481,12 +1825,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000",
+						"url": "api.adform.com/api/v1/ImageBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1510,12 +1860,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000",
+						"url": "api.adform.com/api/v1/ImageBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1539,12 +1895,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/File",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -1573,12 +1938,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/Title",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1607,12 +1981,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/ClickUrl",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -1641,12 +2024,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/Attributes",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -1675,12 +2067,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/Settings",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1709,12 +2110,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ImageBanners/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/ImageBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -1749,12 +2159,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream",
+						"url": "api.adform.com/api/v1/InteractiveInstream",
 						"method": "POST",
 						"header": [
 							{
@@ -1783,7 +2202,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -1812,12 +2237,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1841,12 +2272,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/DefaultVideoSettings",
+						"url": "api.adform.com/api/v1/InteractiveInstream/DefaultVideoSettings",
 						"method": "GET",
 						"header": [
 							{
@@ -1870,12 +2307,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1899,12 +2342,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/0000000/MainAsset",
+						"url": "api.adform.com/api/v1/InteractiveInstream/0000000/MainAsset",
 						"method": "PUT",
 						"header": [
 							{
@@ -1933,12 +2385,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/AdditionalAssets",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/AdditionalAssets",
 						"method": "PUT",
 						"header": [
 							{
@@ -1967,12 +2428,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/Title",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2001,12 +2471,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/Attributes",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -2035,12 +2514,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/ClickUrl",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -2069,12 +2557,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/CustomVariables",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/CustomVariables",
 						"method": "PUT",
 						"header": [
 							{
@@ -2103,12 +2600,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/VideoSettings",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/VideoSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -2137,12 +2643,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/InteractiveInstream/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -2177,12 +2692,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners",
+						"url": "api.adform.com/api/v1/LinkBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -2211,12 +2735,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/uuid",
+						"url": "api.adform.com/api/v1/LinkBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -2240,12 +2770,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000",
+						"url": "api.adform.com/api/v1/LinkBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2269,12 +2805,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000",
+						"url": "api.adform.com/api/v1/LinkBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2298,12 +2840,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/Title",
+						"url": "api.adform.com/api/v1/LinkBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2332,12 +2883,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/ClickUrl",
+						"url": "api.adform.com/api/v1/LinkBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -2366,12 +2926,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/Attributes",
+						"url": "api.adform.com/api/v1/LinkBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -2400,12 +2969,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/Settings",
+						"url": "api.adform.com/api/v1/LinkBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -2434,12 +3012,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LinkBanners/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/LinkBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -2474,12 +3061,19 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/OperationResults/00000",
+						"url": "api.adform.com/api/v1/OperationResults/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2509,12 +3103,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/Packages",
+						"url": "api.adform.com/api/v1/Packages",
 						"method": "POST",
 						"header": [
 							{
@@ -2543,12 +3146,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/Packages/Banners",
+						"url": "api.adform.com/api/v1/Packages/Banners",
 						"method": "POST",
 						"header": [
 							{
@@ -2583,12 +3195,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/Rotators/00000/Identifiers",
+						"url": "api.adform.com/api/v1/Rotators/00000/Identifiers",
 						"method": "GET",
 						"header": [
 							{
@@ -2612,12 +3230,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/Rotators/00000/Identifiers",
+						"url": "api.adform.com/api/v1/Rotators/00000/Identifiers",
 						"method": "GET",
 						"header": [
 							{
@@ -2647,12 +3271,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -2681,12 +3314,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/0000000/uuid",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/0000000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -2710,12 +3349,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2739,12 +3384,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/{uuid}",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/{uuid}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2768,12 +3419,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Content/Revalidation",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Content/Revalidation",
 						"method": "POST",
 						"header": [
 							{
@@ -2802,12 +3462,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/Parser",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/Parser",
 						"method": "POST",
 						"header": [
 							{
@@ -2836,12 +3505,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Content",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Content",
 						"method": "PUT",
 						"header": [
 							{
@@ -2870,12 +3548,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Title",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2904,12 +3591,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/ClickUrl",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -2938,12 +3634,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Attributes",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -2972,12 +3677,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/Settings",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -3006,12 +3720,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/ThirdPartyBanners/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -3046,12 +3769,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream",
+						"url": "api.adform.com/api/v1/VideoInstream",
 						"method": "POST",
 						"header": [
 							{
@@ -3080,12 +3812,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/uuid",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -3109,12 +3847,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000",
+						"url": "api.adform.com/api/v1/VideoInstream/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -3138,12 +3882,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/DefaultVideoSettings",
+						"url": "api.adform.com/api/v1/VideoInstream/DefaultVideoSettings",
 						"method": "GET",
 						"header": [
 							{
@@ -3167,12 +3917,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/000000",
+						"url": "api.adform.com/api/v1/VideoInstream/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -3196,12 +3952,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/{uuid}/OriginalVideoSource",
+						"url": "api.adform.com/api/v1/VideoInstream/{uuid}/OriginalVideoSource",
 						"method": "PUT",
 						"header": [
 							{
@@ -3230,12 +3995,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/Title",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -3264,12 +4038,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/Attributes",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -3298,12 +4081,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/ClickUrl",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -3332,12 +4124,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/QualitySettings",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/QualitySettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -3366,12 +4167,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/VideoSettings",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/VideoSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -3400,12 +4210,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/VideoAssets",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/VideoAssets",
 						"method": "PUT",
 						"header": [
 							{
@@ -3434,12 +4253,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 202;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 202;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/VideoInstream/00000/ActivationStatus",
+						"url": "api.adform.com/api/v1/VideoInstream/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
