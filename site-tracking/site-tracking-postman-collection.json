@@ -1,0 +1,383 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Site Tracking",
+		"_postman_id": "a73e40e0-a7bf-4c0d-8d74-0d501cfd48cd",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Filters",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Tracking Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"    ",
+									"tests[\"Content-Type is application/json\"] =",
+									"  request.headers[\"Content-Type\"] === \"application/json\";",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 201;",
+									"",
+									"if (responseCode.code === 201) {",
+									"  var jsonData = JSON.parse(responseBody);",
+									"  postman.setGlobalVariable('FilterId', jsonData.id);",
+									"  tests[\"Ticket was set as a global variable\"] =",
+									"    globals.Ticket !== undefined;",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/filters",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Most important tracking points\",\r\n  \"description\": \"Contains Home Page and Thank You Page tracking points\",\r\n  \"ruleSet\": {\r\n    \"inclusionType\": \"include\",\r\n    \"rules\": [\r\n      {\r\n        \"matchType\": \"startsWith\",\r\n        \"value\": \"Thank\",\r\n        \"exceptions\": []\r\n      },\r\n      {\r\n        \"matchType\": \"startsWith\",\r\n        \"value\": \"Home\",\r\n        \"exceptions\": [\r\n          {\r\n            \"matchType\": \"equals\",\r\n            \"value\": \"HomeWork\"\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  },\r\n  \"default\": false,\r\n  \"campaignId\": {{CampaignId}}\r\n}"
+						},
+						"description": "This method allows you to create a tracking filter.\n\nYou need to parse Campaign Id in your reqeust body."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tracking Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/filters/00000",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to delete Tracking filter.\n\nYou need to parse Filter Id on your request URL.\n\nEXAMPLE: /v1/tracking/filters/00000\n(00000 - FilterId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Tracking Filters for Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/campaigns/00000/filters",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to get Campaign Tracking filters.\n\nYou need to parse Campaign Id on your request URL.\n\nEXAMPLE: /campaigns/00000/filters\n(00000 - CampaignId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Tracking Points for Campaign",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/campaigns/00000/points?filterId=11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to get Campaign Tracking Points using specific filter.\n\nYou need to parse Campaign Id and filter Id on your request URL.\n\nEXAMPLE: /v1/tracking/campaigns/00000/points?filterId=11111\n(00000 - CampaignId, 11111 - filterId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Specific Tracking Filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/filters/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to get Specific Tracking filter.\n\nYou need to parse Filter Id on your request URL.\n\nEXAMPLE: /v1/tracking/filters/00000\n(00000 - FilterId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Tracking Filter Point Count",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/filters/00000/points",
+						"method": "HEAD",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to get tracking points filter count.\n\nYou need to parse Filter Id on your request URL.\n\nEXAMPLE: /v1/tracking/filters/00000/points\n(00000 - FilterId)"
+					},
+					"response": []
+				},
+				{
+					"name": "Set Tracking Filter as Default",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/v1/tracking/filters/00000/default",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method allows you to set Tracking point filter as default.\n\nYou need to parse Filter Id on your request URL.\n\nEXAMPLE: /v1/tracking/filters/00000/points\n(00000 - FilterId)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Points",
+			"description": "",
+			"item": [
+				{
+					"name": "Tracking points",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/tracking/points?advertiserId=00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method allows you to search for tracking points.\n\nYou need to parse advertiserId on your request URL.\n\nEXAMPLE: /v1/tracking/points?advertiserId=00000"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Specific Tracking Point",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = ",
+									"    request.headers.Ticket;",
+									"",
+									"tests[\"Request was successful\"] =",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/tracking/points/00000",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method allows you to get specific tracking point details.\n\nYou need to parse tracking point ID on your request URL.\n\nEXAMPLE: /v1/tracking/points/00000\n(00000 - tracking point ID)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tracking Point Status",
+					"request": {
+						"url": "https://api.adform.com/v1/tracking/points/00000/active",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"active\": true\r\n}"
+						},
+						"description": "This method allows you to update tracking point status (\"active\": true || false).\n\nYou need to parse tracking point ID on your request URL.\n\nEXAMPLE: /v1/tracking/points/00000/active\n(00000 - tracking point ID)"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
