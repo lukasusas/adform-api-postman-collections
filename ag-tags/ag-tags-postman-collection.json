@@ -51,6 +51,49 @@
 			"response": []
 		},
 		{
+			"name": "Get Tags by uuids",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Request header includes authentication Ticket\"] = \r",
+							"  request.headers.Ticket;\r",
+							"    \r",
+							"tests[\"Content-Type is application/json\"] =\r",
+							"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+							"\r",
+							"tests[\"Request was successful\"] = \r",
+							"  responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "api.adform.com/v1/buyer/ag/tags/List",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[ \"TagUuid\" ]"
+				},
+				"description": "This method allows you  to get AG Tags by Tag uuids.\n\nYou need to provide Tags uuid on your request URL.\n\nEXAMPLE: /v1/buyer/ag/tags/0000\n(00000 - Tag uuid)"
+			},
+			"response": []
+		},
+		{
 			"name": "Get Tags",
 			"event": [
 				{
@@ -281,7 +324,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/e0c1253a-9ba3-45e6-87b0-d9ed70151ae0/ExternalScripts",
+				"url": "api.adform.com/v1/buyer/ag/tags/00000/ExternalScripts",
 				"method": "PUT",
 				"header": [
 					{
@@ -297,9 +340,138 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n  {\r\n    \"source\": \"//adform.com\",\r\n    \"scriptPosition\": \"before\"\r\n  }\r\n]"
+					"raw": "[ \r\n   { \r\n     \"source\": \"http://this-is-my-test-external-script.adform.com/\", \r\n     \"scriptPosition\": \"before\" \r\n   } \r\n ] "
 				},
 				"description": "This method allows you to set tag external scripts.\n\nYou need to parse Tag uuid on your request URL.\n\nEXAMPLE: /v1/buyer/ag/tags/00000/ExternalScripts\n(00000 - Tag uuid)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tag External Scripts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Request header includes authentication Ticket\"] = \r",
+							"  request.headers.Ticket;\r",
+							"    \r",
+							"tests[\"Content-Type is application/json\"] =\r",
+							"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+							"\r",
+							"tests[\"Request was successful\"] = \r",
+							"  responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "api.adform.com/v1/buyer/ag/tags/00000/ExternalScripts",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"http://this-is-my-test-external-script.adform.com/\"]"
+				},
+				"description": "This method allows you to delete tag external scripts.\n\nYou need to parse Tag uuid on your request URL.\n\nEXAMPLE: /v1/buyer/ag/tags/00000/ExternalScripts\n(00000 - Tag uuid)"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Tag Tracking Pixels",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Request header includes authentication Ticket\"] = \r",
+							"  request.headers.Ticket;\r",
+							"    \r",
+							"tests[\"Content-Type is application/json\"] =\r",
+							"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+							"\r",
+							"tests[\"Request was successful\"] = \r",
+							"  responseCode.code === 201;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "api.adform.com/v1/buyer/ag/tags/00000/TrackingPixels",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n  \"tagMember\": { \r\n  \"rotatorMemberId\": null, \r\n  \"scheduleMemberId\": null, \r\n  \"innerBannerId\": null \r\n }, \r\n \"impressionPixels\": [ \r\n   \"http://imp.adform.com\" \r\n ], \r\n \"clickPixels\": [ \r\n   \"http://click.adform.com/\" \r\n ] \r\n}"
+				},
+				"description": "This method allows you to add tag tracking pixels.\n\nYou need to parse Tag uuid on your request URL.\n\nEXAMPLE: /v1/buyer/ag/tags/00000/TrackingPixels\n(00000 - Tag uuid)"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tag Tracking Pixels",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Request header includes authentication Ticket\"] = \r",
+							"  request.headers.Ticket;\r",
+							"    \r",
+							"tests[\"Content-Type is application/json\"] =\r",
+							"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+							"\r",
+							"tests[\"Request was successful\"] = \r",
+							"  responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "api.adform.com/v1/buyer/ag/tags/00000/TrackingPixels",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n  \"tagMember\": { \r\n  \"rotatorMemberId\": null, \r\n  \"scheduleMemberId\": null, \r\n  \"innerBannerId\": null \r\n }, \r\n \"impressionPixels\": [ \r\n   \"http://imp.adform.com\" \r\n ], \r\n \"clickPixels\": [ \r\n   \"http://click.adform.com/\" \r\n ] \r\n}"
+				},
+				"description": "This method allows you to delete tag tracking pixels.\n\nYou need to parse Tag uuid on your request URL.\n\nEXAMPLE: /v1/buyer/ag/tags/00000/TrackingPixels\n(00000 - Tag uuid)"
 			},
 			"response": []
 		},
