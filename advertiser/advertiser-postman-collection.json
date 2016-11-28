@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Advertiser",
-		"_postman_id": "6e1ef433-af94-1d22-0325-0cdc20f422f3",
+		"_postman_id": "79f9b212-db97-94a2-b2ff-6b4eaf74611d",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -18,7 +18,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -52,12 +61,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/alerts/agency/00000/alerts",
+						"url": "api.adform.com/v1/buyer/alerts?agencyId=0000",
 						"method": "GET",
 						"header": [
 							{
@@ -81,7 +96,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 204;"
+								]
 							}
 						}
 					],
@@ -115,7 +139,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 204;"
+								]
 							}
 						}
 					],
@@ -150,7 +180,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -179,7 +215,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -213,7 +258,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -248,7 +299,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -277,7 +334,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -311,7 +377,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -346,7 +418,20 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									"  \r",
+									"if(responseCode.code === 200) {\r",
+									"  var jsonData = JSON.parse(responseBody);\r",
+									"  postman.setGlobalVariable('AgencyId', jsonData.Advertisers[0].AgencyId);\r",
+									"    tests[\"AgencyId was set as a global variable\"] =\r",
+									"      globals.AgencyId !== undefined;\r",
+									"}"
+								]
 							}
 						}
 					],
@@ -357,11 +442,6 @@
 							{
 								"key": "Ticket",
 								"value": "{{Ticket}}",
-								"description": ""
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json",
 								"description": ""
 							}
 						],
