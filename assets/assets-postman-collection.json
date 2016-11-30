@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Assets",
-		"_postman_id": "5ee9f1db-e2f7-a374-1136-99d75bf78aad",
+		"_postman_id": "d79f7c08-c12f-89a7-69ab-00bfa348fd6a",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -29,7 +29,7 @@
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/Assets/Files/00000?assetIds=11111",
+						"url": "api.adform.com/api/v1/Assets/Files/00000assetIds=11111",
 						"method": "GET",
 						"header": [
 							{
@@ -118,7 +118,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method allows you to get a list of objects where asset is ussed.\n\nYou need to parse asset uuid on your request URL.\n\nEXAMPLE: api/v1/Assets/00000/Usage\n(00000 - Asset uuid)"
+						"description": "This method allows you to get a list of objects where asset is used.\n\nYou need to parse asset uuid on your request URL.\n\nEXAMPLE: api/v1/Assets/00000/Usage\n(00000 - Asset uuid)"
 					},
 					"response": []
 				},
