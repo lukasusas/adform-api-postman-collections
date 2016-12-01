@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Line Item",
-		"_postman_id": "dc51d214-b5b5-1692-544c-29084f7d5548",
+		"_postman_id": "c6bd624f-a646-d270-fe26-a228d074f159",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -42,7 +42,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of selected placement labels.\n\nYou need to parse PlacementId on your request URL.\n\nEXAMPLE: /Services/Label/PlacementLabels?placementIds=00000\n\nYou can retrieve PlacementId using \"GET Placements\" method."
+						"description": "This method returns a list of selected placement/line item labels.\n\nYou need to parse PlacementId on your request URL.\n\nEXAMPLE: /Services/Label/PlacementLabels?placementIds=00000\n\nYou can retrieve PlacementId using \"GET Placements\" method."
 					},
 					"response": []
 				},
@@ -163,7 +163,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"Placement\": {\r\n    \"Name\": \"Placement22\",\r\n    \"MediaPlanId\": 111333,\r\n    \"MediaId\": 21121,\r\n    \"BuyType\": \"cpc\",\r\n    \"Volume\": 1000,\r\n    \"GrossAmount\": 11,\r\n    \"NetAmount\": 12\r\n  },\r\n  \"CampaignId\": 00000\r\n}"
 						},
-						"description": "This method creates a new placement and adds it to an active media plan in your specified campaign.\n\nYou have to parse CampaignId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\"."
+						"description": "This method creates a new placement and adds it to an active media plan in your specified campaign.\n\nYou have to parse CampaignId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\".\n\nYou can retrieve MediaId using \"GET Medias\" from Orders.\n\nRead more: \nhttp://api.adform.com/help/references/buyer-solutions/line-item/direct/placements/add-placement"
 					},
 					"response": []
 				},
@@ -659,7 +659,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities/DealsAndPackages?campaignId=00000&inventorySourceId=XXX",
+						"url": "api.adform.com/Services/RTBActivity/v20141111/Activities/DealsAndPackages?campaignId=00000",
 						"method": "GET",
 						"header": [
 							{
@@ -672,7 +672,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method returns a list of available deals and packages.\n\nYou need to parse CampaignId and InventorySourceId on your request URL.\n\nEXAMPLE: /Activities/DealsAndPackages?campaignId=00000&inventorySourceId=XXX\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve InventorySourceId using \"GET Inventory Sources\" method."
+						"description": "This method returns a list of available deals and packages.\n\nYou need to parse CampaignId on your request URL.\nOptional parameters: inventorySourceId, startIndex, count\n\nEXAMPLE: /Activities/DealsAndPackages?campaignId=00000\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve InventorySourceId using \"GET Inventory Sources\" method."
 					},
 					"response": []
 				},
@@ -1720,7 +1720,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/dsp/v1/inventoriesoverview?campaignid={{CampaignId}}",
+						"url": "api.adform.com/dsp/v1/inventoriesoverview?campaignid=00000",
 						"method": "GET",
 						"header": [
 							{
