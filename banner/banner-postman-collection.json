@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Banner",
-		"_postman_id": "92b338c9-4da2-ef6c-9c70-2d028638df98",
+		"_postman_id": "e3ec7d70-92d4-60cb-f541-1899f6b5655c",
 		"description": "In this section you can find information on how to create and manage various types of banners and all related objects. If the banner is hosted in Adform, the asset is created first which can be reused to create various banners. The created banners can then be used to create rotators or schedules for additional level of control or simply served through Direct or RTB.\r\n\r\nAdform is also offering DCO (Dynamic Content Optimization) banners that are displaying different content depending on a predefined set of rules.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -77,7 +77,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method retrieves banners by banner uuid.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AdsOverview/Banners/00000\n(00000 - Banner uuid)"
+						"description": "This method retrieves banners by banner uuid or by AdId.\n\nYou need to parse banner uuid on your request URL.\n\nEXAMPLE: /api/v1/AdsOverview/Banners/00000\n(00000 - Banner uuid or Ad ID)"
 					},
 					"response": []
 				},
@@ -681,7 +681,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by ID",
+					"name": "Banner uuid by internal id",
 					"event": [
 						{
 							"listen": "test",
@@ -711,7 +711,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/uuid\n(00000 - BannerId)"
+						"description": "This method retrieves a specific banner's uuid by internal Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/FlashBanners/00000/uuid\n(00000 - BannerId)"
 					},
 					"response": []
 				},
@@ -1324,7 +1324,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by id",
+					"name": "Banner uuid by internal id",
 					"event": [
 						{
 							"listen": "test",
@@ -1359,7 +1359,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"Asset\": {\r\n    \"ClickUrls\": [\r\n      {\r\n        \"ClickTag\": \"http://www.adform.com\",\r\n        \"Title\": \"http://www.adform.com\",\r\n        \"Url\": \"http://www.adform.com\"\r\n      }\r\n    ],\r\n    \"Uuid\": \"86e1199e-fc98-40d6-984a-56bf227929f7\"\r\n  },\r\n  \"Backup\": {\r\n    \"ClickUrl\": {\r\n      \"Title\": \"http://www.adform.com\",\r\n      \"Url\": \"http://www.adform.com\"\r\n    },\r\n    \"Uuid\": \"05f75000-e7e1-428b-a939-a6ee1038052e\"\r\n  },\r\n  \"GraphicSettings\": {\r\n    \"Align\": 0,\r\n    \"LandingTarget\": 0,\r\n    \"AdMeasure\": 0\r\n  },\r\n  \"CampaignId\": 628971,\r\n  \"Title\": \"Kubas per api\",\r\n  \"CommonSettings\": {\r\n    \"FormatId\": 0\r\n  }\r\n}"
 						},
-						"description": "This method retrieves a HTML banner by AdId.\n\nYou need to parse AdId on you request URL.\n\nEXAMPLE: /api/v1/HtmlBanners/00000/uuid\n(00000 - AdId)"
+						"description": "This method retrieves a HTML banner's uuid by internal Id.\n\nYou need to parse AdId on you request URL.\n\nEXAMPLE: /api/v1/HtmlBanners/00000/uuid\n(00000 - AdId)"
 					},
 					"response": []
 				},
@@ -1784,7 +1784,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by ID",
+					"name": "Banner uuid by internal id",
 					"event": [
 						{
 							"listen": "test",
@@ -1814,7 +1814,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/uuid\n(00000 - BannerId)"
+						"description": "This method retrieves a specific banner's uuid by internal Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/ImageBanners/00000/uuid\n(00000 - BannerId)"
 					},
 					"response": []
 				},
@@ -2196,7 +2196,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by ID",
+					"name": "Banner uuid by internal id",
 					"event": [
 						{
 							"listen": "test",
@@ -2226,7 +2226,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by Id.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000/uuid\n(00000 - BannerId)"
+						"description": "This method retrieves a specific banner's uuid by internal Id.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/InteractiveInstream/00000/uuid\n(00000 - BannerId)"
 					},
 					"response": []
 				},
@@ -2729,7 +2729,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by ID",
+					"name": "Banner uuid by internal id",
 					"event": [
 						{
 							"listen": "test",
@@ -2759,7 +2759,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/uuid\n(00000 - BannerId)"
+						"description": "This method retrieves a specific banner's by internal Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000/uuid\n(00000 - BannerId)"
 					},
 					"response": []
 				},
@@ -2794,7 +2794,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by uuid.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000\n(00000 - banner uuid)"
+						"description": "This method retrieves a specific banner's uuid by internal id.\n\nYou need to parse banner uuid on you request URL.\n\nEXAMPLE: /api/v1/LinkBanners/00000\n(00000 - banner uuid)"
 					},
 					"response": []
 				},
@@ -3176,7 +3176,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Images\": [\r\n    {\r\n      \"File\": {\r\n        \"FullFileName\": \"Name.png\",\r\n        \"FileDataBase64\": \"string\"\r\n      },\r\n      \"CampaignId\": 000000,\r\n      \"Title\": \"Title\"\r\n    }\r\n  ],\r\n  \"Flashes\": [\r\n    {\r\n      \"File\": {\r\n        \"FullFileName\": \"Name.swf\",\r\n        \"FileDataBase64\": \"string\"\r\n      },\r\n      \"CampaignId\": 000000,\r\n      \"Title\": \"Title\"\r\n    }\r\n  ]\r\n}"
+							"raw": "{\r\n  \"Images\": [\r\n    {\r\n      \"File\": {\r\n        \"FullFileName\": \"Name.png\",\r\n        \"FileDataBase64\": \"string\"\r\n      },\r\n      \"CampaignId\": 000000,\r\n      \"Title\": \"Title\",\r\n      \"CommonSettings\": {\r\n      \t\"FormatId\": 0\r\n       }\r\n      }\r\n    }\r\n  ],\r\n  \"Flashes\": [\r\n    {\r\n      \"File\": {\r\n        \"FullFileName\": \"Name.swf\",\r\n        \"FileDataBase64\": \"string\"\r\n      },\r\n      \"CampaignId\": 000000,\r\n      \"Title\": \"Title\",\r\n      \"CommonSettings\": {\r\n      \t\"FormatId\": 0\r\n       }\r\n    }\r\n  ]\r\n}"
 						},
 						"description": "This method uploads new image or flash banners.\n\nYou need to parse CampaignId in you request body.\n\nPlease note that FullFileName should also include file name extension. For example: Name.png\n"
 					},
@@ -3308,7 +3308,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by ID",
+					"name": "Banner uuid by internal Id",
 					"event": [
 						{
 							"listen": "test",
@@ -3338,7 +3338,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by Id.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/uuid\n(00000 - BannerId)"
+						"description": "This method retrieves a specific banner's uuid by internal Id.\n\nBannerId is required on you request URL.\n\nEXAMPLE: /api/v1/ThirdPartyBanners/00000/uuid\n(00000 - BannerId)"
 					},
 					"response": []
 				},
@@ -3806,7 +3806,7 @@
 					"response": []
 				},
 				{
-					"name": "Banner by ID",
+					"name": "Banner uuid by internal id",
 					"event": [
 						{
 							"listen": "test",
@@ -3836,7 +3836,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method retrieves a specific banner by Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/uuid\n(00000 - BannerId)"
+						"description": "This method retrieves a specific banner's uuid by internal Id.\n\nYou need to parse BannerId on you request URL.\n\nEXAMPLE: /api/v1/VideoInstream/00000/uuid\n(00000 - BannerId)"
 					},
 					"response": []
 				},

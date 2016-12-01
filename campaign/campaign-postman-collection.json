@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Campaign",
-		"_postman_id": "682f20ef-7f42-4d12-9d96-0f09facc25fa",
+		"_postman_id": "1147ffd0-0683-d967-6331-670b254655c6",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -18,12 +18,28 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									"  \r",
+									"if(responseCode.code === 200) {\r",
+									"  var jsonData = JSON.parse(responseBody);\r",
+									"  postman.setGlobalVariable('AlertId', jsonData.id);\r",
+									"    tests[\"AlertId was set as a global variable\"] =\r",
+									"      globals.AlertId !== undefined;\r",
+									"}"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/alerts/campaign/000000/alerts",
+						"url": "api.adform.com/v1/buyer/alerts",
 						"method": "POST",
 						"header": [
 							{
@@ -39,9 +55,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"type\": 1,\r\n  \"settings\": 5,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"testmail@mail.com\", \r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"levelItemId\": 00000,\r\n  \"level\": 3,\r\n  \"type\": 1,\r\n  \"settings\": {},\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"advertisertestecample@example.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
-						"description": "This service creates a new alert. There are 3 different alert levels - campaign, advertiser and client. \r\n\r\nNOTE: You need to specify campaign level on your request URL.\r\n\r\nEXAMPLE: v1/alerts/campaign/00000/alerts\r\n(00000 - CampaignId)\r\n\r\nTips on request body:\r\n- Type is always a number\r\n- Settings depend on type\r\n- CampaignManager/campaignCoManager value \"true\" enables CampaignManager or CampaignCoManager to receive alers."
+						"description": "This service is able to send alerts to your specified e-mail address or a short message directly to your phone number while the alerts themselves can monitor end dates of campaigns, expiration of line items, budget, discrepancies in impressions and clicks etc.\r\n\r\nThis service creates a new alert. There are 3 different alert levels - campaign, advertiser and agency. \r\n\r\nNOTE: You need to specify campaign level on your request URL.\r\n\r\nEXAMPLE: \"v1/buyer/alerts\"\r\n\r\nYou can retrieve AdvertiserId using \"Get Advertiser\" method or campaign dictionaries.\r\n\r\n\"level\" correspond to numbers: \r\n1 - Agency\r\n2 - Advertiser/Client\r\n3 - Campaign\r\n\r\n\"levelItemId\" depends on \"level\" set. \r\nE.g. if \"level\" = 1 then you have to insert AgencyId\r\n\r\nSettings model varies by alert type.\r\n\r\nPossible alert types:\r\n1 - CampaignEndDate, \r\n2 - LineItemEndDate, \r\n5 - RtbLineItemBudget, \r\n7 - ClicksWithoutImpressions, \r\n8 - ImpressionsWithoutClicks \r\n'settings' value is a number greater or equal to 0.\r\n\r\nFor alert types: \r\n3 - CampaignBudget, \r\n4 - LineItemBudget\r\n'settings' value is a number between 0 and 100.\r\n\r\nFor alert types:\r\n6 - PriceHigherThanGoal \r\n'settings' value is an object: \r\n\"settings\": {\r\n\"value\": 1,\r\n\"timeType\": 1,\r\n\"time\": 1\r\n}\r\n\r\nFor alert types: \r\n9 - KpiVisitsNotMeetingGoal \r\n'settings' value is an object. \r\n\"settings\": {\r\n\"trackingFilter\": 1, \r\n\"kpiMetric\": 1,\r\n\"value\": 1,\r\n\"timeType\": 1,\r\n\"time\": 1\r\n}\r\n10 - KpiWinRateNotMeetingGoal \r\n'settings' value is an object for during: \r\n\"settings\": {\r\n\"kpiMetric\": 1,\r\n\"value\": 1,\r\n\"timeType\": 1,\r\n\"time\" : 1,\r\n} \r\nor for compared to: \r\n\"settings\": {\r\n\"trackingFilter\": 1, // only for KpiVisitsNotMeetingGoal \r\n\"kpiMetric\": 1,\r\n\"value\": 1,\r\n\"comparedTo\": 1\r\n}\r\n\r\nAvailable values for TimeType: \r\n1 - Days\r\n2 - Hours\r\n\r\nAvailable values for ComparedTo: \r\n1 - Day\r\n2 - Week\r\n3 - Month\r\n\r\nAvailable values for KpiMetric - visits: \r\n1 - Higher\r\n2 - Lower\r\n3 - Equal\r\n4 - Increased\r\n5 - Decreased\r\n6 - TrackingFilter\r\n\r\nAvailable values for KpiMetric - win rate: \r\n1 - Higher\r\n2 - Lower\r\n3 - Equal\r\n4 - Increased\r\n5 - Decreased\r\n\r\n\r\nTips on request body:\r\n- Type is always a number\r\n- Settings depend on type\r\n- CampaignManager/campaignCoManager value \"true\" enables CampaignManager or CampaignCoManager to receive alers."
 					},
 					"response": []
 				},
@@ -52,12 +68,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/alerts/campaign/00000/alerts",
+						"url": "api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
 						"method": "GET",
 						"header": [
 							{
@@ -70,7 +92,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns list of own and inherited alerts for specified campaign.\n\nYou can filter alerts by parsing AlertID in your request URL. \n\nEXAMPLE: v1/alerts/campaign/00000/alerts/11111\n(00000 - CampaignId, 11111 - AlertID)\n\n"
+						"description": "This method returns list of own and inherited alerts for specified client/campaign/agency.\n\nYou can filter alerts by parsing AgencyId, AdvertiserID or CampaignId in your request URL. One and only one item can be specified. E.g. both AdvertiserId and CampaignId are not allowed.\n\nEXAMPLE: \nv1/alerts?agencyId={{AgencyId}} or v1/alerts?advertiserId={{AdvertiserId}} or\nv1/alerts?campaignId={{CampaignId}}\n\n\nYou can retrieve AgencyId and set it as a Global variable using \"Get Advertiser\" method.\n\nYou can retrieve AdvertiserId using \"Get Advertiser\" method.\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
 					},
 					"response": []
 				},
@@ -81,12 +103,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 204;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/alerts/campaign/00000/alerts/11111",
+						"url": "api.adform.com/v1/buyer/alerts/{{AlertId}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -102,9 +133,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"type\": 1,\r\n  \"settings\": 5,\r\n  \"isEnabled\": true,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"patricija.buskeviciute@adform.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"settings\": {},\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"mailssssssss@example.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
-						"description": "This service updates alert details or its status (using property \"isEnabled\").\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: v1/alerts/campaign/00000/alerts/11111\"\n(00000 - CampaignId, 11111 - AlertId).\n\nNOTE: You can retrieve AlertId using \"Get Alerts\" method."
+						"description": "This service updates alert details or its status (using property \"isEnabled\").\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: \"v1/buyer/alerts/{{AlertId}}\"\n{{AlertId}} is taken from global variables if set, if not get it from \"GET Alerts\" method and insert it here without {{}}.\n\nBody has to be the same as in \"POST Alert\" method. Refer to this method's documentation.\n\nSettings model varies by alert type.\nPossible alert types: 1 - CampaignEndDate, 2 - LineItemEndDate, 5 - RtbLineItemBudget, 7 - ClicksWithoutImpressions, 8 - ImpressionsWithoutClicks 'settings' value is a number greater or equal to 0.\nFor alert types: 3 - CampaignBudget, 4 - LineItemBudget 'settings' value is a number between 0 and 100.\nFor alert type 6 - PriceHigherThanGoal 'settings' value is an object: \"settings\": { \"value\": 1, \"timeType\": 1, \"time\": 1 }\nFor alert types: 9 - KpiVisitsNotMeetingGoal 'settings' value is an object. \"settings\": { \"trackingFilter\": 1, \"kpiMetric\": 1, \"value\": 1, \"timeType\": 1, \"time\": 1 } 10 - KpiWinRateNotMeetingGoal 'settings' value is an object for during: \"settings\": { \"kpiMetric\": 1, \"value\": 1, \"timeType\": 1, \"time\" : 1, } or for compared to: \"settings\": { \"trackingFilter\": 1, // only for KpiVisitsNotMeetingGoal \"kpiMetric\": 1, \"value\": 1, \"comparedTo\": 1 }\nAvailable values for TimeType: 1 - Days 2 - Hours\nAvailable values for ComparedTo: 1 - Day 2 - Week 3 - Month\nAvailable values for KpiMetric - visits: 1 - Higher 2 - Lower 3 - Equal 4 - Increased 5 - Decreased 6 - TrackingFilter\nAvailable values for KpiMetric - win rate: 1 - Higher 2 - Lower 3 - Equal 4 - Increased 5 - Decreased\n\nTo update Notification Settings, pass NotificationSettings object. To update status, pass \"isEnabled\": true. Both changes cannot be made in one call and need to be made separately."
 					},
 					"response": []
 				},
@@ -115,12 +146,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 204;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/alerts/campaign/00000/alerts/11111",
+						"url": "api.adform.com/v1/buyer/alerts/{{AlertId}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -133,7 +170,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method deletes a specified alert.\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: v1/alerts/campaign/00000/alerts/11111\"\n(00000 - CampaignId, 11111 - AlertId).\n\nNOTE: You can retrieve AlertId using \"Get Alerts\" method."
+						"description": "This method deletes a specified alert.\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: \"v1/buyer/alerts/{{AlertId}}\"\n{{AlertId}} is taken from global variables if set, if not get it from \"GET Alerts\" method and insert it here without {{}}.\n"
 					},
 					"response": []
 				}
@@ -150,12 +187,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
 						"method": "GET",
 						"header": [
 							{
@@ -179,12 +222,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/values",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/values",
 						"method": "GET",
 						"header": [
 							{
@@ -208,12 +257,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -242,12 +300,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -271,12 +335,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values",
 						"method": "PUT",
 						"header": [
 							{
@@ -305,12 +378,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Title",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -339,12 +421,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/11111",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -368,12 +456,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222",
+						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222",
 						"method": "PUT",
 						"header": [
 							{
@@ -408,7 +505,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -437,7 +540,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -466,7 +575,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -495,7 +610,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -530,7 +651,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -559,7 +686,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -599,12 +735,22 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000",
+						"url": "api.adform.com/api/v1/LandingPages/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -617,7 +763,46 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"description": "This method returns a list of campaign landing pages. \n\nCampaignId is required in your request url.\n\nNOTE: You can retrieve a specific landing page by parsing LandingPageId on the request url.\n\nEXAMPLE: api/v1/LandingPages/00000/LandingPage/11111\n(00000 - CampaignId, 11111 - LandingPageId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
+						"description": "This method returns a list of campaign landing pages. \n\nCampaignId is required in your request url.\n\nEXAMPLE: api/v1/LandingPages/00000\n(00000 - CampaignId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
+					},
+					"response": []
+				},
+				{
+					"name": "Landing Page by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;\r",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "This method returns a campaign landing page by id. \n\nCampaignId is required in your request url.\n\nNOTE: You can retrieve a specific landing page by parsing LandingPageId on the request url.\n\nEXAMPLE: api/v1/LandingPages/00000/LandingPage/11111\n(00000 - CampaignId, 11111 - LandingPageId)\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
 					},
 					"response": []
 				},
@@ -628,12 +813,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000/LandingPage",
+						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage",
 						"method": "POST",
 						"header": [
 							{
@@ -662,12 +856,21 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
 						"method": "PUT",
 						"header": [
 							{
@@ -696,12 +899,18 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -731,7 +940,17 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"    request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -760,7 +979,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -789,7 +1015,14 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -818,7 +1051,17 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"    request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;\r",
+									""
+								]
 							}
 						}
 					],
@@ -852,7 +1095,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"    request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -875,7 +1127,7 @@
 							"mode": "raw",
 							"raw": "{\r\n  \"Campaign\": {\r\n    \"Id\": 00000\r\n  }\r\n}"
 						},
-						"description": "This method updates an existing advertising campaign which is identified by CampaignId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n"
+						"description": "This method updates an existing advertising campaign which is identified by CampaignId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou have to provide all settings of campaign, even the ones that are not being changed."
 					},
 					"response": []
 				},
@@ -886,7 +1138,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -915,7 +1173,17 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n    request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n    request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n    responseCode.code === 204;\r\n"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"    request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"    request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"    responseCode.code === 204;\r",
+									""
+								]
 							}
 						}
 					],
@@ -955,7 +1223,13 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 200;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
 							}
 						}
 					],
@@ -984,7 +1258,16 @@
 							"listen": "test",
 							"script": {
 								"type": "text/javascript",
-								"exec": "tests[\"Request header includes authentication Ticket\"] = \r\n  request.headers.Ticket;\r\n    \r\ntests[\"Content-Type is application/json\"] =\r\n  request.headers[\"Content-Type\"] === \"application/json\";\r\n\r\ntests[\"Request was successful\"] = \r\n  responseCode.code === 204;"
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"    \r",
+									"tests[\"Content-Type is application/json\"] =\r",
+									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 204;"
+								]
 							}
 						}
 					],

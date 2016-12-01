@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Reporting",
-		"_postman_id": "2c79f427-ef10-5160-a51e-e96c7e020e3f",
+		"_postman_id": "9ece3dda-9c52-ab97-c8c6-3291d2e7aa5a",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -163,7 +163,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method deletes Data Export.\n\nYou need to parse DataExportId on your request URL.\n\nEXAMPLE: /Services/DataExport/DataExports?DataExportsIds=111111"
+						"description": "This method deletes Data Export.\n\nYou need to parse DataExportId on your request URL.\n\nEXAMPLE: /Services/DataExport/DataExports?DataExportsIds=111111\n\nYou can delete multiple items by using commas in endpoint.\nE.g. ?DataExportsIds=111111,111112,111113"
 					},
 					"response": []
 				},
