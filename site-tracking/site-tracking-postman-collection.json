@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Site Tracking",
-		"_postman_id": "a73e40e0-a7bf-4c0d-8d74-0d501cfd48cd",
+		"_postman_id": "84fa4838-5a56-d9b0-9b56-cd63c152c19f",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -378,6 +378,56 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Create Tracking Code",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Request header includes authentication Ticket\"] = ",
+							"    request.headers.Ticket;",
+							"    ",
+							"tests[\"Content-Type is application/json\"] =",
+							"  request.headers[\"Content-Type\"] === \"application/json\";",
+							"",
+							"tests[\"Request was successful\"] =",
+							"  responseCode.code === 201;",
+							"",
+							"if (responseCode.code === 201) {",
+							"  var jsonData = JSON.parse(responseBody);",
+							"  postman.setGlobalVariable('FilterId', jsonData.id);",
+							"  tests[\"Ticket was set as a global variable\"] =",
+							"    globals.Ticket !== undefined;",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "api.adform.com/Services/SiteTracking/TrackingCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"advertiserid\": 10007,\r\n  \"type\": \"standard\",\r\n  \"sync\": true,\r\n  \"websitename\": \"mysite.com\",\r\n  \"sectionname\": \"somesection\",\r\n  \"subsection\": \"somesubsection\",\r\n  \"pagename\": \"somepage\"\r\n}"
+				},
+				"description": "This service allows you to create standard JavaScript type tracking codes that can then be implemented to a specified website or page for page view tracking.\n"
+			},
+			"response": []
 		}
 	]
 }
