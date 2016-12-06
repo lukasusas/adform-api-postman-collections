@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Mobile",
-		"_postman_id": "24e9b7c6-f2c7-2972-9874-0f60235f24e0",
+		"_postman_id": "4085b56f-bec1-b8ce-bdf3-e26d8fba61f0",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -10,7 +10,7 @@
 		{
 			"name": "Search for Applications",
 			"request": {
-				"url": "api.adform.com/v1/mobile/apps?search=yyyy",
+				"url": "https://api.adform.com/v1/mobile/apps?search=yyyy",
 				"method": "GET",
 				"header": [
 					{
@@ -30,7 +30,7 @@
 		{
 			"name": "Batch Search for Applications",
 			"request": {
-				"url": "api.adform.com/v1/mobile/apps",
+				"url": "https://api.adform.com/v1/mobile/apps",
 				"method": "POST",
 				"header": [
 					{
@@ -62,7 +62,7 @@
 		{
 			"name": "Stores",
 			"request": {
-				"url": "api.adform.com/v1/mobile/apps/stores",
+				"url": "https://api.adform.com/v1/mobile/apps/stores",
 				"method": "GET",
 				"header": [
 					{
@@ -82,7 +82,7 @@
 		{
 			"name": "Categories",
 			"request": {
-				"url": "api.adform.com/v1/mobile/apps/categories",
+				"url": "https://api.adform.com/v1/mobile/apps/categories",
 				"method": "GET",
 				"header": [
 					{
