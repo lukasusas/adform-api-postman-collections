@@ -39,7 +39,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/filters",
+						"url": "https://api.adform.com/v1/tracking/filters",
 						"method": "POST",
 						"header": [
 							{
@@ -55,7 +55,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Most important tracking points\",\r\n  \"description\": \"Contains Home Page and Thank You Page tracking points\",\r\n  \"ruleSet\": {\r\n    \"inclusionType\": \"include\",\r\n    \"rules\": [\r\n      {\r\n        \"matchType\": \"startsWith\",\r\n        \"value\": \"Thank\",\r\n        \"exceptions\": []\r\n      },\r\n      {\r\n        \"matchType\": \"startsWith\",\r\n        \"value\": \"Home\",\r\n        \"exceptions\": [\r\n          {\r\n            \"matchType\": \"equals\",\r\n            \"value\": \"HomeWork\"\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  },\r\n  \"default\": false,\r\n  \"campaignId\": {{CampaignId}}\r\n}"
+							"raw": "{\r\n  \"name\": \"Most important tracking points\",\r\n  \"description\": \"Contains Home Page and Thank You Page tracking points\",\r\n  \"ruleSet\": {\r\n    \"inclusionType\": \"include\",\r\n    \"rules\": [\r\n      {\r\n        \"matchType\": \"startsWith\",\r\n        \"value\": \"Thank\",\r\n        \"exceptions\": []\r\n      },\r\n      {\r\n        \"matchType\": \"startsWith\",\r\n        \"value\": \"Home\",\r\n        \"exceptions\": [\r\n          {\r\n            \"matchType\": \"equals\",\r\n            \"value\": \"HomeWork\"\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  },\r\n  \"default\": false,\r\n  \"campaignId\": \"{{CampaignId}}\"\r\n}"
 						},
 						"description": "This method allows you to create a tracking filter.\n\nYou need to parse Campaign Id in your reqeust body."
 					},
@@ -79,7 +79,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/filters/00000",
+						"url": "https://api.adform.com/v1/tracking/filters/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -114,7 +114,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/campaigns/00000/filters",
+						"url": "https://api.adform.com/v1/tracking/campaigns/00000/filters",
 						"method": "GET",
 						"header": [
 							{
@@ -149,7 +149,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/campaigns/00000/points?filterId=11111",
+						"url": "https://api.adform.com/v1/tracking/campaigns/00000/points?filterId=11111",
 						"method": "GET",
 						"header": [
 							{
@@ -184,7 +184,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/filters/00000",
+						"url": "https://api.adform.com/v1/tracking/filters/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -219,7 +219,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/filters/00000/points",
+						"url": "https://api.adform.com/v1/tracking/filters/00000/points",
 						"method": "HEAD",
 						"header": [
 							{
@@ -254,7 +254,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/tracking/filters/00000/default",
+						"url": "https://api.adform.com/v1/tracking/filters/00000/default",
 						"method": "PUT",
 						"header": [
 							{
@@ -407,7 +407,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/Services/SiteTracking/TrackingCode",
+				"url": "https://api.adform.com/Services/SiteTracking/TrackingCode",
 				"method": "POST",
 				"header": [
 					{
