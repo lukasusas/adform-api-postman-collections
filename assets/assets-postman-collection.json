@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Assets",
-		"_postman_id": "d79f7c08-c12f-89a7-69ab-00bfa348fd6a",
+		"_postman_id": "2937f0f1-5fbf-ae6d-8265-02a64bba3073",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -29,7 +29,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/Files/00000assetIds=11111",
+						"url": "https://api.adform.com/api/v1/Assets/Files/00000assetIds=11111",
 						"method": "GET",
 						"header": [
 							{
@@ -70,7 +70,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/00000",
+						"url": "https://api.adform.com/api/v1/Assets/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -105,7 +105,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/00000/Usage",
+						"url": "https://api.adform.com/api/v1/Assets/00000/Usage",
 						"method": "GET",
 						"header": [
 							{
@@ -143,7 +143,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/UniqueTitle",
+						"url": "https://api.adform.com/api/v1/Assets/UniqueTitle",
 						"method": "POST",
 						"header": [
 							{
@@ -186,7 +186,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/00000/IsTitleUnique",
+						"url": "https://api.adform.com/api/v1/Assets/00000/IsTitleUnique",
 						"method": "POST",
 						"header": [
 							{
@@ -229,7 +229,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/List",
+						"url": "https://api.adform.com/api/v1/Assets/List",
 						"method": "POST",
 						"header": [
 							{
@@ -275,7 +275,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -313,7 +313,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -356,7 +356,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -399,7 +399,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -442,7 +442,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -485,7 +485,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -525,7 +525,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/AudioAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/AudioAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -566,7 +566,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -604,7 +604,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -647,7 +647,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -690,7 +690,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -733,7 +733,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -776,7 +776,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -819,7 +819,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/00000/ClickTags",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/00000/ClickTags",
 						"method": "PUT",
 						"header": [
 							{
@@ -862,7 +862,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/00000/Events",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/00000/Events",
 						"method": "PUT",
 						"header": [
 							{
@@ -902,7 +902,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FlashAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/FlashAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -943,7 +943,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -981,7 +981,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -1024,7 +1024,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -1067,7 +1067,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1110,7 +1110,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -1153,7 +1153,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -1193,7 +1193,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/FontAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/FontAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1234,7 +1234,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -1272,7 +1272,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -1315,7 +1315,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -1358,7 +1358,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1401,7 +1401,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -1444,7 +1444,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -1484,7 +1484,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/GenericAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/GenericAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1525,7 +1525,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -1563,7 +1563,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -1606,7 +1606,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -1649,7 +1649,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1692,7 +1692,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -1735,7 +1735,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -1778,7 +1778,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/00000/ClickTags",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/00000/ClickTags",
 						"method": "PUT",
 						"header": [
 							{
@@ -1821,7 +1821,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/00000/Events",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/00000/Events",
 						"method": "PUT",
 						"header": [
 							{
@@ -1861,7 +1861,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/HtmlAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/HtmlAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1902,7 +1902,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -1940,7 +1940,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -1983,7 +1983,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -2026,7 +2026,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2069,7 +2069,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -2112,7 +2112,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -2152,7 +2152,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/ImageAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/ImageAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2193,7 +2193,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/OperationResults/00000",
+						"url": "https://api.adform.com/api/v1/Assets/OperationResults/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2237,7 +2237,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/Package",
+						"url": "https://api.adform.com/api/v1/Assets/Package",
 						"method": "POST",
 						"header": [
 							{
@@ -2253,7 +2253,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"AdvertiserId\": 000000,\r\n  \"File\": {\r\n    \"FullFileName\": \".jpg\",\r\n    \"FileDataBase64\": \"string\"\r\n  },\r\n  \"DefaultSettings\": {\r\n    \"Batch\": {\r\n      \"Value\": \"Value\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"AdvertiserId\": 000000,\r\n  \"File\": {\r\n    \"FullFileName\": \".zip\",\r\n    \"FileDataBase64\": \"string\"\r\n  },\r\n  \"DefaultSettings\": {\r\n    \"Batch\": {\r\n      \"Value\": \"Value\"\r\n    }\r\n  }\r\n}"
 						},
 						"description": "This method allows you to create a new package by parsing asset details in request body.\n\nYou need to parse AdvertiserId, file format type (for example: .png, .jpg) and file data encoded in base64.\n\nPossible \"FullFileName\" values: .zip"
 					},
@@ -2283,7 +2283,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -2321,7 +2321,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -2364,7 +2364,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -2407,7 +2407,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2450,7 +2450,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -2493,7 +2493,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -2533,7 +2533,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/VideoAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/VideoAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2574,7 +2574,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -2612,7 +2612,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets/Search",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets/Search",
 						"method": "POST",
 						"header": [
 							{
@@ -2655,7 +2655,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets",
 						"method": "POST",
 						"header": [
 							{
@@ -2698,7 +2698,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets/00000/Title",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2741,7 +2741,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets/00000/File",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -2784,7 +2784,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets/00000/Batch",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets/00000/Batch",
 						"method": "PUT",
 						"header": [
 							{
@@ -2824,7 +2824,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Assets/XmlAssets/000000",
+						"url": "https://api.adform.com/api/v1/Assets/XmlAssets/000000",
 						"method": "DELETE",
 						"header": [
 							{
