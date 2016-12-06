@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Order",
-		"_postman_id": "df0dad2d-c679-2b70-c248-d0c7d7479dbf",
+		"_postman_id": "0ab85e37-e773-bf42-8a45-240499687b90",
 		"description": "Orders allow you to group line items within a campaign to efficiently organize your buying strategies. Orders are particularly useful if you are running long term campaigns and would like to group your line items for convenience purposes but they themselves do not represent additional functionality but rather act as an additional level between campaign and line items.\n\nNOTE: Each order can only contain up to 100 line items.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -29,7 +29,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Media/MediaCreatives?MediaIds=00000",
+						"url": "https://api.adform.com/Services/Media/MediaCreatives?MediaIds=00000",
 						"method": "GET",
 						"header": [
 							{
@@ -67,7 +67,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Media/Medias",
+						"url": "https://api.adform.com/Services/Media/Medias",
 						"method": "POST",
 						"header": [
 							{
@@ -107,7 +107,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Media/Medias",
+						"url": "https://api.adform.com/Services/Media/Medias",
 						"method": "GET",
 						"header": [
 							{
@@ -148,7 +148,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/orders?campaignId=00000",
+						"url": "https://api.adform.com/v1/buyer/orders?campaignId=742090",
 						"method": "GET",
 						"header": [
 							{
@@ -186,7 +186,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/orders",
+						"url": "https://api.adform.com/v1/buyer/orders",
 						"method": "POST",
 						"header": [
 							{
@@ -229,7 +229,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/orders/11111/active",
+						"url": "https://api.adform.com/v1/buyer/orders/11111/active",
 						"method": "PUT",
 						"header": [
 							{
@@ -272,7 +272,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/orders/11111",
+						"url": "https://api.adform.com/v1/buyer/orders/11111",
 						"method": "PUT",
 						"header": [
 							{
