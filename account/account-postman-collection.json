@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Account",
-		"_postman_id": "3cc197b8-d3d5-2d3e-910d-a0a47779cdc5",
+		"_postman_id": "2d9d8296-b839-3f86-71b9-2b377722fa73",
 		"description": "To use Account service you need to have:\r\n\r\n1. Adform Agency account.\r\n\r\n2. User account (with enabled External API module). \r\n\r\nHIGHLY IMPORTANT: External API module gives authorisation to use API services.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance. \r\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -36,7 +36,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Security/Login",
+						"url": "https://api.adform.com/Services/Security/Login",
 						"method": "POST",
 						"header": [
 							{
@@ -77,7 +77,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/User/Users",
+						"url": "https://api.adform.com/Services/User/Users",
 						"method": "GET",
 						"header": [
 							{
