@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "AG Tags",
-		"_postman_id": "492b6304-b64a-b244-1cf3-835639bdfb48",
+		"_postman_id": "e0904128-14a9-420a-f3e2-f8f202def58f",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -28,7 +28,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags",
+				"url": "https://api.adform.com/v1/buyer/ag/tags",
 				"method": "POST",
 				"header": [
 					{
@@ -71,7 +71,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/List",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/List",
 				"method": "POST",
 				"header": [
 					{
@@ -114,7 +114,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags?campaignId=000000",
+				"url": "https://api.adform.com/v1/buyer/ag/tags?campaignId=000000",
 				"method": "GET",
 				"header": [
 					{
@@ -152,7 +152,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/ActivationStatus",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/ActivationStatus",
 				"method": "PUT",
 				"header": [
 					{
@@ -195,7 +195,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/PauseStatus",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/PauseStatus",
 				"method": "PUT",
 				"header": [
 					{
@@ -238,7 +238,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/DestinationUrl",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/DestinationUrl",
 				"method": "PUT",
 				"header": [
 					{
@@ -281,7 +281,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/DestinationUrl",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/DestinationUrl",
 				"method": "DELETE",
 				"header": [
 					{
@@ -324,7 +324,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/ExternalScripts",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/ExternalScripts",
 				"method": "PUT",
 				"header": [
 					{
@@ -367,7 +367,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/ExternalScripts",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/ExternalScripts",
 				"method": "DELETE",
 				"header": [
 					{
@@ -410,7 +410,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/TrackingPixels",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/TrackingPixels",
 				"method": "POST",
 				"header": [
 					{
@@ -453,7 +453,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/TrackingPixels",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/TrackingPixels",
 				"method": "DELETE",
 				"header": [
 					{
@@ -496,7 +496,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/ServingProperties",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/ServingProperties",
 				"method": "PUT",
 				"header": [
 					{
@@ -539,7 +539,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/Ad",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/Ad",
 				"method": "PUT",
 				"header": [
 					{
@@ -582,7 +582,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/LineItem",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/LineItem",
 				"method": "PUT",
 				"header": [
 					{
@@ -625,7 +625,7 @@
 				}
 			],
 			"request": {
-				"url": "api.adform.com/v1/buyer/ag/tags/00000/Script",
+				"url": "https://api.adform.com/v1/buyer/ag/tags/00000/Script",
 				"method": "GET",
 				"header": [
 					{
