@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Campaign",
-		"_postman_id": "1147ffd0-0683-d967-6331-670b254655c6",
+		"_postman_id": "9596f8fe-8034-c52f-3300-f89ac741dc14",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -39,7 +39,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts",
+						"url": "https://api.adform.com/v1/buyer/alerts",
 						"method": "POST",
 						"header": [
 							{
@@ -79,7 +79,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
+						"url": "https://api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
 						"method": "GET",
 						"header": [
 							{
@@ -117,7 +117,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts/{{AlertId}}",
+						"url": "https://api.adform.com/v1/buyer/alerts/{{AlertId}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -157,7 +157,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts/{{AlertId}}",
+						"url": "https://api.adform.com/v1/buyer/alerts/{{AlertId}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -198,7 +198,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
 						"method": "GET",
 						"header": [
 							{
@@ -233,7 +233,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/values",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/values",
 						"method": "GET",
 						"header": [
 							{
@@ -271,7 +271,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -311,7 +311,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -349,7 +349,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values",
 						"method": "PUT",
 						"header": [
 							{
@@ -392,7 +392,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Title",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -432,7 +432,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/11111",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -470,7 +470,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222",
+						"url": "https://api.adform.com/api/v1/CampaignSettings/00000/CampaignAttributes/11111/Values/22222",
 						"method": "PUT",
 						"header": [
 							{
@@ -516,7 +516,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/dictionaries/managers",
+						"url": "https://api.adform.com/v1/campaigns/dictionaries/managers",
 						"method": "GET",
 						"header": [
 							{
@@ -551,7 +551,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/dictionaries/comanagers",
+						"url": "https://api.adform.com/v1/campaigns/dictionaries/comanagers",
 						"method": "GET",
 						"header": [
 							{
@@ -586,7 +586,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/dictionaries/labels",
+						"url": "https://api.adform.com/v1/campaigns/dictionaries/labels",
 						"method": "GET",
 						"header": [
 							{
@@ -621,7 +621,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/dictionaries/clients",
+						"url": "https://api.adform.com/v1/campaigns/dictionaries/clients",
 						"method": "GET",
 						"header": [
 							{
@@ -662,7 +662,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/CampaignLabels?CampaignId=00000",
+						"url": "https://api.adform.com/Services/Label/CampaignLabels?CampaignId=00000",
 						"method": "GET",
 						"header": [
 							{
@@ -700,7 +700,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/CampaignLabels",
+						"url": "https://api.adform.com/Services/Label/CampaignLabels",
 						"method": "POST",
 						"header": [
 							{
@@ -750,7 +750,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LandingPages/00000",
+						"url": "https://api.adform.com/api/v1/LandingPages/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -789,7 +789,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"url": "https://api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
 						"method": "GET",
 						"header": [
 							{
@@ -827,7 +827,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage",
+						"url": "https://api.adform.com/api/v1/LandingPages/00000/LandingPage",
 						"method": "POST",
 						"header": [
 							{
@@ -870,7 +870,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"url": "https://api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
 						"method": "PUT",
 						"header": [
 							{
@@ -910,7 +910,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
+						"url": "https://api.adform.com/api/v1/LandingPages/00000/LandingPage/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -955,7 +955,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Campaign/Campaigns",
+						"url": "https://api.adform.com/Services/Campaign/Campaigns",
 						"method": "GET",
 						"header": [
 							{
@@ -991,7 +991,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns",
+						"url": "https://api.adform.com/v1/campaigns",
 						"method": "GET",
 						"header": [
 							{
@@ -1027,7 +1027,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/trackingCampaigns?advertiserId=11111",
+						"url": "https://api.adform.com/v1/campaigns/trackingCampaigns?advertiserId=11111",
 						"method": "GET",
 						"header": [
 							{
@@ -1066,7 +1066,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Campaign/Campaigns",
+						"url": "https://api.adform.com/Services/Campaign/Campaigns",
 						"method": "POST",
 						"header": [
 							{
@@ -1082,7 +1082,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Campaign\": {\r\n    \"AdvertiserId\": 00000,\r\n    \"Name\": \"Name\",\r\n    \"StartDate\": \"2016-06-16T00:00:00\",\r\n    \"EndDate\": \"2018-10-22T23:59:00\",\r\n    \"ResponsibleUserId\": 11111,\r\n    \"CoResponsibleUserId\": \"11111\",\r\n    \"Type\": \"Display\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"Campaign\": {\r\n    \"AdvertiserId\": 62476,\r\n    \"Name\": \"Lukas under construction\",\r\n    \"StartDate\": \"2017-06-16T00:00:00\",\r\n    \"EndDate\": \"2018-10-22T23:59:00\",\r\n    \"ResponsibleUserId\": 36342,\r\n    \"CoResponsibleUserId\": \"36342\",\r\n    \"Type\": \"Display\"\r\n  }\r\n}"
 						},
 						"description": "This method creates a new advertising campaign.\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nYou can retrieve ResponsibleUserId using \"GET Users\" method."
 					},
@@ -1109,7 +1109,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Campaign/Campaigns",
+						"url": "https://api.adform.com/Services/Campaign/Campaigns",
 						"method": "PUT",
 						"header": [
 							{
@@ -1125,7 +1125,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Campaign\": {\r\n    \"Id\": 00000\r\n  }\r\n}"
+							"raw": "{\r\n  \"Campaign\": {\r\n      \"Id\": 753160,\r\n    \"AdvertiserId\": 62476,\r\n    \"Code\": \"Pod0105\",\r\n    \"Name\": \"Lukas not under construction\",\r\n    \"StartDate\": \"2017-06-16T00:00:00\",\r\n    \"EndDate\": \"2018-10-22T23:59:00\",\r\n    \"ResponsibleUserId\": 36342,\r\n    \"CoResponsibleUserId\": 36342,\r\n    \"Type\": \"Display\",\r\n    \"Status\": \"Active\",\r\n    \"Comment\": null,\r\n    \"CategoryId\": null,\r\n    \"Currency\": \"CAD\",\r\n    \"CommentForReporting\": null\r\n  }\r\n}"
 						},
 						"description": "This method updates an existing advertising campaign which is identified by CampaignId.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou have to provide all settings of campaign, even the ones that are not being changed."
 					},
@@ -1149,7 +1149,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/EnabledFeatures",
+						"url": "https://api.adform.com/v1/campaigns/EnabledFeatures",
 						"method": "GET",
 						"header": [
 							{
@@ -1188,7 +1188,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns",
+						"url": "https://api.adform.com/v1/campaigns",
 						"method": "PATCH",
 						"header": [
 							{
@@ -1234,7 +1234,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
+						"url": "https://api.adform.com/v1/campaigns/00000/rtbsettings",
 						"method": "GET",
 						"header": [
 							{
@@ -1272,7 +1272,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/campaigns/00000/rtbsettings",
+						"url": "https://api.adform.com/v1/campaigns/00000/rtbsettings",
 						"method": "PUT",
 						"header": [
 							{
