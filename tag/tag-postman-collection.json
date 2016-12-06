@@ -29,7 +29,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/Tags?CampaignId=00000",
+						"url": "https://api.adform.com/Services/Tag/Tags?CampaignId=00000",
 						"method": "GET",
 						"header": [
 							{
@@ -67,7 +67,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/Tags",
+						"url": "https://api.adform.com/Services/Tag/Tags",
 						"method": "POST",
 						"header": [
 							{
@@ -83,7 +83,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"Tag\": {\r\n    \"CampaignId\": 000000,\r\n    \"PlacementId\": 111111,\r\n    \"Name\": \"Test\",\r\n    \"Content\": {\r\n      \"Id\": 222222,\r\n      \"ContentType\": \"AdTagContent\",\r\n      \"DestinationUrl\": {\r\n        \"Type\": \"Replace\",\r\n        \"Url\": \"http://www.adform.com/3\"\r\n      }\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"Tag\": {\r\n    \"CampaignId\": 742090,\r\n    \"PlacementId\": 2437319,\r\n    \"Name\": \"tag test 12/05\",\r\n    \"Content\": {\r\n      \"Id\": 16607337,\r\n      \"ContentType\": \"AdTagContent\",\r\n      \"DestinationUrl\": {\r\n        \"Type\": \"Replace\",\r\n        \"Url\": \"http://www.adform.com/3\"\r\n      }\r\n    }\r\n  }\r\n}"
 						},
 						"description": "This method creates a tag by specified criteria.Before creating tags you need to create a banner and a line item.\n\nNOTE: Tag contect differs depending on tag type.\nFor direct campaigns tags are acting as serving scripts that are implemented by websites and are usually serving one banner, rotator or schedule. Each tag has a unique identifier that is also visible in banner object after the banner is served. \n\nFor RTB campaigns tags are acting as a match point between a designated banner and inventory. The generated serving script doesn't have to be implemented to the publisher's website as the banner is loaded through a master tag.\n\nAvailable tag content types:\n* AdTagContent\n* RotatorTagContent\n* ScheduleTagContent\n\nYou need to parse CampaignId, PlacementId and BannerId in your request body.\n\nYou can retrieve CampaignId using \"GET Campaigns\" method.\n\nYou can retrieve PlacementId using \"GET Placements\" method.\n\nYou can retrieve BannerId using Ads Overview service."
 					},
@@ -110,7 +110,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/PauseStatus",
+						"url": "https://api.adform.com/Services/Tag/PauseStatus",
 						"method": "POST",
 						"header": [
 							{
@@ -150,7 +150,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/DestinationUrls?TagIds=111111",
+						"url": "https://api.adform.com/Services/Tag/DestinationUrls?TagIds=111111",
 						"method": "GET",
 						"header": [
 							{
@@ -188,7 +188,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/DestinationUrls",
+						"url": "https://api.adform.com/Services/Tag/DestinationUrls",
 						"method": "POST",
 						"header": [
 							{
@@ -231,7 +231,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/DestinationUrls",
+						"url": "https://api.adform.com/Services/Tag/DestinationUrls",
 						"method": "PUT",
 						"header": [
 							{
@@ -271,7 +271,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/DestinationUrls?DestinationUrlIds=111111",
+						"url": "https://api.adform.com/Services/Tag/DestinationUrls?DestinationUrlIds=111111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -306,7 +306,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/TrackingPixels?tagIds=1111111",
+						"url": "https://api.adform.com/Services/Tag/TrackingPixels?tagIds=1111111",
 						"method": "GET",
 						"header": [
 							{
@@ -344,7 +344,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/TrackingPixels",
+						"url": "https://api.adform.com/Services/Tag/TrackingPixels",
 						"method": "POST",
 						"header": [
 							{
@@ -384,7 +384,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/ExternalScripts?tagIds=111111",
+						"url": "https://api.adform.com/Services/Tag/ExternalScripts?tagIds=111111",
 						"method": "GET",
 						"header": [
 							{
@@ -422,7 +422,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Tag/ExternalScripts",
+						"url": "https://api.adform.com/Services/Tag/ExternalScripts",
 						"method": "POST",
 						"header": [
 							{
