@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Rotator Targeting Rules",
-		"_postman_id": "66c132e2-8a32-ad89-b851-3e85d9d614a5",
+		"_postman_id": "2308c5ee-bb8b-fd52-21b6-d03a88453429",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -72,7 +72,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -110,7 +110,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/BandwidthTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -150,7 +150,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BandwidthTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -194,7 +194,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BrowserTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -234,7 +234,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BrowserTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -272,7 +272,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/BrowserTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -312,7 +312,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BrowserTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -356,7 +356,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -396,7 +396,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -434,7 +434,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -474,7 +474,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -518,7 +518,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/DeviceTypeTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -558,7 +558,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/GeoTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/GeoTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -596,7 +596,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/GeoTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/GeoTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -636,7 +636,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/GeoTypeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/GeoTypeTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -680,7 +680,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IpTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/IpTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -720,7 +720,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IpTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/IpTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -758,7 +758,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IpTypeTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/IpTypeTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -798,7 +798,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IpTypeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/IpTypeTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -842,7 +842,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IspTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/IspTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -882,7 +882,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IspTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/IspTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -920,7 +920,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/IspTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/IspTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -960,7 +960,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/BrowserTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/BrowserTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1001,7 +1001,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TargetingSolutions/00000",
+						"url": "https://api.adform.com/v1/targeting/TargetingSolutions/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1036,7 +1036,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/Health",
+						"url": "https://api.adform.com/v1/targeting/Health",
 						"method": "GET",
 						"header": [
 							{
@@ -1071,7 +1071,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/Health",
+						"url": "https://api.adform.com/v1/targeting/Health",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1115,7 +1115,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TimeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/TimeTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -1155,7 +1155,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TimeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/TimeTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1193,7 +1193,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TimeTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/TimeTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1233,7 +1233,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TimeTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/TimeTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1277,7 +1277,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/TrackingPointTargetingRules/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -1317,7 +1317,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/TrackingPointTargetingRules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1355,7 +1355,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/00000/Settings",
+						"url": "https://api.adform.com/v1/targeting/TrackingPointTargetingRules/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1395,7 +1395,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/targeting/TrackingPointTargetingRules/00000",
+						"url": "https://api.adform.com/v1/targeting/TrackingPointTargetingRules/00000",
 						"method": "DELETE",
 						"header": [
 							{
