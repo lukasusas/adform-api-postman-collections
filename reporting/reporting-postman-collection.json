@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Reporting",
-		"_postman_id": "9ece3dda-9c52-ab97-c8c6-3291d2e7aa5a",
+		"_postman_id": "dc639eba-b9f8-b917-22e0-3016051c3e01",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -29,7 +29,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/DataExport/DataExportsList",
+						"url": "https://api.adform.com/Services/DataExport/DataExportsList",
 						"method": "GET",
 						"header": [
 							{
@@ -67,7 +67,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/DataExport/DataExports",
+						"url": "https://api.adform.com/Services/DataExport/DataExports",
 						"method": "POST",
 						"header": [
 							{
@@ -110,7 +110,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/DataExport/DataExports",
+						"url": "https://api.adform.com/Services/DataExport/DataExports",
 						"method": "PUT",
 						"header": [
 							{
@@ -150,7 +150,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/DataExport/DataExports?DataExportsIds=111111",
+						"url": "https://api.adform.com/Services/DataExport/DataExports?DataExportsIds=111111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -185,7 +185,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/DataExport/DataExportColumns?exportType=WebVariables",
+						"url": "https://api.adform.com/Services/DataExport/DataExportColumns?exportType=WebVariables",
 						"method": "GET",
 						"header": [
 							{
@@ -220,7 +220,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/DataExport/DataExportResult?DataExportName=Variable%20Export",
+						"url": "https://api.adform.com/Services/DataExport/DataExportResult?DataExportName=Variable%20Export",
 						"method": "GET",
 						"header": [
 							{
@@ -305,7 +305,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/reportingstats/agency/metadata/dimensions",
+						"url": "https://api.adform.com/v1/reportingstats/agency/metadata/dimensions",
 						"method": "POST",
 						"header": [
 							{
@@ -348,7 +348,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/reportingstats/agency/metadata/metrics",
+						"url": "https://api.adform.com/v1/reportingstats/agency/metadata/metrics",
 						"method": "POST",
 						"header": [
 							{
@@ -394,7 +394,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/ReportSchedule/ReportSchedules",
+						"url": "https://api.adform.com/Services/ReportSchedule/ReportSchedules",
 						"method": "GET",
 						"header": [
 							{
@@ -432,7 +432,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/ReportSchedule/ReportSchedules",
+						"url": "https://api.adform.com/Services/ReportSchedule/ReportSchedules",
 						"method": "POST",
 						"header": [
 							{
@@ -475,7 +475,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/ReportSchedule/ReportSchedules",
+						"url": "https://api.adform.com/Services/ReportSchedule/ReportSchedules",
 						"method": "PUT",
 						"header": [
 							{
@@ -515,7 +515,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/ReportSchedule/ReportSchedules?id=111111",
+						"url": "https://api.adform.com/Services/ReportSchedule/ReportSchedules?id=111111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -559,7 +559,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/reportingstats/agency/reportdata",
+						"url": "https://api.adform.com/v1/reportingstats/agency/reportdata",
 						"method": "POST",
 						"header": [
 							{
@@ -575,7 +575,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"dimensions\": [\r\n    \"client\",\r\n    \"campaign\"\r\n  ],\r\n  \"metrics\": [\r\n    \"clicks\",\r\n    \"impressions\"\r\n  ],\r\n  \"filter\": {\r\n    \"date\": \"campaignStartToEnd\"\r\n  }\r\n}"
+							"raw": "{\r\n  \"dimensions\": [\r\n    \"order\"\r\n  ],\r\n  \"metrics\": [\r\n    \"clicks\",\r\n    \"impressions\"\r\n  ],\r\n  \"filter\": {\r\n    \"date\": \"campaignStartToEnd\"\r\n  }\r\n}"
 						},
 						"description": "This method returns stats according to specified filters, dimensions and metrics."
 					},
