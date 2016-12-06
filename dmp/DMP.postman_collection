@@ -1,170 +1,179 @@
 {
-	"id": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-	"name": "DMP",
-	"description": "",
-	"order": [
-		"eca0caa4-5589-3acb-00c1-a21691b32d7b",
-		"d1ce5416-f8a8-198e-88d2-7ae5f22cf19b",
-		"110d0226-aea3-36ee-c09a-91cf036d1e0e",
-		"f990038a-abd7-8fa7-d3a3-5d617fcaac89",
-		"d1569c80-8f94-7035-946b-0e0e6c031607",
-		"805e330f-81b9-a716-ca58-e59933660447",
-		"b3304c22-2125-36e7-e6c8-d97ccec878c4"
-	],
-	"folders": [],
-	"timestamp": 0,
-	"owner": "3053",
-	"public": false,
-	"published": false,
-	"requests": [
+	"variables": [],
+	"info": {
+		"name": "DMP",
+		"_postman_id": "39ac5dd9-03d7-2ee8-09ef-302e6a0ce589",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "110d0226-aea3-36ee-c09a-91cf036d1e0e",
-			"headers": "Authorization: bearer {{access_token}}\n",
-			"url": "https://dmp-api.adform.com/v1/dataproviders/10284/segments",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541567047,
-			"name": "https://dmp-api.adform.com/v1/dataproviders/10284/segments",
-			"description": "",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": []
-		},
-		{
-			"id": "805e330f-81b9-a716-ca58-e59933660447",
-			"headers": "Authorization: bearer {{access_token}}\n",
-			"url": "https://dmp-api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541586036,
-			"name": "https://dmp-api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
-			"description": "",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": []
-		},
-		{
-			"id": "b3304c22-2125-36e7-e6c8-d97ccec878c4",
-			"headers": "Authorization: bearer {{access_token}}\nContent-Type: application/json\n",
-			"url": "https://dmp-api.adform.com/v1/dataproviders/10603/datausagepermissions",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "PUT",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541591031,
-			"name": "https://dmp-api.adform.com/v1/dataproviders/10603/datausagepermissions",
-			"description": "Update all data usage policies for this data provider.",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": [],
-			"rawModeData": "{  \r\n   \"forCountries\":{  \r\n      \"rule\":\"include\",\r\n      \"items\":[  \r\n         {  \r\n            \"id\":\"30\",\r\n            \"forAgencies\":{  \r\n               \"rule\":\"include\",\r\n               \"items\":[  \r\n                  {  \r\n                     \"id\":\"211\",\r\n                     \"forDataConsumers\":{  \r\n                        \"rule\":\"includeAll\",\r\n                        \"items\":[  \r\n\r\n                        ]\r\n                     }\r\n                  }\r\n               ]\r\n            }\r\n         }\r\n      ]\r\n   }\r\n}"
-		},
-		{
-			"id": "d1569c80-8f94-7035-946b-0e0e6c031607",
-			"headers": "Authorization: bearer {{access_token}}\nContent-Type: text/csv\n",
-			"url": "https://dmp-api.adform.com/v1/dataproviders/10284/cookies",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541578982,
-			"name": "https://dmp-api.adform.com/v1/dataproviders/10284/cookies",
-			"description": "",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": [],
-			"rawModeData": "{AdformUUID}{tab_separator}{SegmentRefID1},{SegmentRefID2},{SegmentRefIDN}\n{AdvertiserId}{tab_separator}{SegmentRefID1},{SegmentRefID2},{SegmentRefIDN}"
-		},
-		{
-			"id": "d1ce5416-f8a8-198e-88d2-7ae5f22cf19b",
-			"headers": "Authorization: bearer {{access_token}}\n",
-			"url": "https://dmp-api.adform.com/v1/segments",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541237840,
-			"name": "https://dmp-api.adform.com/v1/segments",
-			"description": "",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": []
-		},
-		{
-			"id": "eca0caa4-5589-3acb-00c1-a21691b32d7b",
-			"headers": "",
-			"url": "https://dmp-api.adform.com/v1/token",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "password",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "username",
-					"value": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541545707,
 			"name": "https://dmp-api.adform.com/v1/token",
-			"description": "",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": []
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/token",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "username",
+							"value": "",
+							"type": "text",
+							"enabled": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		},
 		{
-			"id": "f990038a-abd7-8fa7-d3a3-5d617fcaac89",
-			"headers": "Content-Type: application/json\nAuthorization: bearer {{access_token}}\n",
-			"url": "https://dmp-api.adform.com/v1/segments",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1472541572402,
 			"name": "https://dmp-api.adform.com/v1/segments",
-			"description": "",
-			"collectionId": "8cd5a72b-ca03-fa32-d2a0-b17dff9bffa4",
-			"responses": [],
-			"rawModeData": "{\n    \"dataProviderId\": \"10284\",\n    \"status\": \"inactive\",\n    \"categoryId\": \"398426\",\n    \"refId\": \"Test\",\n    \"fee\": 2,\n    \"ttl\": 21,\n    \"name\": \"Test\",\n    \"frequency\": 1,\n    }"
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/segments",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://dmp-api.adform.com/v1/dataproviders/10284/segments",
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/dataproviders/10284/segments",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://dmp-api.adform.com/v1/segments",
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/segments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataProviderId\": \"10284\",\n    \"status\": \"inactive\",\n    \"categoryId\": \"398426\",\n    \"refId\": \"Test\",\n    \"fee\": 2,\n    \"ttl\": 21,\n    \"name\": \"Test\",\n    \"frequency\": 1,\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://dmp-api.adform.com/v1/dataproviders/10284/cookies",
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/dataproviders/10284/cookies",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{AdformUUID}{tab_separator}{SegmentRefID1},{SegmentRefID2},{SegmentRefIDN}\n{AdvertiserId}{tab_separator}{SegmentRefID1},{SegmentRefID2},{SegmentRefIDN}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://dmp-api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://dmp-api.adform.com/v1/dataproviders/10603/datausagepermissions",
+			"request": {
+				"url": "https://dmp-api.adform.com/v1/dataproviders/10603/datausagepermissions",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer {{access_token}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n   \"forCountries\":{  \r\n      \"rule\":\"include\",\r\n      \"items\":[  \r\n         {  \r\n            \"id\":\"30\",\r\n            \"forAgencies\":{  \r\n               \"rule\":\"include\",\r\n               \"items\":[  \r\n                  {  \r\n                     \"id\":\"211\",\r\n                     \"forDataConsumers\":{  \r\n                        \"rule\":\"includeAll\",\r\n                        \"items\":[  \r\n\r\n                        ]\r\n                     }\r\n                  }\r\n               ]\r\n            }\r\n         }\r\n      ]\r\n   }\r\n}"
+				},
+				"description": "Update all data usage policies for this data provider."
+			},
+			"response": []
 		}
 	]
 }
