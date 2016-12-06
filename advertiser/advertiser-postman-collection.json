@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Advertiser",
-		"_postman_id": "79f9b212-db97-94a2-b2ff-6b4eaf74611d",
+		"_postman_id": "5956e5f7-7b7f-81ba-3997-ad99350b6740",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -39,7 +39,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts",
+						"url": "https://api.adform.com/v1/buyer/alerts",
 						"method": "POST",
 						"header": [
 							{
@@ -79,7 +79,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
+						"url": "https://api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
 						"method": "GET",
 						"header": [
 							{
@@ -117,7 +117,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts/{{AlertId}}",
+						"url": "https://api.adform.com/v1/buyer/alerts/{{AlertId}}",
 						"method": "PATCH",
 						"header": [
 							{
@@ -157,7 +157,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/buyer/alerts/{{AlertId}}",
+						"url": "https://api.adform.com/v1/buyer/alerts/{{AlertId}}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -198,7 +198,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -236,7 +236,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
 						"method": "POST",
 						"header": [
 							{
@@ -276,7 +276,7 @@
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -314,7 +314,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
 						"method": "PUT",
 						"header": [
 							{
@@ -486,7 +486,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Advertiser/Advertisers",
+						"url": "https://api.adform.com/Services/Advertiser/Advertisers",
 						"method": "GET",
 						"header": [
 							{
