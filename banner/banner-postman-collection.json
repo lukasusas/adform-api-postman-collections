@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Banner",
-		"_postman_id": "e3ec7d70-92d4-60cb-f541-1899f6b5655c",
+		"_postman_id": "d81fd9b7-534d-7b04-13a6-dfc8247d7472",
 		"description": "In this section you can find information on how to create and manage various types of banners and all related objects. If the banner is hosted in Adform, the asset is created first which can be reused to create various banners. The created banners can then be used to create rotators or schedules for additional level of control or simply served through Direct or RTB.\r\n\r\nAdform is also offering DCO (Dynamic Content Optimization) banners that are displaying different content depending on a predefined set of rules.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -29,7 +29,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AdsOverview/Ads?campaignId=000000",
+						"url": "https://api.adform.com/api/v1/AdsOverview/Ads?campaignId=742090",
 						"method": "GET",
 						"header": [
 							{
@@ -64,7 +64,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AdsOverview/Banners/00000",
+						"url": "https://api.adform.com/api/v1/AdsOverview/Banners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -99,7 +99,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AdsOverview/Rotators/000000",
+						"url": "https://api.adform.com/api/v1/AdsOverview/Rotators/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -134,7 +134,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AdsOverview/Schedules/000000",
+						"url": "https://api.adform.com/api/v1/AdsOverview/Schedules/000000",
 						"method": "GET",
 						"header": [
 							{
@@ -169,7 +169,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AdsOverview/NestedRotators/00000",
+						"url": "https://api.adform.com/api/v1/AdsOverview/NestedRotators/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -207,7 +207,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AdsOverview/Ads",
+						"url": "https://api.adform.com/api/v1/AdsOverview/Ads",
 						"method": "POST",
 						"header": [
 							{
@@ -254,7 +254,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages",
 						"method": "GET",
 						"header": [
 							{
@@ -290,7 +290,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages/1/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages/1/Current",
 						"method": "PUT",
 						"header": [
 							{
@@ -326,7 +326,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BackupImages/Current",
 						"method": "DELETE",
 						"header": [
 							{
@@ -362,7 +362,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes",
 						"method": "GET",
 						"header": [
 							{
@@ -398,7 +398,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes/11111/Values/22222/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes/11111/Values/22222/Current",
 						"method": "PUT",
 						"header": [
 							{
@@ -434,7 +434,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes/11111/Values/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/BannerAttributes/11111/Values/Current",
 						"method": "DELETE",
 						"header": [
 							{
@@ -470,7 +470,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages",
 						"method": "GET",
 						"header": [
 							{
@@ -506,7 +506,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages/11111/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages/11111/Current",
 						"method": "PUT",
 						"header": [
 							{
@@ -542,7 +542,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/LandingPages/Current",
 						"method": "DELETE",
 						"header": [
 							{
@@ -578,7 +578,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/NameFormats",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/00000/NameFormats",
 						"method": "GET",
 						"header": [
 							{
@@ -614,7 +614,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/adsmanagement/BannerDefaultValues/628971/NameFormats/4/Current",
+						"url": "https://api.adform.com/v1/adsmanagement/BannerDefaultValues/628971/NameFormats/4/Current",
 						"method": "PUT",
 						"header": [
 							{
@@ -658,7 +658,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners",
+						"url": "https://api.adform.com/api/v1/FlashBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -698,7 +698,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/uuid",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -733,7 +733,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -768,7 +768,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -806,7 +806,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/File",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -849,7 +849,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/Title",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -892,7 +892,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/ClickUrl",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -935,7 +935,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -978,7 +978,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/Settings",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1018,7 +1018,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1056,7 +1056,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1096,7 +1096,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/Backup",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/Backup",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1134,7 +1134,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/ContentSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1177,7 +1177,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/FlashBanners/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/FlashBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -1226,7 +1226,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -1266,7 +1266,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1301,7 +1301,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1341,7 +1341,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/uuid",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -1384,7 +1384,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Title",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1427,7 +1427,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ClickUrls",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ClickUrls",
 						"method": "PUT",
 						"header": [
 							{
@@ -1470,7 +1470,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -1513,7 +1513,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Settings",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1556,7 +1556,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1596,7 +1596,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ContentSettings",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1634,7 +1634,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Asset",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/Asset",
 						"method": "PUT",
 						"header": [
 							{
@@ -1677,7 +1677,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/AssetBanners/HtmlBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -1717,7 +1717,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/AssetBanners/OperationResults/00000",
+						"url": "https://api.adform.com/api/v1/AssetBanners/OperationResults/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1761,7 +1761,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners",
+						"url": "https://api.adform.com/api/v1/ImageBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -1801,7 +1801,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/uuid",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -1836,7 +1836,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1871,7 +1871,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1909,7 +1909,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/File",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/File",
 						"method": "PUT",
 						"header": [
 							{
@@ -1952,7 +1952,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/Title",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1995,7 +1995,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/ClickUrl",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -2038,7 +2038,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -2081,7 +2081,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/Settings",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -2124,7 +2124,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ImageBanners/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/ImageBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -2173,7 +2173,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream",
 						"method": "POST",
 						"header": [
 							{
@@ -2213,7 +2213,7 @@
 						}
 					],
 					"request": {
-						"url": "bannermanagement.adform.com/api/v1/InteractiveInstream/00000/uuid",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -2248,7 +2248,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2283,7 +2283,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/DefaultVideoSettings",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/DefaultVideoSettings",
 						"method": "GET",
 						"header": [
 							{
@@ -2318,7 +2318,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2356,7 +2356,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/0000000/MainAsset",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/0000000/MainAsset",
 						"method": "PUT",
 						"header": [
 							{
@@ -2399,7 +2399,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/AdditionalAssets",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/AdditionalAssets",
 						"method": "PUT",
 						"header": [
 							{
@@ -2442,7 +2442,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/Title",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2485,7 +2485,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -2528,7 +2528,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/ClickUrl",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -2571,7 +2571,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/CustomVariables",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/CustomVariables",
 						"method": "PUT",
 						"header": [
 							{
@@ -2614,7 +2614,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/VideoSettings",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/VideoSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -2657,7 +2657,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/InteractiveInstream/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/InteractiveInstream/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -2706,7 +2706,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners",
+						"url": "https://api.adform.com/api/v1/LinkBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -2746,7 +2746,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000/uuid",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -2781,7 +2781,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2816,7 +2816,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2854,7 +2854,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000/Title",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2897,7 +2897,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000/ClickUrl",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -2940,7 +2940,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -2983,7 +2983,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000/Settings",
+						"url": "https://api.adform.com/api/v1/LinkBanners/16632990/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -3026,7 +3026,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/LinkBanners/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/LinkBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -3073,7 +3073,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/OperationResults/00000",
+						"url": "https://api.adform.com/api/v1/OperationResults/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -3117,7 +3117,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Packages",
+						"url": "https://api.adform.com/api/v1/Packages",
 						"method": "POST",
 						"header": [
 							{
@@ -3160,7 +3160,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Packages/Banners",
+						"url": "https://api.adform.com/api/v1/Packages/Banners",
 						"method": "POST",
 						"header": [
 							{
@@ -3206,7 +3206,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Rotators/00000/Identifiers",
+						"url": "https://api.adform.com/api/v1/Rotators/00000/Identifiers",
 						"method": "GET",
 						"header": [
 							{
@@ -3241,7 +3241,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/Rotators/00000/Identifiers",
+						"url": "https://api.adform.com/api/v1/Rotators/00000/Identifiers",
 						"method": "GET",
 						"header": [
 							{
@@ -3285,7 +3285,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners",
 						"method": "POST",
 						"header": [
 							{
@@ -3325,7 +3325,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/0000000/uuid",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/0000000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -3360,7 +3360,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -3395,7 +3395,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/{uuid}",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/{uuid}",
 						"method": "DELETE",
 						"header": [
 							{
@@ -3433,7 +3433,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Content/Revalidation",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/Content/Revalidation",
 						"method": "POST",
 						"header": [
 							{
@@ -3476,7 +3476,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/Parser",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/Parser",
 						"method": "POST",
 						"header": [
 							{
@@ -3519,7 +3519,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Content",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/Content",
 						"method": "PUT",
 						"header": [
 							{
@@ -3562,7 +3562,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Title",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -3605,7 +3605,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/ClickUrl",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -3648,7 +3648,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -3691,7 +3691,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/Settings",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -3734,7 +3734,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/ThirdPartyBanners/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/ThirdPartyBanners/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
@@ -3783,7 +3783,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream",
+						"url": "https://api.adform.com/api/v1/VideoInstream",
 						"method": "POST",
 						"header": [
 							{
@@ -3823,7 +3823,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/uuid",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/uuid",
 						"method": "GET",
 						"header": [
 							{
@@ -3858,7 +3858,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -3893,7 +3893,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/DefaultVideoSettings",
+						"url": "https://api.adform.com/api/v1/VideoInstream/DefaultVideoSettings",
 						"method": "GET",
 						"header": [
 							{
@@ -3928,7 +3928,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/000000",
+						"url": "https://api.adform.com/api/v1/VideoInstream/000000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -3966,7 +3966,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/{uuid}/OriginalVideoSource",
+						"url": "https://api.adform.com/api/v1/VideoInstream/{uuid}/OriginalVideoSource",
 						"method": "PUT",
 						"header": [
 							{
@@ -4009,7 +4009,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/Title",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -4052,7 +4052,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/Attributes",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/Attributes",
 						"method": "PUT",
 						"header": [
 							{
@@ -4095,7 +4095,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/ClickUrl",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/ClickUrl",
 						"method": "PUT",
 						"header": [
 							{
@@ -4138,7 +4138,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/QualitySettings",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/QualitySettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -4181,7 +4181,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/VideoSettings",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/VideoSettings",
 						"method": "PUT",
 						"header": [
 							{
@@ -4224,7 +4224,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/VideoAssets",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/VideoAssets",
 						"method": "PUT",
 						"header": [
 							{
@@ -4267,7 +4267,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/api/v1/VideoInstream/00000/ActivationStatus",
+						"url": "https://api.adform.com/api/v1/VideoInstream/00000/ActivationStatus",
 						"method": "PUT",
 						"header": [
 							{
