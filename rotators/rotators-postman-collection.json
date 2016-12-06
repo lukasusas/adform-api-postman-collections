@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Rotators",
-		"_postman_id": "43af1ad5-1817-03fc-38f2-211894d7bfee",
+		"_postman_id": "d64249c9-6c6a-c040-e14a-abd0938e0f6a",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators",
+						"url": "https://api.adform.com/v1/rotators/ABRotators",
 						"method": "POST",
 						"header": [
 							{
@@ -72,7 +72,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -107,7 +107,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -145,7 +145,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/Title",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -185,7 +185,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/BackupBanner",
 						"method": "DELETE",
 						"header": [
 							{
@@ -223,7 +223,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/000000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/000000/BackupBanner",
 						"method": "PUT",
 						"header": [
 							{
@@ -263,7 +263,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/ABRotators/000000/Activate",
+						"url": "https://api.adform.com//v1/rotators/ABRotators/000000/Activate",
 						"method": "POST",
 						"header": [
 							{
@@ -298,7 +298,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/ABRotators/00000/Deactivate",
+						"url": "https://api.adform.com//v1/rotators/ABRotators/00000/Deactivate",
 						"method": "POST",
 						"header": [
 							{
@@ -336,7 +336,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/Members",
 						"method": "PUT",
 						"header": [
 							{
@@ -379,7 +379,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/Sequence",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/Members/Sequence",
 						"method": "PUT",
 						"header": [
 							{
@@ -422,7 +422,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/11111/Settings",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/Members/11111/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -465,7 +465,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/11111/Banner",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/Members/11111/Banner",
 						"method": "PUT",
 						"header": [
 							{
@@ -505,7 +505,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/ABRotators/00000/Members/11111",
+						"url": "https://api.adform.com/v1/rotators/ABRotators/00000/Members/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -549,7 +549,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators",
 						"method": "POST",
 						"header": [
 							{
@@ -589,7 +589,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -624,7 +624,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -662,7 +662,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Title",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -705,7 +705,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Settings",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -745,7 +745,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/BackupBanner",
 						"method": "DELETE",
 						"header": [
 							{
@@ -783,7 +783,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/000000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/000000/BackupBanner",
 						"method": "PUT",
 						"header": [
 							{
@@ -823,7 +823,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/OptimizedRotators/000000/Activate",
+						"url": "https://api.adform.com//v1/rotators/OptimizedRotators/000000/Activate",
 						"method": "POST",
 						"header": [
 							{
@@ -858,7 +858,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/OptimizedRotators/00000/Deactivate",
+						"url": "https://api.adform.com//v1/rotators/OptimizedRotators/00000/Deactivate",
 						"method": "POST",
 						"header": [
 							{
@@ -896,7 +896,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/Members",
 						"method": "PUT",
 						"header": [
 							{
@@ -939,7 +939,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members/Sequence",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/Members/Sequence",
 						"method": "PUT",
 						"header": [
 							{
@@ -982,7 +982,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members/11111/Banner",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/Members/11111/Banner",
 						"method": "PUT",
 						"header": [
 							{
@@ -1022,7 +1022,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/OptimizedRotators/00000/Members/11111",
+						"url": "https://api.adform.com/v1/rotators/OptimizedRotators/00000/Members/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1066,7 +1066,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators",
 						"method": "POST",
 						"header": [
 							{
@@ -1106,7 +1106,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1141,7 +1141,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1179,7 +1179,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Title",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1219,7 +1219,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/BackupBanner",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1257,7 +1257,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/000000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/000000/BackupBanner",
 						"method": "PUT",
 						"header": [
 							{
@@ -1297,7 +1297,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/RandomRotators/000000/Activate",
+						"url": "https://api.adform.com//v1/rotators/RandomRotators/000000/Activate",
 						"method": "POST",
 						"header": [
 							{
@@ -1332,7 +1332,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/RandomRotators/00000/Deactivate",
+						"url": "https://api.adform.com//v1/rotators/RandomRotators/00000/Deactivate",
 						"method": "POST",
 						"header": [
 							{
@@ -1370,7 +1370,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/Members",
 						"method": "PUT",
 						"header": [
 							{
@@ -1413,7 +1413,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/Sequence",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/Members/Sequence",
 						"method": "PUT",
 						"header": [
 							{
@@ -1456,7 +1456,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/11111/Settings",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/Members/11111/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1499,7 +1499,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/11111/Banner",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/Members/11111/Banner",
 						"method": "PUT",
 						"header": [
 							{
@@ -1539,7 +1539,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/RandomRotators/00000/Members/11111",
+						"url": "https://api.adform.com/v1/rotators/RandomRotators/00000/Members/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1583,7 +1583,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules",
+						"url": "https://api.adform.com/v1/schedules",
 						"method": "POST",
 						"header": [
 							{
@@ -1623,7 +1623,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000",
+						"url": "https://api.adform.com/v1/schedules/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -1658,7 +1658,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000",
+						"url": "https://api.adform.com/v1/schedules/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -1696,7 +1696,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000/Title",
+						"url": "https://api.adform.com/v1/schedules/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -1736,7 +1736,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/schedules/000000/Activate",
+						"url": "https://api.adform.com//v1/schedules/000000/Activate",
 						"method": "POST",
 						"header": [
 							{
@@ -1771,7 +1771,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/schedules/00000/Deactivate",
+						"url": "https://api.adform.com//v1/schedules/00000/Deactivate",
 						"method": "POST",
 						"header": [
 							{
@@ -1809,7 +1809,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000/Members",
+						"url": "https://api.adform.com/v1/schedules/00000/Members",
 						"method": "PUT",
 						"header": [
 							{
@@ -1852,7 +1852,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000/Members/Sequence",
+						"url": "https://api.adform.com/v1/schedules/00000/Members/Sequence",
 						"method": "PUT",
 						"header": [
 							{
@@ -1895,7 +1895,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000/Members/11111/Settings",
+						"url": "https://api.adform.com/v1/schedules/00000/Members/11111/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -1938,7 +1938,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000/Members/11111/Reference",
+						"url": "https://api.adform.com/v1/schedules/00000/Members/11111/Reference",
 						"method": "PUT",
 						"header": [
 							{
@@ -1978,7 +1978,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/schedules/00000/Members/11111",
+						"url": "https://api.adform.com/v1/schedules/00000/Members/11111",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2022,7 +2022,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators",
 						"method": "POST",
 						"header": [
 							{
@@ -2062,7 +2062,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000",
 						"method": "GET",
 						"header": [
 							{
@@ -2097,7 +2097,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2135,7 +2135,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Title",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/Title",
 						"method": "PUT",
 						"header": [
 							{
@@ -2175,7 +2175,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/BackupBanner",
 						"method": "DELETE",
 						"header": [
 							{
@@ -2213,7 +2213,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/000000/BackupBanner",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/000000/BackupBanner",
 						"method": "PUT",
 						"header": [
 							{
@@ -2253,7 +2253,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/SequentialRotators/000000/Activate",
+						"url": "https://api.adform.com//v1/rotators/SequentialRotators/000000/Activate",
 						"method": "POST",
 						"header": [
 							{
@@ -2288,7 +2288,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com//v1/rotators/SequentialRotators/00000/Deactivate",
+						"url": "https://api.adform.com//v1/rotators/SequentialRotators/00000/Deactivate",
 						"method": "POST",
 						"header": [
 							{
@@ -2326,7 +2326,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/Members",
 						"method": "PUT",
 						"header": [
 							{
@@ -2369,7 +2369,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/Sequence",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/Members/Sequence",
 						"method": "PUT",
 						"header": [
 							{
@@ -2412,7 +2412,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111/Settings",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111/Settings",
 						"method": "PUT",
 						"header": [
 							{
@@ -2455,7 +2455,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111/Banner",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111/Banner",
 						"method": "PUT",
 						"header": [
 							{
@@ -2495,7 +2495,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111",
+						"url": "https://api.adform.com/v1/rotators/SequentialRotators/00000/Members/11111",
 						"method": "DELETE",
 						"header": [
 							{
