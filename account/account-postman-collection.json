@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "Account",
-		"_postman_id": "2d9d8296-b839-3f86-71b9-2b377722fa73",
+		"_postman_id": "08cb3254-61f2-a339-65e5-89368f3fdd92",
 		"description": "To use Account service you need to have:\r\n\r\n1. Adform Agency account.\r\n\r\n2. User account (with enabled External API module). \r\n\r\nHIGHLY IMPORTANT: External API module gives authorisation to use API services.\r\n\r\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance. \r\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -47,7 +47,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"UserName\": \"lukasapitest\",\r\n  \"Password\": \"apitestbandau\"\r\n}"
+							"raw": "{\r\n  \"UserName\": \"username\",\r\n  \"Password\": \"password\"\r\n}"
 						},
 						"description": "This request allows you to get authentication token that can then be used to access all other Adform API services.\n\nThe token itself has a total lifetime of 24 hours and expires after 3 hours of inactivity.\n\nAuthentication token is set as a global 'Ticket' variable and it can be reused in further requests - headers and json body.\n\nIf you want to use global variables please write them in double curly brackets: {{Ticket}}\n\nRequest body fields:\n1. UserName - mandatory\n2. Password - mandatory"
 					},
