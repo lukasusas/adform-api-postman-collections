@@ -2,15 +2,15 @@
 	"variables": [],
 	"info": {
 		"name": "DMP",
-		"_postman_id": "39ac5dd9-03d7-2ee8-09ef-302e6a0ce589",
+		"_postman_id": "4dd342cb-3338-2d57-10b7-f51da048f62c",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "https://dmp-api.adform.com/v1/token",
+			"name": "https://api.adform.com/v1/token",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/token",
+				"url": "https://api.adform.com/v1/token",
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,9 +41,9 @@
 			"response": []
 		},
 		{
-			"name": "https://dmp-api.adform.com/v1/segments",
+			"name": "https://api.adform.com/v1/segments",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/segments",
+				"url": "https://api.adform.com/v1/segments",
 				"method": "GET",
 				"header": [
 					{
@@ -52,18 +52,15 @@
 						"description": ""
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "https://dmp-api.adform.com/v1/dataproviders/10284/segments",
+			"name": "https://api.adform.com/v1/dataproviders/10284/segments",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/dataproviders/10284/segments",
+				"url": "https://api.adform.com/v1/dataproviders/10284/segments",
 				"method": "GET",
 				"header": [
 					{
@@ -72,18 +69,15 @@
 						"description": ""
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "https://dmp-api.adform.com/v1/segments",
+			"name": "https://api.adform.com/v1/segments",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/segments",
+				"url": "https://api.adform.com/v1/segments",
 				"method": "POST",
 				"header": [
 					{
@@ -106,9 +100,9 @@
 			"response": []
 		},
 		{
-			"name": "https://dmp-api.adform.com/v1/dataproviders/10284/cookies",
+			"name": "https://api.adform.com/v1/dataproviders/10284/cookies",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/dataproviders/10284/cookies",
+				"url": "https://api.adform.com/v1/dataproviders/10284/cookies",
 				"method": "POST",
 				"header": [
 					{
@@ -131,9 +125,9 @@
 			"response": []
 		},
 		{
-			"name": "https://dmp-api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
+			"name": "https://api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
+				"url": "https://api.adform.com/v1/activities/7975a7de-bbaa-4637-870b-db48e316e0b6",
 				"method": "GET",
 				"header": [
 					{
@@ -142,18 +136,15 @@
 						"description": ""
 					}
 				],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
+				"body": {},
 				"description": ""
 			},
 			"response": []
 		},
 		{
-			"name": "https://dmp-api.adform.com/v1/dataproviders/10603/datausagepermissions",
+			"name": "https://api.adform.com/v1/dataproviders/10603/datausagepermissions",
 			"request": {
-				"url": "https://dmp-api.adform.com/v1/dataproviders/10603/datausagepermissions",
+				"url": "https://api.adform.com/v1/dataproviders/10603/datausagepermissions",
 				"method": "PUT",
 				"header": [
 					{
