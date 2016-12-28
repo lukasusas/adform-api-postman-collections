@@ -12,6 +12,38 @@
 			"description": "",
 			"item": [
 				{
+					"name": "Alerts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "This method returns list of own and inherited alerts for specified client/campaign/agency.\n\nYou can filter alerts by parsing AgencyId, AdvertiserID or CampaignId in your request URL. One and only one item can be specified. E.g. both AdvertiserId and CampaignId are not allowed.\n\nEXAMPLE: \nv1/alerts?agencyId={{AgencyId}} or v1/alerts?advertiserId={{AdvertiserId}} or\nv1/alerts?campaignId={{CampaignId}}\n\n\nYou can retrieve AgencyId and set it as a Global variable using \"Get Advertiser\" method.\n\nYou can retrieve AdvertiserId using \"Get Advertiser\" method.\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
+					},
+					"response": []
+				},
+				{
 					"name": "Alert",
 					"event": [
 						{
@@ -55,44 +87,9 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"levelItemId\": 00000,\r\n  \"level\": 2,\r\n  \"type\": 1,\r\n  \"settings\": {},\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"advertisertestecample@example.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"levelItemId\": {{levelItemId}},\r\n  \"level\": 2,\r\n  \"type\": 1,\r\n  \"settings\": 1200,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"advertisertestexample@example.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"description": "This service is able to send alerts to your specified e-mail address or a short message directly to your phone number while the alerts themselves can monitor end dates of campaigns, expiration of line items, budget, discrepancies in impressions and clicks etc.\r\n\r\nThis service creates a new alert. There are 3 different alert levels - campaign, advertiser and agency. \r\n\r\nNOTE: You need to specify campaign level on your request URL.\r\n\r\nEXAMPLE: \"v1/buyer/alerts\"\r\n\r\nYou can retrieve AdvertiserId using \"Get Advertiser\" method or campaign dictionaries.\r\n\r\n\"level\" correspond to numbers: \r\n1 - Agency\r\n2 - Advertiser/Client\r\n3 - Campaign\r\n\r\n\"levelItemId\" depends on \"level\" set. \r\nE.g. if \"level\" = 1 then you have to insert AgencyId\r\n\r\nSettings model varies by alert type.\r\n\r\nPossible alert types:\r\n1 - CampaignEndDate, \r\n2 - LineItemEndDate, \r\n5 - RtbLineItemBudget, \r\n7 - ClicksWithoutImpressions, \r\n8 - ImpressionsWithoutClicks \r\n'settings' value is a number greater or equal to 0.\r\n\r\nFor alert types: \r\n3 - CampaignBudget, \r\n4 - LineItemBudget\r\n'settings' value is a number between 0 and 100.\r\n\r\nFor alert types:\r\n6 - PriceHigherThanGoal \r\n'settings' value is an object: \r\n\"settings\": {\r\n\"value\": 1,\r\n\"timeType\": 1,\r\n\"time\": 1\r\n}\r\n\r\nFor alert types: \r\n9 - KpiVisitsNotMeetingGoal \r\n'settings' value is an object. \r\n\"settings\": {\r\n\"trackingFilter\": 1, \r\n\"kpiMetric\": 1,\r\n\"value\": 1,\r\n\"timeType\": 1,\r\n\"time\": 1\r\n}\r\n10 - KpiWinRateNotMeetingGoal \r\n'settings' value is an object for during: \r\n\"settings\": {\r\n\"kpiMetric\": 1,\r\n\"value\": 1,\r\n\"timeType\": 1,\r\n\"time\" : 1,\r\n} \r\nor for compared to: \r\n\"settings\": {\r\n\"trackingFilter\": 1, // only for KpiVisitsNotMeetingGoal \r\n\"kpiMetric\": 1,\r\n\"value\": 1,\r\n\"comparedTo\": 1\r\n}\r\n\r\nAvailable values for TimeType: \r\n1 - Days\r\n2 - Hours\r\n\r\nAvailable values for ComparedTo: \r\n1 - Day\r\n2 - Week\r\n3 - Month\r\n\r\nAvailable values for KpiMetric - visits: \r\n1 - Higher\r\n2 - Lower\r\n3 - Equal\r\n4 - Increased\r\n5 - Decreased\r\n6 - TrackingFilter\r\n\r\nAvailable values for KpiMetric - win rate: \r\n1 - Higher\r\n2 - Lower\r\n3 - Equal\r\n4 - Increased\r\n5 - Decreased\r\n\r\n\r\nTips on request body:\r\n- Type is always a number\r\n- Settings depend on type\r\n- CampaignManager/campaignCoManager value \"true\" enables CampaignManager or CampaignCoManager to receive alers."
-					},
-					"response": []
-				},
-				{
-					"name": "Alerts",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Request header includes authentication Ticket\"] = \r",
-									"  request.headers.Ticket;\r",
-									"\r",
-									"tests[\"Request was successful\"] = \r",
-									"  responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "https://api.adform.com/v1/buyer/alerts?agencyId={{AgencyId}}",
-						"method": "GET",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns list of own and inherited alerts for specified client/campaign/agency.\n\nYou can filter alerts by parsing AgencyId, AdvertiserID or CampaignId in your request URL. One and only one item can be specified. E.g. both AdvertiserId and CampaignId are not allowed.\n\nEXAMPLE: \nv1/alerts?agencyId={{AgencyId}} or v1/alerts?advertiserId={{AdvertiserId}} or\nv1/alerts?campaignId={{CampaignId}}\n\n\nYou can retrieve AgencyId and set it as a Global variable using \"Get Advertiser\" method.\n\nYou can retrieve AdvertiserId using \"Get Advertiser\" method.\n\nYou can retrieve CampaignId using \"Get Campaigns\" method."
 					},
 					"response": []
 				},
@@ -133,7 +130,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"settings\": {},\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"mailssssssss@example.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
+							"raw": "{\r\n  \"settings\": 1200,\r\n  \"notificationSettings\": {\r\n    \"campaignManager\": true,\r\n    \"campaignCoManager\": false,\r\n    \"sendSMS\": false,\r\n    \"sendEmail\": true,\r\n    \"additionalContacts\": [\r\n      {\r\n        \"email\": \"advertisertestexample@example.com\",\r\n        \"phone\": null\r\n      }\r\n    ]\r\n  }\r\n}"
 						},
 						"description": "This service updates alert details or its status (using property \"isEnabled\").\n\nNOTE: You need to define AlertId on request URL.\n\nEXAMPLE: \"v1/buyer/alerts/{{AlertId}}\"\n{{AlertId}} is taken from global variables if set, if not get it from \"GET Alerts\" method and insert it here without {{}}.\n\nBody has to be the same as in \"POST Alert\" method. Refer to this method's documentation.\n\nSettings model varies by alert type.\nPossible alert types: 1 - CampaignEndDate, 2 - LineItemEndDate, 5 - RtbLineItemBudget, 7 - ClicksWithoutImpressions, 8 - ImpressionsWithoutClicks 'settings' value is a number greater or equal to 0.\nFor alert types: 3 - CampaignBudget, 4 - LineItemBudget 'settings' value is a number between 0 and 100.\nFor alert type 6 - PriceHigherThanGoal 'settings' value is an object: \"settings\": { \"value\": 1, \"timeType\": 1, \"time\": 1 }\nFor alert types: 9 - KpiVisitsNotMeetingGoal 'settings' value is an object. \"settings\": { \"trackingFilter\": 1, \"kpiMetric\": 1, \"value\": 1, \"timeType\": 1, \"time\": 1 } 10 - KpiWinRateNotMeetingGoal 'settings' value is an object for during: \"settings\": { \"kpiMetric\": 1, \"value\": 1, \"timeType\": 1, \"time\" : 1, } or for compared to: \"settings\": { \"trackingFilter\": 1, // only for KpiVisitsNotMeetingGoal \"kpiMetric\": 1, \"value\": 1, \"comparedTo\": 1 }\nAvailable values for TimeType: 1 - Days 2 - Hours\nAvailable values for ComparedTo: 1 - Day 2 - Week 3 - Month\nAvailable values for KpiMetric - visits: 1 - Higher 2 - Lower 3 - Equal 4 - Increased 5 - Decreased 6 - TrackingFilter\nAvailable values for KpiMetric - win rate: 1 - Higher 2 - Lower 3 - Equal 4 - Increased 5 - Decreased\n\nTo update Notification Settings, pass NotificationSettings object. To update status, pass \"isEnabled\": true. Both changes cannot be made in one call and need to be made separately."
 					},
@@ -198,7 +195,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
 						"method": "GET",
 						"header": [
 							{
@@ -207,11 +204,8 @@
 								"description": ""
 							}
 						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"description": "This method returns a list of default banner attributes for a predefined advertiser.\n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE (00000 stands for advertiser id): //bannermanagement.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
+						"body": {},
+						"description": "This method returns a list of default banner attributes for a predefined advertiser.\n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE (00000 stands for advertiser id): //api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
 					},
 					"response": []
 				},
@@ -236,7 +230,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
 						"method": "POST",
 						"header": [
 							{
@@ -259,42 +253,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete Default BannerAttributes",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Request header includes authentication Ticket\"] = \r",
-									"  request.headers.Ticket;\r",
-									"\r",
-									"tests[\"Request was successful\"] = \r",
-									"  responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Ticket",
-								"value": "{{Ticket}}",
-								"description": ""
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"description": "This method deletes all the updates that has been made on default banner attributes for a predefined advertiser. \n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE (00000 stands for advertiser id): //bannermanagement.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
-					},
-					"response": []
-				},
-				{
-					"name": "Update Default Banner Attributes copy",
+					"name": "Update Default Banner Attributes",
 					"event": [
 						{
 							"listen": "test",
@@ -314,7 +273,7 @@
 						}
 					],
 					"request": {
-						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000",
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
 						"method": "PUT",
 						"header": [
 							{
@@ -333,6 +292,41 @@
 							"raw": "[\r\n  {\r\n    \"Title\": \"string\",\r\n    \"AttributeValues\": [\r\n      \"string\"\r\n    ]\r\n  }\r\n]"
 						},
 						"description": "This method allows to update attribute groups, which later can be assigned to each banner in order to batch them and sort the reports data out according to the attribute values.\n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE (00000 stands for advertiser id): //api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\n\"Title\" object stands for the title of default banners attributes.\n\"AttributeValues\" object should contain attribute values in upper quotation marks, separated by commas. \n\nFYI: You can use \"Params\" button for easier parameter management."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Default BannerAttributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Request header includes authentication Ticket\"] = \r",
+									"  request.headers.Ticket;\r",
+									"\r",
+									"tests[\"Request was successful\"] = \r",
+									"  responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"url": "https://api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/{{AdvertiserId}}",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Ticket",
+								"value": "{{Ticket}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": "This method deletes all the updates that has been made on default banner attributes for a predefined advertiser. \n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE (00000 stands for advertiser id): //api.adform.com/api/v1/Advertisers/DefaultBannerAttributes/00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
 					},
 					"response": []
 				}
@@ -360,7 +354,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/AdvertiserLabels?AdvertiserId=00000",
+						"url": "https://api.adform.com/Services/Label/AdvertiserLabels?AdvertiserId={{AdvertiserId}}",
 						"method": "GET",
 						"header": [
 							{
@@ -369,10 +363,7 @@
 								"description": ""
 							}
 						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "This method returns a list of all label groups, filtered by specified AdvertiserId. \n\nAdvertiserId parameter is required in your request url. \n\nEXAMPLE: \napi.adform.com/Services/Label/AdvertiserLabels?AdvertiserId=00000\n\nYou can retrieve AdvertiserId using \"GET Advertisers\" method.\n\nFYI: You can use \"Params\" button for easier parameter management."
 					},
 					"response": []
@@ -392,13 +383,20 @@
 									"  request.headers[\"Content-Type\"] === \"application/json\";\r",
 									"\r",
 									"tests[\"Request was successful\"] = \r",
-									"  responseCode.code === 200;"
+									"  responseCode.code === 200;\r",
+									"  \r",
+									"if(responseCode.code === 200) {\r",
+									"  var jsonData = JSON.parse(responseBody);\r",
+									"  postman.setGlobalVariable('LabelId', jsonData.Label.Id);\r",
+									"    tests[\"LabelId was set as a global variable\"] =\r",
+									"      globals.AlertId !== undefined;\r",
+									"}"
 								]
 							}
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/AdvertiserLabels",
+						"url": "https://api.adform.com/Services/Label/AdvertiserLabels",
 						"method": "POST",
 						"header": [
 							{
@@ -414,7 +412,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"GroupId\": 0000,\r\n  \"LabelName\": \"Test label\"\r\n}"
+							"raw": "{\r\n  \"GroupId\": 1842,\r\n  \"LabelName\": \"Bandymas2\"\r\n}"
 						},
 						"description": "This method allows you to create labels at advertiser level according to your specific needs. These labels can then be used across multiple campaigns and clients.\n\nLabelGroupId is required in the request body that you are parsing.\n\nEXAMPLE: \"GroupId\": 00000\n\nYou can retrieve LabelGroupId using \"GET Labels\" method."
 					},
@@ -438,7 +436,7 @@
 						}
 					],
 					"request": {
-						"url": "api.adform.com/Services/Label/AdvertiserLabels?id=00000",
+						"url": "https://api.adform.com/Services/Label/AdvertiserLabels?id=14656",
 						"method": "DELETE",
 						"header": [
 							{
@@ -451,7 +449,7 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"description": "This method removes a specified label.\n\nLabelId parameter is required in your request url. \n\nEXAMPLE: ?LabelId=00000\n\nYou can retrieve LabelId using \"GET Labels\" method."
+						"description": "This method removes a specified label.\n\nLabelId parameter is required in your request url. \n\nEXAMPLE: ?id=00000\n\nYou can retrieve LabelId using \"GET Labels\" method."
 					},
 					"response": []
 				}
@@ -495,10 +493,7 @@
 								"description": ""
 							}
 						],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
+						"body": {},
 						"description": "To use Advertiser service you need to have advertisers created.\n\nIn case it's your first time using our services, please contact our Adform Traffic: traffic@adform.com or Adform Help:help@adform.com teams for assistance.\n\nThis method returns a list of all advertisers which are under the same client as you have logged in.\n\nNOTE: You can filter advertisers by parsing \"Names\" parameter in your request URL. \"Names\" parameter is of string array type. \n\nEXAMPLE: ?Names=AdvertiserName1,AdvertiserName2...."
 					},
 					"response": []
