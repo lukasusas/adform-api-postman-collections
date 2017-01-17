@@ -1,0 +1,36 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Batch",
+		"_postman_id": "2489eca7-31b3-5be3-b282-efcd5703001e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Batch",
+			"request": {
+				"url": "https://api.adform.com/batch",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ticket",
+						"value": "{{Ticket}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " [{\n \t\"method\":\"GET\",\n \"relativeUrl\":\"Services/User/Users\",\n \"headers\":\n {\n \t\"Ticket\": \"{{Ticket}}\"\n }\n },\n {\n \t\"method\":\"GET\", \n \t\"relativeUrl\":\"Services/Advertiser/Advertisers\", \n \t\"headers\": \n \t{\n \t\t\"Ticket\": \"{{Ticket}}\"\n \t\t}\n \t\t}, {\n \t\t\t\"method\": \"POST\",\n \t\t\t\"relativeUrl\": \"Services/RTBActivity/v20141111/Activities\",\n \t\t\t\"headers\": \n \t\t\t{\n \t\t\t\t\"Ticket\": \"{{Ticket}}\"\n \t\t\t},\n \t\t\t\"body\": \"{\\\"CampaignId\\\": 00000,\\\"Name\\\": \\\"Batching test1\\\",\\\"SchedulingType\\\": 1,\\\"SchedulerStartDate\\\": \\\"2017-05-04T23:00:00Z\\\",\\\"SchedulerEndDate\\\": \\\"2017-10-31T00:00:00Z\\\", \\\"PeriodStartDate\\\": \\\"2017-05-05T14:23:00Z\\\",\\\"PeriodEndDate\\\": \\\"2017-05-04T23:00:00Z\\\",\\\"FullPeriodStartDate\\\": \\\"2017-05-04T23:00:00Z\\\",\\\"FullPeriodEndDate\\\": \\\"2017-10-31T00:00:00Z\\\",\\\"BuyingType\\\": 2,\\\"Inventories\\\": [{\\\"InventorySourceId\\\": 780,\\\"SourceId\\\": 780,\\\"SourceType\\\": 1,\\\"State\\\": 2}]}\"\n \t\t}]"
+				},
+				"description": "This API allows sending one large API request with many API calls inside of it. Instead of sending multiple small requests. \nAPI call as made simultaniously. \n\nResponse is structured the same as a request. i.e. First API request will be first in response and so on.\n\nIf there are dependancies, you can use \"name\" and \"dependsOn\"\n[{\"method\":\"GET\", \"name\":\"first-request\", \"relativeUrl\":\"v1/campaigns/1\"},{\"method\":\"GET\", \"dependsOn\": \"first-request\", \"relativeUrl\":\"v1/campaigns/2\"}]\n\nTo exclude headers from response code use ?includeHeaders=false\n"
+			},
+			"response": []
+		}
+	]
+}
