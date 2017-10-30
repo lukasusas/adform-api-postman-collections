@@ -49,7 +49,7 @@
               "mode": "raw",
               "raw": "{\r\n  \"UserName\": \"username\",\r\n  \"Password\": \"password\"\r\n}"
             },
-            "url": "https://api.adform.com/Services/Security/Login",
+            "url": "https://api.adform.com/Services/Security/Logins",
             "description": "This request allows you to get authentication token that can then be used to access all other Adform API services.\n\nThe token itself has a total lifetime of 24 hours and expires after 3 hours of inactivity.\n\nAuthentication token is set as a global 'Ticket' variable and it can be reused in further requests - headers and json body.\n\nIf you want to use global variables please write them in double curly brackets: {{Ticket}}\n\nRequest body fields:\n1. UserName - mandatory\n2. Password - mandatory"
           },
           "response": [
