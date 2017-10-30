@@ -305,6 +305,30 @@
           "response": []
         },
         {
+          "_postman_id": "655f5c0c-e9cc-15e9-6ff5-cbb92b297ed5",
+          "name": "Delete a segment copy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/v1/dmp/segments/{{segmentId}}",
+            "description": ""
+          },
+          "response": []
+        },
+        {
           "_postman_id": "af1c9c4b-1a6d-d177-45eb-d51da4f326e4",
           "name": "Get segment by ID",
           "request": {
