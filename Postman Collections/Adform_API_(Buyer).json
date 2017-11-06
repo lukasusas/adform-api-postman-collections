@@ -14976,8 +14976,8 @@
                 "method": "POST",
                 "header": [
                   {
-                    "key": "Ticket",
-                    "value": "{{Ticket}}"
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}"
                   },
                   {
                     "key": "Content-Type",
