@@ -14830,8 +14830,8 @@
                 "method": "POST",
                 "header": [
                   {
-                    "key": "Ticket",
-                    "value": "{{Ticket}}"
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}"
                   },
                   {
                     "key": "Content-Type",
@@ -14840,7 +14840,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"metrics\": [\"clicks\", \"impressions\"]\r\n}"
+                  "raw": "{\r\n  \"metrics\": []\r\n}"
                 },
                 "url": "https://api.adform.com/v1/reportingstats/agency/metadata/metrics",
                 "description": "This method returns all available metrics to be used in Reporting Stats if array is left empty []."
