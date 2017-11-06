@@ -14788,8 +14788,8 @@
                 "method": "POST",
                 "header": [
                   {
-                    "key": "Ticket",
-                    "value": "{{Ticket}}"
+                    "key": "Authorization",
+                    "value": "Bearer {{access_token}}"
                   },
                   {
                     "key": "Content-Type",
@@ -14798,7 +14798,7 @@
                 ],
                 "body": {
                   "mode": "raw",
-                  "raw": "{\r\n  \"dimensions\": [\"campaign\", \"buyType\"]\r\n}"
+                  "raw": "{\r\n  \"dimensions\": []\r\n}"
                 },
                 "url": "https://api.adform.com/v1/reportingstats/agency/metadata/dimensions",
                 "description": "This method returns all available dimensions and their names, descriptions and categories if array is left empty []."
