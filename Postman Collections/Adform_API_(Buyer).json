@@ -13583,6 +13583,52 @@
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_GetInventories"
                   },
                   "response": []
+                },
+                {
+                  "_postman_id": "2c700b39-edae-9f38-678a-cb7d896b284a",
+                  "name": "Update line item inventories",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\r\n  {\r\n    \"id\": 0,\r\n    \"buyingType\": \"OpenExchange\",\r\n    \"bidMultiplier\": 0,\r\n    \"deals\": [\r\n      null\r\n    ],\r\n    \"packages\": [\r\n      null\r\n    ]\r\n  }\r\n]"
+                    },
+                    "url": {
+                      "raw": "https://api.adform.com/v1/buyer/rtb/lineitems/:id/inventories",
+                      "protocol": "https",
+                      "host": [
+                        "api",
+                        "adform",
+                        "com"
+                      ],
+                      "path": [
+                        "v1",
+                        "buyer",
+                        "rtb",
+                        "lineitems",
+                        ":id",
+                        "inventories"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "{{id}}"
+                        }
+                      ]
+                    },
+                    "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_PutInventories"
+                  },
+                  "response": []
                 }
               ],
               "_postman_isSubFolder": true
