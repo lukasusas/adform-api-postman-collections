@@ -13657,6 +13657,34 @@
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_PutDeleted"
                   },
                   "response": []
+                },
+                {
+                  "_postman_id": "c4173df2-62ca-6eca-50d3-61c11e25b0c2",
+                  "name": "Update line item: paused",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "ticket",
+                        "value": "{{ticket}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "Pass true - to pause line item, false - to resume line item"
+                    },
+                    "url": "https://api.adform.com/v1/buyer/rtb/lineitems/{{id}}/paused",
+                    "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_PutPaused"
+                  },
+                  "response": []
                 }
               ],
               "_postman_isSubFolder": true
