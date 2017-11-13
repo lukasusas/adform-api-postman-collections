@@ -13660,7 +13660,7 @@
                 },
                 {
                   "_postman_id": "c4173df2-62ca-6eca-50d3-61c11e25b0c2",
-                  "name": "Update line item: paused",
+                  "name": "Update line item: \"paused\" status",
                   "request": {
                     "method": "PUT",
                     "header": [
