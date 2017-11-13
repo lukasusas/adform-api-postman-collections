@@ -11804,515 +11804,6 @@
               "_postman_isSubFolder": true
             },
             {
-              "_postman_id": "037b7671-24d0-6f9a-265a-0029c8b02cbe",
-              "name": "Inventories",
-              "description": "",
-              "item": [
-                {
-                  "_postman_id": "b42b1c14-b276-3897-0c6a-2b5601682a60",
-                  "name": "Creative Settings",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": {
-                      "raw": "https://api.adform.com/dsp/v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "dsp",
-                        "v1",
-                        "creativesettings"
-                      ],
-                      "query": [
-                        {
-                          "key": "sourceid",
-                          "value": "780"
-                        },
-                        {
-                          "key": "sourcetype",
-                          "value": "1"
-                        },
-                        {
-                          "key": "parentsourceid",
-                          "value": "780"
-                        }
-                      ]
-                    },
-                    "description": "This method returns detailed information about creative settings for specified inventory.\n\nYou need to parse source ID, source type and parent source ID on your request URL.\n\nExample: /v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "1441cf03-9977-715d-82d4-8b312ee1ac7c",
-                  "name": "Classificators list for specified type",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/creativesettings/classificator/xxxx",
-                    "description": "This method returns classificators list for specified type.\n\nYou need to parse \"type\" parameter on your request URL.\n\nType can be bannertype, richmediasubtype, iabcategory and etc.\n\nExample: /v1/creativesettings/classificator/xxxx\n(where xxxx is type)"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "e48151a8-1be9-bbcb-2571-958e2f14825b",
-                  "name": "Inventory Sources",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/deals/inventorySources",
-                    "description": "This method returns a list of available inventory sources..\n\nYou can filter inventory sources using these parameters:\n1. mustHaveDeals (default is true)\n2. mustSupportManualDeals (default is false)"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "bad88451-76a4-2e33-ad51-a12cee997474",
-                  "name": "Deals",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/deals",
-                    "description": "This method returns a list of valid deals that are accessible for agency."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "ce543f1f-6915-4cba-1707-567ac47f3529",
-                  "name": "Create Deal",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"DealId\": \"TestDeal\",\r\n  \"InventorySourceId\": 780,\r\n  \"Name\": \"string\",\r\n  \"CpmPrice\": 0,\r\n  \"DealState\": \"New\"\r\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/deals",
-                    "description": "This method creates marketplace manual deal."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "f293cb96-b43d-6521-758e-02eb3739b0c9",
-                  "name": "Deal Info (for PMP, external and manual deals)",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/deals/x/y/z",
-                    "description": "This returns information about specified deal.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nAvailable source type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "621b3753-6680-e159-8d79-cb6d6dbb3f6c",
-                  "name": "Update Deal State ",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "PATCH",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"DealState\": 0\r\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/deals/x/y/z",
-                    "description": "This method updates deal state for client division.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nSource type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal\n\nDeal state values:\n2 - Accepted\n3 - Rejected"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "5405fa28-218d-8ad3-4655-c742a1b8af62",
-                  "name": "All Inventories (campaign or line item scope)",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": {
-                      "raw": "https://api.adform.com/dsp/v1/inventoriesoverview/available?campaignid=000000",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "dsp",
-                        "v1",
-                        "inventoriesoverview",
-                        "available"
-                      ],
-                      "query": [
-                        {
-                          "key": "campaignid",
-                          "value": "000000"
-                        }
-                      ]
-                    },
-                    "description": "This method returns a list of available inventories for a specified campaign or line item.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview/available?campaignid=000000"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "cbcfaaad-40aa-e54f-29b1-b067bae81334",
-                  "name": "Search inventories (campaign or line item scope)",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": {
-                      "raw": "https://api.adform.com/dsp/v1/inventoriesoverview?campaignid=00000",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "dsp",
-                        "v1",
-                        "inventoriesoverview"
-                      ],
-                      "query": [
-                        {
-                          "key": "campaignid",
-                          "value": "00000"
-                        }
-                      ]
-                    },
-                    "description": "This method returns a list of available inventories for a specified campaign or line item and matches specified filter parameters.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview?campaignid=000000\n\nMore info about search parameters: \nhttp://api.adform.com/v1/help/buyer/inventories#!/InventoriesOverview/InventoriesOverview_GetList"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "b491f0ab-1959-b64e-d54b-b1fa3060329b",
-                  "name": "Inventory details",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": {
-                      "raw": "https://api.adform.com/dsp/v1/inventoriesoverview/x/y/z?campaignId=000000",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "dsp",
-                        "v1",
-                        "inventoriesoverview",
-                        "x",
-                        "y",
-                        "z"
-                      ],
-                      "query": [
-                        {
-                          "key": "campaignId",
-                          "value": "000000"
-                        }
-                      ]
-                    },
-                    "description": "This method returns detailed information about specified inventory.\n\nPlease note that parent source ID, source type, source ID and campaign or activity ID is required on your request URL.\n\nExample: /v1/inventoriesoverview/x/y/z?campaignId=0000\n(where x - parnt source ID, y - source type, z - source ID)"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "1b378a38-1943-7090-c899-97512b163ab3",
-                  "name": "Inventory Source Logo",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": {
-                      "raw": "https://api.adform.com/dsp/v1/inventoriesoverview/logos?id=1",
-                      "protocol": "https",
-                      "host": [
-                        "api",
-                        "adform",
-                        "com"
-                      ],
-                      "path": [
-                        "dsp",
-                        "v1",
-                        "inventoriesoverview",
-                        "logos"
-                      ],
-                      "query": [
-                        {
-                          "key": "id",
-                          "value": "1"
-                        }
-                      ]
-                    },
-                    "description": "This method returns logo for specified inventory sources. Content value is returned as Base64 string.\n\nYou need to parse inventory source ID on your request URL.\n\nExample: /dsp/v1/inventoriesoverview/logos/?id=1"
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_isSubFolder": true
-            },
-            {
               "_postman_id": "7d583943-2dae-1324-3e6f-911d25362fd8",
               "name": "Targeting",
               "description": "",
@@ -19987,6 +19478,514 @@
             },
             "url": "https://api.adform.com/dsp/v1/templates/0000",
             "description": "This method allows to activate or deactivate templates.\n\nYou need to parse template ID on your request URL.\n\nEXAMPLE: dsp/v1/templates/0000\n(where 0000 - template ID)"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "037b7671-24d0-6f9a-265a-0029c8b02cbe",
+      "name": "Inventories",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "b42b1c14-b276-3897-0c6a-2b5601682a60",
+          "name": "Creative Settings",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.adform.com/dsp/v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "dsp",
+                "v1",
+                "creativesettings"
+              ],
+              "query": [
+                {
+                  "key": "sourceid",
+                  "value": "780"
+                },
+                {
+                  "key": "sourcetype",
+                  "value": "1"
+                },
+                {
+                  "key": "parentsourceid",
+                  "value": "780"
+                }
+              ]
+            },
+            "description": "This method returns detailed information about creative settings for specified inventory.\n\nYou need to parse source ID, source type and parent source ID on your request URL.\n\nExample: /v1/creativesettings?sourceid=780&sourcetype=1&parentsourceid=780"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1441cf03-9977-715d-82d4-8b312ee1ac7c",
+          "name": "Classificators list for specified type",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/creativesettings/classificator/xxxx",
+            "description": "This method returns classificators list for specified type.\n\nYou need to parse \"type\" parameter on your request URL.\n\nType can be bannertype, richmediasubtype, iabcategory and etc.\n\nExample: /v1/creativesettings/classificator/xxxx\n(where xxxx is type)"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "e48151a8-1be9-bbcb-2571-958e2f14825b",
+          "name": "Inventory Sources",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/deals/inventorySources",
+            "description": "This method returns a list of available inventory sources..\n\nYou can filter inventory sources using these parameters:\n1. mustHaveDeals (default is true)\n2. mustSupportManualDeals (default is false)"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "bad88451-76a4-2e33-ad51-a12cee997474",
+          "name": "Deals",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/deals",
+            "description": "This method returns a list of valid deals that are accessible for agency."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ce543f1f-6915-4cba-1707-567ac47f3529",
+          "name": "Create Deal",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"DealId\": \"TestDeal\",\r\n  \"InventorySourceId\": 780,\r\n  \"Name\": \"string\",\r\n  \"CpmPrice\": 0,\r\n  \"DealState\": \"New\"\r\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/deals",
+            "description": "This method creates marketplace manual deal."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "f293cb96-b43d-6521-758e-02eb3739b0c9",
+          "name": "Deal Info (for PMP, external and manual deals)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/deals/x/y/z",
+            "description": "This returns information about specified deal.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nAvailable source type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "621b3753-6680-e159-8d79-cb6d6dbb3f6c",
+          "name": "Update Deal State ",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"DealState\": 0\r\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/deals/x/y/z",
+            "description": "This method updates deal state for client division.\n\nYou need to parse parent source ID, source type and source ID on your request URL.\n\nExample: /dsp/v1/deals/x/y/z\n(where x - parent source ID, y - source type, z - source ID)\n\nSource type values:\n3 - PMP deal\n5 - external deal\n6 - manual deal\n\nDeal state values:\n2 - Accepted\n3 - Rejected"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "5405fa28-218d-8ad3-4655-c742a1b8af62",
+          "name": "All Inventories (campaign or line item scope)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.adform.com/dsp/v1/inventoriesoverview/available?campaignid=000000",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "dsp",
+                "v1",
+                "inventoriesoverview",
+                "available"
+              ],
+              "query": [
+                {
+                  "key": "campaignid",
+                  "value": "000000"
+                }
+              ]
+            },
+            "description": "This method returns a list of available inventories for a specified campaign or line item.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview/available?campaignid=000000"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "cbcfaaad-40aa-e54f-29b1-b067bae81334",
+          "name": "Search inventories (campaign or line item scope)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.adform.com/dsp/v1/inventoriesoverview?campaignid=00000",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "dsp",
+                "v1",
+                "inventoriesoverview"
+              ],
+              "query": [
+                {
+                  "key": "campaignid",
+                  "value": "00000"
+                }
+              ]
+            },
+            "description": "This method returns a list of available inventories for a specified campaign or line item and matches specified filter parameters.\n\nPlease note that either CampaignId or ActivityId is required on your request URL.\n\nExample: /v1/inventoriesoverview?campaignid=000000\n\nMore info about search parameters: \nhttp://api.adform.com/v1/help/buyer/inventories#!/InventoriesOverview/InventoriesOverview_GetList"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "b491f0ab-1959-b64e-d54b-b1fa3060329b",
+          "name": "Inventory details",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.adform.com/dsp/v1/inventoriesoverview/x/y/z?campaignId=000000",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "dsp",
+                "v1",
+                "inventoriesoverview",
+                "x",
+                "y",
+                "z"
+              ],
+              "query": [
+                {
+                  "key": "campaignId",
+                  "value": "000000"
+                }
+              ]
+            },
+            "description": "This method returns detailed information about specified inventory.\n\nPlease note that parent source ID, source type, source ID and campaign or activity ID is required on your request URL.\n\nExample: /v1/inventoriesoverview/x/y/z?campaignId=0000\n(where x - parnt source ID, y - source type, z - source ID)"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "1b378a38-1943-7090-c899-97512b163ab3",
+          "name": "Inventory Source Logo",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://api.adform.com/dsp/v1/inventoriesoverview/logos?id=1",
+              "protocol": "https",
+              "host": [
+                "api",
+                "adform",
+                "com"
+              ],
+              "path": [
+                "dsp",
+                "v1",
+                "inventoriesoverview",
+                "logos"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "This method returns logo for specified inventory sources. Content value is returned as Base64 string.\n\nYou need to parse inventory source ID on your request URL.\n\nExample: /dsp/v1/inventoriesoverview/logos/?id=1"
           },
           "response": []
         }
