@@ -12376,6 +12376,26 @@
                     "description": ""
                   },
                   "response": []
+                },
+                {
+                  "_postman_id": "7882788d-0b33-0375-e8da-545b6ae1bb87",
+                  "name": "Get Uploaded Domain List",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\r\n  \"domains\": [\r\n    \"host.com;1.5\",\r\n    \"otherhost.com\"\r\n  ]\r\n}"
+                    },
+                    "url": "https://api.adform.com/v1/buyer/rtb/domainlists/{{id}}",
+                    "description": ""
+                  },
+                  "response": []
                 }
               ],
               "_postman_isSubFolder": true
