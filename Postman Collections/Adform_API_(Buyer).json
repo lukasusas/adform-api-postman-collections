@@ -12860,419 +12860,6 @@
               "_postman_isSubFolder": true
             },
             {
-              "_postman_id": "6984b773-9eed-cd1c-0029-d49380537eb6",
-              "name": "RTB Templates",
-              "description": "",
-              "item": [
-                {
-                  "_postman_id": "3e6c87d7-417f-40f8-4aef-b63c2239cc2b",
-                  "name": "Domain Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/domains",
-                    "description": "This method returns list of domain templates that are accessible for agency."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "898d3ce5-3040-37a6-7e5e-5d1e1eda1e04",
-                  "name": "Domain Template by ID",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/domains/0000",
-                    "description": "This method returns specific domain template.\n\nYou need to provide domain template ID on your request URL.\n\nEXAMPLE: v1/templates/domains/0000\n(where 0000 - domain template ID)"
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "c21ea1cd-062e-c873-a92d-1359e0a76874",
-                  "name": "Create Domain Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 201"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"name\" : \"Test\",\r\n  \"type\": 1,\r\n  \"content\" : { \r\n    \"Domains\" : [ \"test.com\", \"test2.com\" ]\r\n  }\r\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/domains",
-                    "description": "This method creates a domain template."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "4a096a6a-1cc2-fcba-3f36-fe18c6ba5143",
-                  "name": "Update Domain Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 204;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "PUT",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"id\" : 0000,\r\n  \"name\" : \"Test\",\r\n  \"active\" : false,\r\n  \"content\" : { \r\n    \"Domains\" : [ \"test.com\", \"test2.com\" ]\r\n  }\r\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/domains",
-                    "description": "This method updates a domain template."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "ff355ce5-3413-6a7d-44c9-d5ad818c03b1",
-                  "name": "Excel Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/exceltemplates",
-                    "description": "This method returns list of excel templates that are accessible for agency."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "f10df02a-f3aa-1d79-5635-89e86fe64952",
-                  "name": "Excel Template by ID",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/exceltemplates/0000",
-                    "description": "This method returns list of excel templates that are accessible for agency."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "32cfc106-c35b-84fd-bc07-ef75ef3629a5",
-                  "name": "Excel Template Tables Definitions",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/exceltemplates/tables",
-                    "description": "This method returns a list of available tables with supported fields."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "fcd9bb4e-581e-d6d4-aeb7-7bbb5b94c864",
-                  "name": "Create Excel Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 201"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "POST",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"name\": \"Test\",\n  \"type\": 2,\n  \"content\": {\n    \"name\": \"Test\",\n    \"parts\": [\n      {\n        \"customName\": \"Fees\",\n        \"activeFields\": [\n          {\n            \"code\": \"feeName\",\n            \"customName\": \"Name\"\n          },\n          {\n            \"code\": \"feeType\",\n            \"customName\": \"Type\"\n          }\n        ],\n        \"table\": \"Fees\"\n      },\n      {\n        \"customName\": \"Line Items\",\n        \"activeFields\": [\n          {\n            \"code\": \"lName\",\n            \"customName\": \"Line Item Name\"\n          },\n          {\n            \"code\": \"mName\",\n            \"customName\": \"Media\"\n          },\n          {\n            \"code\": \"mediaSection\",\n            \"customName\": \"Media Section\"\n          }\n        ],\n        \"table\": \"Line Items\"\n      }\n    ]\n  }\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/exceltemplates",
-                    "description": "This method creates an excel template."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "0b496a53-a18a-0580-dec9-06b800a4beac",
-                  "name": "Update Excel Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 204;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "PUT",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\n  \"id\" : 0000,\n  \"active\" : true,\n  \"name\": \"Test\",\n  \"type\": 2,\n  \"content\": {\n    \"name\": \"Test\",\n    \"parts\": [\n      {\n        \"customName\": \"Fees\",\n        \"activeFields\": [\n          {\n            \"code\": \"feeName\",\n            \"customName\": \"Name\"\n          },\n          {\n            \"code\": \"feeType\",\n            \"customName\": \"Type\"\n          }\n        ],\n        \"table\": \"Fees\"\n      },\n      {\n        \"customName\": \"Line Items\",\n        \"activeFields\": [\n          {\n            \"code\": \"lName\",\n            \"customName\": \"Line Item Name\"\n          },\n          {\n            \"code\": \"mName\",\n            \"customName\": \"Media\"\n          },\n          {\n            \"code\": \"mediaSection\",\n            \"customName\": \"Media Section\"\n          }\n        ],\n        \"table\": \"Line Items\"\n      }\n    ]\n  }\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/exceltemplates",
-                    "description": "This method updates an excel template."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "0cd9448c-2b6d-7f0f-cf67-2bafb228e84f",
-                  "name": "Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates",
-                    "description": "This method returns a list of templates that are accessible for agency."
-                  },
-                  "response": []
-                },
-                {
-                  "_postman_id": "4bbc0411-3855-c62b-cf23-2f912c133745",
-                  "name": "Activate/Deactivate Templates",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 204;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "PATCH",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      },
-                      {
-                        "key": "Content-Type",
-                        "value": "application/json"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": "{\r\n  \"active\": true\r\n}"
-                    },
-                    "url": "https://api.adform.com/dsp/v1/templates/0000",
-                    "description": "This method allows to activate or deactivate templates.\n\nYou need to parse template ID on your request URL.\n\nEXAMPLE: dsp/v1/templates/0000\n(where 0000 - template ID)"
-                  },
-                  "response": []
-                }
-              ],
-              "_postman_isSubFolder": true
-            },
-            {
               "_postman_id": "9b33c01d-2402-ec43-fafa-a2a7c61b7cb9",
               "name": "RTB Upload",
               "description": "",
@@ -20408,6 +19995,418 @@
             "body": {},
             "url": "https://api.adform.com/v1/mobile/apps/categories",
             "description": "This method retrieves a list of application categories."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "_postman_id": "6984b773-9eed-cd1c-0029-d49380537eb6",
+      "name": "RTB Templates",
+      "description": "",
+      "item": [
+        {
+          "_postman_id": "3e6c87d7-417f-40f8-4aef-b63c2239cc2b",
+          "name": "Domain Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/domains",
+            "description": "This method returns list of domain templates that are accessible for agency."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "898d3ce5-3040-37a6-7e5e-5d1e1eda1e04",
+          "name": "Domain Template by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/domains/0000",
+            "description": "This method returns specific domain template.\n\nYou need to provide domain template ID on your request URL.\n\nEXAMPLE: v1/templates/domains/0000\n(where 0000 - domain template ID)"
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "c21ea1cd-062e-c873-a92d-1359e0a76874",
+          "name": "Create Domain Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 201"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\" : \"Test\",\r\n  \"type\": 1,\r\n  \"content\" : { \r\n    \"Domains\" : [ \"test.com\", \"test2.com\" ]\r\n  }\r\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/domains",
+            "description": "This method creates a domain template."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "4a096a6a-1cc2-fcba-3f36-fe18c6ba5143",
+          "name": "Update Domain Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 204;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\" : 0000,\r\n  \"name\" : \"Test\",\r\n  \"active\" : false,\r\n  \"content\" : { \r\n    \"Domains\" : [ \"test.com\", \"test2.com\" ]\r\n  }\r\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/domains",
+            "description": "This method updates a domain template."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "ff355ce5-3413-6a7d-44c9-d5ad818c03b1",
+          "name": "Excel Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/exceltemplates",
+            "description": "This method returns list of excel templates that are accessible for agency."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "f10df02a-f3aa-1d79-5635-89e86fe64952",
+          "name": "Excel Template by ID",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/exceltemplates/0000",
+            "description": "This method returns list of excel templates that are accessible for agency."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "32cfc106-c35b-84fd-bc07-ef75ef3629a5",
+          "name": "Excel Template Tables Definitions",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/exceltemplates/tables",
+            "description": "This method returns a list of available tables with supported fields."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "fcd9bb4e-581e-d6d4-aeb7-7bbb5b94c864",
+          "name": "Create Excel Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 201"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\",\n  \"type\": 2,\n  \"content\": {\n    \"name\": \"Test\",\n    \"parts\": [\n      {\n        \"customName\": \"Fees\",\n        \"activeFields\": [\n          {\n            \"code\": \"feeName\",\n            \"customName\": \"Name\"\n          },\n          {\n            \"code\": \"feeType\",\n            \"customName\": \"Type\"\n          }\n        ],\n        \"table\": \"Fees\"\n      },\n      {\n        \"customName\": \"Line Items\",\n        \"activeFields\": [\n          {\n            \"code\": \"lName\",\n            \"customName\": \"Line Item Name\"\n          },\n          {\n            \"code\": \"mName\",\n            \"customName\": \"Media\"\n          },\n          {\n            \"code\": \"mediaSection\",\n            \"customName\": \"Media Section\"\n          }\n        ],\n        \"table\": \"Line Items\"\n      }\n    ]\n  }\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/exceltemplates",
+            "description": "This method creates an excel template."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "0b496a53-a18a-0580-dec9-06b800a4beac",
+          "name": "Update Excel Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 204;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\" : 0000,\n  \"active\" : true,\n  \"name\": \"Test\",\n  \"type\": 2,\n  \"content\": {\n    \"name\": \"Test\",\n    \"parts\": [\n      {\n        \"customName\": \"Fees\",\n        \"activeFields\": [\n          {\n            \"code\": \"feeName\",\n            \"customName\": \"Name\"\n          },\n          {\n            \"code\": \"feeType\",\n            \"customName\": \"Type\"\n          }\n        ],\n        \"table\": \"Fees\"\n      },\n      {\n        \"customName\": \"Line Items\",\n        \"activeFields\": [\n          {\n            \"code\": \"lName\",\n            \"customName\": \"Line Item Name\"\n          },\n          {\n            \"code\": \"mName\",\n            \"customName\": \"Media\"\n          },\n          {\n            \"code\": \"mediaSection\",\n            \"customName\": \"Media Section\"\n          }\n        ],\n        \"table\": \"Line Items\"\n      }\n    ]\n  }\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/exceltemplates",
+            "description": "This method updates an excel template."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "0cd9448c-2b6d-7f0f-cf67-2bafb228e84f",
+          "name": "Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 200;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": "https://api.adform.com/dsp/v1/templates",
+            "description": "This method returns a list of templates that are accessible for agency."
+          },
+          "response": []
+        },
+        {
+          "_postman_id": "4bbc0411-3855-c62b-cf23-2f912c133745",
+          "name": "Activate/Deactivate Templates",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "tests[\"Request header includes authentication Ticket\"] = \r",
+                  "  request.headers.Ticket;\r",
+                  "\r",
+                  "tests[\"Request was successful\"] = \r",
+                  "  responseCode.code === 204;"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Ticket",
+                "value": "{{Ticket}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"active\": true\r\n}"
+            },
+            "url": "https://api.adform.com/dsp/v1/templates/0000",
+            "description": "This method allows to activate or deactivate templates.\n\nYou need to parse template ID on your request URL.\n\nEXAMPLE: dsp/v1/templates/0000\n(where 0000 - template ID)"
           },
           "response": []
         }
