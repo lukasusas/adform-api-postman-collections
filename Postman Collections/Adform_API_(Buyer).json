@@ -13441,7 +13441,46 @@
               "_postman_id": "2f09b3a2-ec2d-505d-d711-462fb8820893",
               "name": "RTB Management",
               "description": "",
-              "item": [],
+              "item": [
+                {
+                  "_postman_id": "3579a859-70c8-ef7c-1afd-eedc2ffa8592",
+                  "name": "Line items by filter",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      }
+                    ],
+                    "body": {},
+                    "url": {
+                      "raw": "https://api.adform.com/v1/buyer/rtb/lineitems?campaignIds={{campaignIds}}",
+                      "protocol": "https",
+                      "host": [
+                        "api",
+                        "adform",
+                        "com"
+                      ],
+                      "path": [
+                        "v1",
+                        "buyer",
+                        "rtb",
+                        "lineitems"
+                      ],
+                      "query": [
+                        {
+                          "key": "campaignIds",
+                          "value": "{{campaignIds}}",
+                          "equals": true
+                        }
+                      ]
+                    },
+                    "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_GetList"
+                  },
+                  "response": []
+                }
+              ],
               "_postman_isSubFolder": true
             }
           ],
