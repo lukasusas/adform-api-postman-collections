@@ -1,0 +1,35 @@
+{
+  "variables": [],
+  "info": {
+    "name": "tests",
+    "_postman_id": "a6e4dec9-8e34-3d9f-0034-73174c610018",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "_postman_id": "457c20b0-4c58-1329-7ea9-e7d201f0f833",
+      "name": "Delete a segment copy",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{access_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": "https://api.adform.com/v1/dmp/segments/{{segmentId}}",
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}
