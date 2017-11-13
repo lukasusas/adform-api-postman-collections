@@ -13688,6 +13688,13 @@
                 }
               ],
               "_postman_isSubFolder": true
+            },
+            {
+              "_postman_id": "7bcdb548-4de7-b444-f113-0dfd7049a1e1",
+              "name": "Trading Desk Fee Change Log",
+              "description": "",
+              "item": [],
+              "_postman_isSubFolder": true
             }
           ],
           "_postman_isSubFolder": true
