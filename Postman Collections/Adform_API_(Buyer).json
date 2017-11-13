@@ -13479,6 +13479,23 @@
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_GetList"
                   },
                   "response": []
+                },
+                {
+                  "_postman_id": "de9fa5e6-ba8a-b709-7cf4-3ef84eb285dc",
+                  "name": "Line item info",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      }
+                    ],
+                    "body": {},
+                    "url": "https://api.adform.com/v1/buyer/rtb/lineitems/{{id}}",
+                    "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_Get"
+                  },
+                  "response": []
                 }
               ],
               "_postman_isSubFolder": true
