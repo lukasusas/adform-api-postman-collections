@@ -13544,6 +13544,45 @@
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_Put"
                   },
                   "response": []
+                },
+                {
+                  "_postman_id": "07033eea-be31-e30d-a55b-c1638d35e161",
+                  "name": "Get line item inventories",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      }
+                    ],
+                    "body": {},
+                    "url": {
+                      "raw": "https://api.adform.com/v1/buyer/rtb/lineitems/:id/inventories",
+                      "protocol": "https",
+                      "host": [
+                        "api",
+                        "adform",
+                        "com"
+                      ],
+                      "path": [
+                        "v1",
+                        "buyer",
+                        "rtb",
+                        "lineitems",
+                        ":id",
+                        "inventories"
+                      ],
+                      "variable": [
+                        {
+                          "key": "id",
+                          "value": "{{id}}"
+                        }
+                      ]
+                    },
+                    "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_GetInventories"
+                  },
+                  "response": []
                 }
               ],
               "_postman_isSubFolder": true
