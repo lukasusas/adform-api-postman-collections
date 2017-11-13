@@ -13632,7 +13632,7 @@
                 },
                 {
                   "_postman_id": "25d43391-6989-eb8a-f91b-5c5bcab56f72",
-                  "name": "Update line item: deleted",
+                  "name": "Update line item: \"deleted\" status",
                   "request": {
                     "method": "PUT",
                     "header": [
