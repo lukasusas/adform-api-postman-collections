@@ -12856,6 +12856,13 @@
                 }
               ],
               "_postman_isSubFolder": true
+            },
+            {
+              "_postman_id": "5c1b91b5-798f-2ccb-e0d0-2b29baf3aa8d",
+              "name": "Domains List",
+              "description": "",
+              "item": [],
+              "_postman_isSubFolder": true
             }
           ],
           "_postman_isSubFolder": true
