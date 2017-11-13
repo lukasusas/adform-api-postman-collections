@@ -11483,41 +11483,6 @@
                   "response": []
                 },
                 {
-                  "_postman_id": "f01220c1-c819-c349-2d42-52ecb72d59bc",
-                  "name": "Trading Desk Fee Change Log",
-                  "event": [
-                    {
-                      "listen": "test",
-                      "script": {
-                        "type": "text/javascript",
-                        "exec": [
-                          "tests[\"Request header includes authentication Ticket\"] = \r",
-                          "  request.headers.Ticket;\r",
-                          "\r",
-                          "tests[\"Request was successful\"] = \r",
-                          "  responseCode.code === 200;"
-                        ]
-                      }
-                    }
-                  ],
-                  "request": {
-                    "method": "GET",
-                    "header": [
-                      {
-                        "key": "Ticket",
-                        "value": "{{Ticket}}"
-                      }
-                    ],
-                    "body": {
-                      "mode": "raw",
-                      "raw": ""
-                    },
-                    "url": "https://api.adform.com/dsp/v1/tradingdeskfeechangelog",
-                    "description": "This method returns Trading Desk Fee Change Log."
-                  },
-                  "response": []
-                },
-                {
                   "_postman_id": "4439fa9d-78d1-5691-959b-40c1137ddee2",
                   "name": "Delete/restore Line Item",
                   "request": {
@@ -13693,7 +13658,43 @@
               "_postman_id": "7bcdb548-4de7-b444-f113-0dfd7049a1e1",
               "name": "Trading Desk Fee Change Log",
               "description": "",
-              "item": [],
+              "item": [
+                {
+                  "_postman_id": "f01220c1-c819-c349-2d42-52ecb72d59bc",
+                  "name": "Trading Desk Fee Change Log",
+                  "event": [
+                    {
+                      "listen": "test",
+                      "script": {
+                        "type": "text/javascript",
+                        "exec": [
+                          "tests[\"Request header includes authentication Ticket\"] = \r",
+                          "  request.headers.Ticket;\r",
+                          "\r",
+                          "tests[\"Request was successful\"] = \r",
+                          "  responseCode.code === 200;"
+                        ]
+                      }
+                    }
+                  ],
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Ticket",
+                        "value": "{{Ticket}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": ""
+                    },
+                    "url": "https://api.adform.com/dsp/v1/tradingdeskfeechangelog",
+                    "description": "This method returns Trading Desk Fee Change Log."
+                  },
+                  "response": []
+                }
+              ],
               "_postman_isSubFolder": true
             }
           ],
