@@ -13629,6 +13629,34 @@
                     "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_PutInventories"
                   },
                   "response": []
+                },
+                {
+                  "_postman_id": "25d43391-6989-eb8a-f91b-5c5bcab56f72",
+                  "name": "Update line item: deleted",
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer {{access_token}}"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "ticket",
+                        "value": "{{ticket}}"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "true - to delete line item, false - to restore deleted line item"
+                    },
+                    "url": "https://api.adform.com/v1/buyer/rtb/lineitems/{{id}}/deleted",
+                    "description": "https://api.adform.com/v1/help/buyer/rtb/lineitems#!/LineItems/LineItems_PutDeleted"
+                  },
+                  "response": []
                 }
               ],
               "_postman_isSubFolder": true
